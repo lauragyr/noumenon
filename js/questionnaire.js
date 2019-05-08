@@ -8,7 +8,7 @@ let homescreen = document.getElementById("homescreen");
 
 
 // create questions
-let questionLibrary = [
+/*let questionLibrary = [
     {
         question: "Du probierst gerne neue Dinge aus.",
         choice1: "Ja aber voll",
@@ -19,15 +19,14 @@ let questionLibrary = [
         choice1: "Ja aber voll",
         choice2: "Ja schon",
     }
-]
+]*/
 
 
 //start quiz
 start.onclick = function() {
-    console.log(questionLibrary[0].question);
     homescreen.style.display = "none";
     questionContainer.style.display = "block";
-    question.append(questionLibrary[0].question);
+    //question.append(questionLibrary[0].question);
 }
 
 // looping questions

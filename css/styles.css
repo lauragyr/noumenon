@@ -8,7 +8,10 @@ p {
 }
 
 #container {
-    margin: 250px 100px 30px 100px;
+    margin: 250px 100px 30px 70px;
+    display: block;
+    /*width: 768px;*/
+    /*height: 1024px;*/
 }
 
 /* start */
@@ -25,29 +28,30 @@ p {
     text-align: center;
     padding-top: 18px;
     margin: 0 auto;
-    margin-top: 30%;
+    margin-top: 100px;
 
     font-family: 'Barlow';
     font-size: 30pt;
 }
 
 /* questions */
-#question {
+.question {
     font-size: 20pt;
     font-family: 'Barlow';
+    clear:both;
 }
 
 /* choices */
-#choices {
+.choices {
     display: flex;
 }
 
-#choices p {
+.choices p {
     padding-top: 10px;
     text-align: center;
 }
 
-.choice {
+.choiceText {
     width: 80px;
     margin: 80px 30px 0px 0px;
 }

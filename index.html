@@ -1,59 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
-      <link rel="stylesheet" href="css/styles.css">
-    <title>Fragebogen</title>
-    <script src="libraries/p5.min.js"></script>
-    <script src="addons/p5.dom.min.js"></script>
-    <script src="addons/p5.sound.min.js"></script>
-    <!--<script src="sketch.js"></script>-->
-  </head>
-<body>
-    <div id="container">
-        <div id="homescreen">
-            <h3>Erstelle jetzt ein abstraktes Spiegelbild deiner Persönlichkeit</h3>
-            <div id="start">Start</div>
-        </div>
-        <div id="questionContainer" style="display: none">
-         <div id="question"></div>
-                <div id="choices">
-                    <div class="choice" id="1" onclick="score('1')">
-                        <div class="circle"></div>
-                        <p>Ja aber voll</p>
-                    </div>
-                    <div class="choice" id="2" onclick="score('2')">
-                        <div class="circle"></div>
-                        <p>Ja ziemlich</p>
-                    </div>
-                    <div class="choice" id="3" onclick="score('3')">
-                        <div class="circle"></div>
-                        <p>Mhh, ja schon</p>
-                    </div>
-                    <div class="choice" id="4" onclick="score('4')">
-                        <div class="circle"></div>
-                        <p>Mhh, eher weniger</p>
-                    </div>
-                    <div class="choice" id="5" onclick="score('5')">
-                        <div class="circle"></div>
-                        <p>Nein, nicht wirklich</p>
-                    </div>
-                    <div class="choice" id="6" onclick="score('6')">
-                        <div class="circle"></div>
-                        <p>Nein, gar nicht</p>
-                    </div>
-                </div>
-                <div id="nextButton">
-                    <p>weiter</p>
-                </div>
 
-        <!--<div id="scoreContainer" style="display: none">
-            <p>Score</p>
-        </div>-->
-</div>
-</div>
-    <script src="js/questionnaire.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Fragebogen</title>
+  <script src="libraries/p5.min.js"></script>
+  <script src="addons/p5.dom.min.js"></script>
+  <script src="addons/p5.sound.min.js"></script>
+  <!--<script src="sketch.js"></script>-->
+</head>
+
+<body>
+  <div id="container">
+    <div id="homescreen">
+      <h3>Erstelle jetzt ein abstraktes Spiegelbild deiner Persönlichkeit</h3>
+      <div id="start">Start</div>
+    </div>
+    <div id="questionContainer" style="display: none">
+
+      <div id="questionBox1">
+        <div class="question" id="Q1">
+            <h3>Du probierst gerne neue Dinge aus.</h3>
+        </div>
+        <div class="choices">
+          <div class="choiceText" id="1" onclick="score('1')">
+            <div class="circle"></div>
+            <p>Ja aber voll</p>
+          </div>
+          <div class="choiceText" id="2" onclick="score('2')">
+            <div class="circle"></div>
+            <p>Ja ziemlich</p>
+          </div>
+          <div class="choiceText" id="3" onclick="score('3')">
+            <div class="circle"></div>
+            <p>Mhh, ja schon</p>
+          </div>
+          <div class="choiceText" id="4" onclick="score('4')">
+            <div class="circle"></div>
+            <p>Mhh, eher weniger</p>
+          </div>
+          <div class="choiceText" id="5" onclick="score('5')">
+            <div class="circle"></div>
+            <p>Nein, nicht wirklich</p>
+          </div>
+          <div class="choiceText" id="6" onclick="score('6')">
+            <div class="circle"></div>
+            <p>Nein, gar nicht</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox2">
+        <div class="question" id="Q2">
+            <h3>Was betrachtest du als erstes, wenn du dich im Spiegel betrachtest?</h3>
+        </div>
+        <div class="choices">
+          <div class="choiceText" id="1" onclick="score('1')">
+            <div class="circle"></div>
+            <p>Ja aber voll</p>
+          </div>
+          <div class="choiceText" id="2" onclick="score('2')">
+            <div class="circle"></div>
+            <p>Ja ziemlich</p>
+          </div>
+          <div class="choiceText" id="3" onclick="score('3')">
+            <div class="circle"></div>
+            <p>Mhh, ja schon</p>
+          </div>
+          <div class="choiceText" id="4" onclick="score('4')">
+            <div class="circle"></div>
+            <p>Mhh, eher weniger</p>
+          </div>
+          <div class="choiceText" id="5" onclick="score('5')">
+            <div class="circle"></div>
+            <p>Nein, nicht wirklich</p>
+          </div>
+          <div class="choiceText" id="6" onclick="score('6')">
+            <div class="circle"></div>
+            <p>Nein, gar nicht</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+    </div>
+  </div>
+  <script src="js/questionnaire.js"></script>
+</body>
+
 </html>
