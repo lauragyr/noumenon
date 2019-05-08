@@ -15,11 +15,11 @@
 
 <body>
   <div id="container">
-    <div id="homescreen">
+    <!--<div id="homescreen">
       <h3>Erstelle jetzt ein abstraktes Spiegelbild deiner Persönlichkeit</h3>
       <div id="start">Start</div>
-    </div>
-    <div id="questionContainer" style="display: none">
+    </div>-->
+    <div id="questionContainer"</div>
 
       <div id="questionBox1">
         <div class="question" id="Q1">
@@ -60,6 +60,33 @@
         <div class="question" id="Q2">
             <h3>Was betrachtest du als erstes, wenn du dich im Spiegel betrachtest?</h3>
         </div>
+        <div class="choices images">
+          <div class="choiceImage" id="5" onclick="score('5')">
+            <div><img src="img/Q2_1_Haut.jpg" alt=""></div>
+            <p>Haut</p>
+          </div>
+          <div class="choiceImage" id="6" onclick="score('6')">
+            <div><img src="img/Q2_2_Ausdruck.jpg" alt=""></div>
+            <p>Ausdruck im Gesicht</p>
+          </div>
+          <div class="choiceImage" id="2" onclick="score('2')">
+            <div><img src="img/Q2_3_Zaehne.jpg" alt=""></div>
+            <p>Zähne</p>
+          </div>
+          <div class="choiceImage" id="1" onclick="score('1')">
+            <div><img src="img/Q2_4_Haar.jpg" alt=""></div>
+            <p>Frisur</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox3">
+        <div class="question" id="Q3">
+            <h3>Du bist jemand, der sich an einem Gespräch mit Freunden beteiligt und nicht nur zuhört.</h3>
+        </div>
         <div class="choices">
           <div class="choiceText" id="1" onclick="score('1')">
             <div class="circle"></div>
@@ -84,6 +111,197 @@
           <div class="choiceText" id="6" onclick="score('6')">
             <div class="circle"></div>
             <p>Nein, gar nicht</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox4">
+        <div class="question" id="Q4">
+            <h3>Wärst du bereit eine langersehnte Verabredung abzusagen, um dich um jemanden in deinem Umfeld zu kümmern, dem es schlecht geht?</h3>
+        </div>
+        <div class="choices">
+          <div class="choiceText" id="1" onclick="score('1')">
+            <div class="circle"></div>
+            <p>Ja aber voll</p>
+          </div>
+          <div class="choiceText" id="2" onclick="score('2')">
+            <div class="circle"></div>
+            <p>Ja ziemlich</p>
+          </div>
+          <div class="choiceText" id="3" onclick="score('3')">
+            <div class="circle"></div>
+            <p>Mhh, ja schon</p>
+          </div>
+          <div class="choiceText" id="4" onclick="score('4')">
+            <div class="circle"></div>
+            <p>Mhh, eher weniger</p>
+          </div>
+          <div class="choiceText" id="5" onclick="score('5')">
+            <div class="circle"></div>
+            <p>Nein, nicht wirklich</p>
+          </div>
+          <div class="choiceText" id="6" onclick="score('6')">
+            <div class="circle"></div>
+            <p>Nein, gar nicht</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox5">
+        <div class="question" id="Q5">
+            <h3>Du gehst leicht auf neue Leute zu.</h3>
+        </div>
+        <div class="choices">
+          <div class="choiceText" id="1" onclick="score('1')">
+            <div class="circle"></div>
+            <p>Ja aber voll</p>
+          </div>
+          <div class="choiceText" id="2" onclick="score('2')">
+            <div class="circle"></div>
+            <p>Ja ziemlich</p>
+          </div>
+          <div class="choiceText" id="3" onclick="score('3')">
+            <div class="circle"></div>
+            <p>Mhh, ja schon</p>
+          </div>
+          <div class="choiceText" id="4" onclick="score('4')">
+            <div class="circle"></div>
+            <p>Mhh, eher weniger</p>
+          </div>
+          <div class="choiceText" id="5" onclick="score('5')">
+            <div class="circle"></div>
+            <p>Nein, nicht wirklich</p>
+          </div>
+          <div class="choiceText" id="6" onclick="score('6')">
+            <div class="circle"></div>
+            <p>Nein, gar nicht</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox6">
+        <div class="question" id="Q6">
+            <h3>Du bist ein neugieriger Mensch und fragst nach wenn du etwas wissen willst.</h3>
+        </div>
+        <div class="choices">
+          <div class="choiceText" id="1" onclick="score('1')">
+            <div class="circle"></div>
+            <p>Ja aber voll</p>
+          </div>
+          <div class="choiceText" id="2" onclick="score('2')">
+            <div class="circle"></div>
+            <p>Ja ziemlich</p>
+          </div>
+          <div class="choiceText" id="3" onclick="score('3')">
+            <div class="circle"></div>
+            <p>Mhh, ja schon</p>
+          </div>
+          <div class="choiceText" id="4" onclick="score('4')">
+            <div class="circle"></div>
+            <p>Mhh, eher weniger</p>
+          </div>
+          <div class="choiceText" id="5" onclick="score('5')">
+            <div class="circle"></div>
+            <p>Nein, nicht wirklich</p>
+          </div>
+          <div class="choiceText" id="6" onclick="score('6')">
+            <div class="circle"></div>
+            <p>Nein, gar nicht</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox7">
+        <div class="question" id="Q7">
+            <h3>Was denkst du: Welche Farbe widerspiegelt deinen Charakter?</h3>
+        </div>
+        <div class="choices colors">
+          <div class="choiceColor blue" id="6" onclick="score('1')">
+          </div>
+          <div class="choiceColor orange" id="2" onclick="score('2')">
+            <div class="colorBox"></div>
+          </div>
+          <div class="choiceColor green" id="5" onclick="score('3')">
+            <div class="colorBox"></div>
+          </div>
+          <div class="choiceColor red" id="3" onclick="score('4')">
+            <div class="colorBox"></div>
+          </div>
+          <div class="choiceColor yellow" id="1" onclick="score('5')">
+            <div class="colorBox"></div>
+          </div>
+          <div class="choiceColor violet" id="4" onclick="score('6')">
+            <div class="colorBox"></div>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox8">
+        <div class="question" id="Q8">
+            <h3>Du gehst gerne auf Mottoparties.</h3>
+        </div>
+        <div class="choices">
+          <div class="choiceText" id="1" onclick="score('1')">
+            <div class="circle"></div>
+            <p>Ja aber voll</p>
+          </div>
+          <div class="choiceText" id="2" onclick="score('2')">
+            <div class="circle"></div>
+            <p>Ja ziemlich</p>
+          </div>
+          <div class="choiceText" id="3" onclick="score('3')">
+            <div class="circle"></div>
+            <p>Mhh, ja schon</p>
+          </div>
+          <div class="choiceText" id="4" onclick="score('4')">
+            <div class="circle"></div>
+            <p>Mhh, eher weniger</p>
+          </div>
+          <div class="choiceText" id="5" onclick="score('5')">
+            <div class="circle"></div>
+            <p>Nein, nicht wirklich</p>
+          </div>
+          <div class="choiceText" id="6" onclick="score('6')">
+            <div class="circle"></div>
+            <p>Nein, gar nicht</p>
+          </div>
+        </div>
+      </div>
+      <div id="nextButton">
+        <p>weiter</p>
+      </div>
+
+      <div id="questionBox9">
+        <div class="question" id="Q9">
+            <h3>Wie würdest du reagieren, wenn dir jemand erzählt, dass deren Meerschweinchen gestorben ist?</h3>
+        </div>
+        <div class="choices answers">
+          <div class="choiceAnswer" id="6" onclick="score('6')">
+            <p>Ist ja nur ein Haustier</p>
+          </div>
+          <div class="choiceAnswer" id="1" onclick="score('1')">
+            <p>Beileid zeigen</p>
+          </div>
+          <div class="choiceAnswer" id="5" onclick="score('5')">
+            <p>Aussage ignorieren und Thema wechseln</p>
+          </div>
+          <div class="choiceAnswer" id="2" onclick="score('2')">
+            <p>Sie/Ihn mit einem Ausflug ablenken</p>
           </div>
         </div>
       </div>
