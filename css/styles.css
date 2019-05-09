@@ -59,6 +59,14 @@ p { font-family: 'Barlow'; }
     border: 4px solid grey;
     display: inline-block;
 }
+.circle:hover {
+    background-color:black;
+}
+
+.activeCircle {
+    background-color:black;    
+}
+
 
 /*  choices images  */
 .choiceImage {
