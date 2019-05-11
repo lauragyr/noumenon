@@ -1,6 +1,13 @@
 * { box-sizing: border-box; }
 
-p { font-family: 'Barlow'; }
+@font-face{ 
+	font-family: "Silka";
+    src: url('../fonts/silka-regular-webfont.woff') format ("woff");
+    src: url('../fonts/silka-regular-webfont.woff2') format ("woff2");
+
+}
+
+p { font-family: 'Silka'; }
 
 #container {
     margin: 250px 100px 30px 70px;

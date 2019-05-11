@@ -7,9 +7,25 @@
   <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <title>Fragebogen</title>
+
+  <script language="javascript" src="libraries/socket.io.js"></script>
+  <script>
+    var socket = io('10.155.115.73:3000'); //IP-Adresse WLAN
+    socket.on('connect', function(){
+        console.log("connected");
+        socket.emit('event', JSON.stringify('world'));
+    });
+    socket.on('event', function(data){
+        console.log("event triggered");
+    });
+    socket.on('disconnect', function(){
+        console.log("disconnected");
+    });
+  </script>
+
   <script src="libraries/p5.min.js"></script>
-  <script src="addons/p5.dom.min.js"></script>
-  <script src="js/sketch.js"></script>
+  <script src="libraries/p5.dom.min.js"></script>
+  <!--<script src="p5/sketch.js"></script>-->
 </head>
 
 <body>

@@ -1,12 +1,36 @@
+let gegebenAntworten;
+
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(windowWidth, windowHeight);
+  // Load external json file; set drawData as callback function
+  loadJSON("data.json", drawData);
+  frameRate(0.5);
+
 }
 
 function draw() {
-  if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
+    loadJSON("data.json", drawData);
+}
+
+
+function drawData(data) {
+  if (gegebenAntworten != Object.keys(data).length) {
+    gegebenAntworten = Object.keys(data).length;
+    console.log("zeichne was neues");
+    let lastAnswer = data[Object.keys(data)[gegebenAntworten-1]];
+    console.log(lastAnswer);
+/*
+    for (var key in data) {
+      console.log(key + " : "+  data[key]);
+      let meineAnwort = data[key];
+      console.log("zeichne das alte");
+    }
+    */
   }
-  ellipse(mouseX, mouseY, 80, 80);
+  
+  // Iterate over the data object, look at JSON filestructure
+  
+  console.log("zeichne das alte - mach nichts");
+ 
+
 }

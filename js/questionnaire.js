@@ -64,19 +64,6 @@ function setQ1Value(value){
     }
 
 }
-// create questions
-/*let questionLibrary = [
-    {
-        question: "Du probierst gerne neue Dinge aus.",
-        choice1: "Ja aber voll",
-        choice2: "Ja schon",
-    },
-    {
-        question: "Du bist jemand, der sich an einem Gespräch mit Freunden beteiligt und nicht nur zuhört.",
-        choice1: "Ja aber voll",
-        choice2: "Ja schon",
-    }
-]*/
 
 
 //start quiz
