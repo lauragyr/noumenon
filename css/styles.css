@@ -2,8 +2,8 @@
 
 @font-face{ 
 	font-family: "Silka";
-    src: url('../fonts/silka-regular-webfont.woff') format ("woff");
-    src: url('../fonts/silka-regular-webfont.woff2') format ("woff2");
+    src: url('../fonts/silka-regular-webfont.woff');
+    src: url('../fonts/silka-regular-webfont.woff2');
 
 }
 
@@ -19,28 +19,30 @@ p { font-family: 'Silka'; }
 /* start */
 #homescreen h3 {
     text-align: center;
-    font-family: 'Barlow';
+    font-family: 'Silka';
     font-size: 60pt;
+    color: #C0BABC;
 }
 #start {
     width: 300px;
     height: 100px;
-    border: solid 5px black;
+    border: solid 5px #C0BABC;
 
     text-align: center;
     padding-top: 18px;
     margin: 0 auto;
     margin-top: 100px;
 
-    font-family: 'Barlow';
+    font-family: 'Silka';
     font-size: 30pt;
 }
 
 /* questions */
 .question {
     font-size: 20pt;
-    font-family: 'Barlow';
+    font-family: 'Silka';
     clear:both;
+    color: #C0BABC;
 }
 
 /* choices */
@@ -51,6 +53,7 @@ p { font-family: 'Silka'; }
 .choices p {
     padding-top: 10px;
     text-align: center;
+    color: #C0BABC;
 }
 
 /*  choices text  */
@@ -63,21 +66,18 @@ p { font-family: 'Silka'; }
     width: 80px;
     height: 80px;
     border-radius: 100px;
-    border: 4px solid grey;
+    border: 4px solid #C0BABC;
     display: inline-block;
-}
-.circle:hover {
-    background-color:black;
 }
 
 .activeCircle {
-    background-color:black;    
+    background-color:#C0BABC;    
 }
 
 
 /*  choices images  */
 .choiceImage {
-    border: 4px solid grey;
+    border: 4px solid #C0BABC;
     margin: 30px 30px 0px 0px;
 }
 
@@ -105,18 +105,18 @@ p { font-family: 'Silka'; }
     flex-wrap: wrap; 
 }
 .choiceColor {
-    border: 4px solid grey;
+    border: 4px solid #C0BABC;
     margin: 30px 30px 0px 0px;
     width: 150px;
     height: 150px;
 }
 
-.blue { background-color: blue; }
-.orange { background-color: orange; }
-.green { background-color: green; }
-.red { background-color: red; }
-.yellow { background-color: yellow; }
-.violet { background-color: purple; }
+.blue { background-color: #3D52D5; }
+.orange { background-color: #EC7505; }
+.green { background-color: #7AC74F; }
+.red { background-color: #C20114; }
+.yellow { background-color: #FFD400; }
+.violet { background-color: #731963; }
 
 
 /*  choices answers  */
@@ -127,7 +127,7 @@ p { font-family: 'Silka'; }
 }
 
 .choiceAnswer {
-    border: 4px solid grey;
+    border: 4px solid #C0BABC;
     width: 200px;
     height: 100px;
     margin: 30px 30px 0px 0px;
@@ -142,7 +142,7 @@ p { font-family: 'Silka'; }
 #nextButton {
     width: 100px;
     height: 50px;
-    border: 4px solid black;
+    border: 4px solid #C0BABC;
     margin-top: 40px;
     margin-bottom: 100px;
     float: left;
@@ -152,4 +152,5 @@ p { font-family: 'Silka'; }
     padding: 10px;
     text-align: center;
     margin: 0 auto;
+    color: #C0BABC
 }
