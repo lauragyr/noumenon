@@ -71,7 +71,7 @@ p { font-family: 'Silka'; }
 }
 
 .activeCircle {
-    background-color:#C0BABC;    
+    background-color: #696969;    
 }
 
 
@@ -96,6 +96,10 @@ p { font-family: 'Silka'; }
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.activeImage {
+    border-color: #696969;
 }
 
 /*  choices color  */

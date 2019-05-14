@@ -4,16 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <title>Fragebogen</title>
 
   <script language="javascript" src="libraries/socket.io.js"></script>
   <script>
-    var socket = io('10.155.115.73:3000'); //IP-Adresse WLAN
+    var socket = io('10.155.119.144:3000'); //IP-Adresse WLAN
     socket.on('connect', function(){
         console.log("connected");
-        socket.emit('event', JSON.stringify('world'));
+        socket.emit('event', JSON.stringify('connected'));
     });
     socket.on('event', function(data){
         console.log("event triggered");
@@ -34,7 +33,7 @@
       <h3>Erstelle jetzt ein abstraktes Spiegelbild deiner Persönlichkeit</h3>
       <div id="start">Start</div>
     </div>-->
-    <div id="questionContainer"</div>
+    <div id="questionContainer"></div>
 
       <div id="questionBox1">
         <div class="question" id="Q1">
@@ -550,6 +549,7 @@
 
     </div>
   </div>
+  <script src="js/answerSwitch.js"></script>
   <script src="js/questionnaire.js"></script>
 </body>
 
