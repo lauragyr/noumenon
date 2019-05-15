@@ -1,7 +1,25 @@
+// socket stuff
+ 
+// let ip = "10.155.123.252"; // laura's ip-adresse wlan
+let ip = "127.0.0.1";
+
+var socket = io(ip+':3000'); //IP-Adresse WLAN
+socket.on('connect', function(){
+    console.log("connected");
+});
+socket.on('event', function(data){
+    console.log("event triggered");
+});
+socket.on('disconnect', function(){
+    console.log("disconnected");
+});
+
+
 //Answers
-let a1;
+let a1, a2, a3, a4, a5, a6;
 
 var q1a1 = document.getElementById('q1a1'); // grab a reference to your element
+console.log(q1a1);
 q1a1.addEventListener('click', function(){setQ1Value(1)});
 var q1a2 = document.getElementById('q1a2'); // grab a reference to your element
 q1a2.addEventListener('click', function(){setQ1Value(2)});
@@ -15,14 +33,13 @@ var q1a6 = document.getElementById('q1a6'); // grab a reference to your element
 q1a6.addEventListener('click', function(){setQ1Value(6)});
 
 function setQ1Value(value){
-
     var elements = document.getElementsByClassName('activeCircle');
     if(elements.length > 0){
         for(let i = 0; i < elements.length; i++){
             elements[i].className ="circle";
         }
     }
-
+    
     switch (value){
         case 1:
             a1 = 1;
@@ -54,11 +71,11 @@ function setQ1Value(value){
             q1a6.className = "circle activeCircle";
         break;
     }
-
+    console.log(a1);
+    socket.emit('answers', a1);
 }
 
-//a2
-let a2;
+// ANSWER 2
 
 var q2a1 = document.getElementById('q2a1'); // grab a reference to your element
 q2a1.addEventListener('click', function(){setQ2Value(1)});
@@ -99,5 +116,7 @@ function setQ2Value(value){
             q2a4.className = "choiceImage activeImage";
         break;
     }
+    console.log(a2);
+    socket.emit('answers', a1, a2);
 }
 
