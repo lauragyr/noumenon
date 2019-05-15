@@ -1,2 +1,2 @@
-function antwort1() {
-}
+/*function antwort1() {
+}*/

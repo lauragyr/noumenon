@@ -7,6 +7,11 @@ function setup() {
   data = loadJSON("../data.json", drawData);
 }
 
+function draw() {
+  frameRate(0.5);
+  loadJSON("data.json", drawData);
+}
+
 // which one is the last object
 function drawData(data) {
   if (gegebenAntworten != Object.keys(data).length) {
@@ -17,8 +22,8 @@ function drawData(data) {
   }
   let a1 = data.antwort1;
   let a2 = data.antwort2;
-  //console.log(data.antwort1);
-  //console.log(data.antwort2);
+  console.log(data.antwort1);
+  console.log(data.antwort2);
 
   if (a1 === 1) {
     fill(255,0,0);
@@ -49,12 +54,6 @@ function drawData(data) {
     ellipse(200,200,200,200);
   }
 }
-
-  function draw() {
-    //frameRate(0.5);
-    loadJSON("data.json", drawData);
-
-    }
 
   // Iterate over the data object, look at JSON filestructure
   console.log("zeichne das alte - mach nichts");
