@@ -4,7 +4,7 @@ Liveserver starten im Terminal starten
 
 ```bash
 cd /ins_verzeichnis/
-live-server --port=8080 --ignorePattern="*.json" .
+live-server --port=8080 --ignore="*.json" .
 ```
 
 IP Adresse herausfinden. 
