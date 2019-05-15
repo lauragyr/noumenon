@@ -1,7 +1,6 @@
 // socket stuff
- 
-// let ip = "10.155.123.252"; // laura's ip-adresse wlan
-let ip = "127.0.0.1";
+let ip = "10.155.123.252"; // laura's ip-adresse wlan
+//let ip = "127.0.0.1";
 
 var socket = io(ip+':3000'); //IP-Adresse WLAN
 socket.on('connect', function(){
@@ -76,7 +75,6 @@ function setQ1Value(value){
 }
 
 // ANSWER 2
-
 var q2a1 = document.getElementById('q2a1'); // grab a reference to your element
 q2a1.addEventListener('click', function(){setQ2Value(1)});
 var q2a2 = document.getElementById('q2a2'); // grab a reference to your element
