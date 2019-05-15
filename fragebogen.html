@@ -9,10 +9,10 @@
 
   <script language="javascript" src="libraries/socket.io.js"></script>
   <script>
-    var socket = io('10.155.119.144:3000'); //IP-Adresse WLAN
+    var socket = io('10.155.123.252:3000'); //IP-Adresse WLAN
     socket.on('connect', function(){
         console.log("connected");
-        socket.emit('event', JSON.stringify('connected'));
+        socket.emit('event', JSON.stringify('hello'));
     });
     socket.on('event', function(data){
         console.log("event triggered");
@@ -24,7 +24,6 @@
 
   <script src="libraries/p5.min.js"></script>
   <script src="libraries/p5.dom.min.js"></script>
-  <!--<script src="p5/sketch.js"></script>-->
 </head>
 
 <body>
