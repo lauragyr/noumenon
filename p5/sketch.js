@@ -58,3 +58,5 @@ function drawData(data) {
 
   // Iterate over the data object, look at JSON filestructure
   console.log("zeichne das alte - mach nichts");
+
+  //window.print();
