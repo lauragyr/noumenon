@@ -15,7 +15,7 @@ io.on('connection', client => {
             "antwort6": a6,
         };
         
-        fs.writeFile("test.json", JSON.stringify(data2file), function (err) {
+        fs.writeFile("data.json", JSON.stringify(data2file), function (err) {
             if (err) {
                 return console.log(err);
             }
