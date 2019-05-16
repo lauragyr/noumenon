@@ -5,6 +5,24 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   // Load external json file; set drawData as callback function
   data = loadJSON("../data.json", drawData);
+  
+  //video stuff
+  videoInput = createCapture(VIDEO);
+  videoInput.size(windowWitdh, windowHeight);
+  videoInput.position(0, 0);
+  
+  videoInput.hide();
+
+    // setup canvas
+    var cnv = createCanvas(800, 600);
+    cnv.position(0, 0);
+    //image(videoInput,0,0,800,600);
+  
+    // setup tracker
+    ctracker = new clm.tracker();
+    ctracker.init(pModel);
+    ctracker.start(videoInput.elt);
+  
 }
 
 function draw() {
