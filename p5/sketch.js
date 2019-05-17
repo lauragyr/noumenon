@@ -7,8 +7,8 @@ function setup() {
   data = loadJSON("../data.json", drawData);
   
   //video stuff
-  videoInput = createCapture(VIDEO);
-  videoInput.size(windowWitdh, windowHeight);
+  /*videoInput = createCapture(VIDEO);
+  videoInput.size(windowWidth, windowHeight);
   videoInput.position(0, 0);
   
   videoInput.hide();
@@ -21,7 +21,7 @@ function setup() {
     // setup tracker
     ctracker = new clm.tracker();
     ctracker.init(pModel);
-    ctracker.start(videoInput.elt);
+    ctracker.start(videoInput.elt);*/
   
 }
 
@@ -75,5 +75,3 @@ function drawData(data) {
 
   // Iterate over the data object, look at JSON filestructure
   console.log("zeichne das alte - mach nichts");
-
-  //window.print();
