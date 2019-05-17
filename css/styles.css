@@ -48,7 +48,7 @@ p { font-family: 'Silka'; }
     font-family: 'Silka';
     clear:both;
     color: #C0BABC;
-    width: 1100px;
+    width: 1024px;
 }
 
 /* choices */
@@ -78,11 +78,6 @@ p { font-family: 'Silka'; }
     display: inline-block;
 }
 
-.activeCircle {
-    background-color: #696969;    
-}
-
-
 /*  choices images  */
 .choiceImage {
     border: 4px solid #C0BABC;
@@ -104,10 +99,6 @@ p { font-family: 'Silka'; }
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.activeImage {
-    border-color: #696969;
 }
 
 /*  choices color  */
@@ -146,22 +137,11 @@ p { font-family: 'Silka'; }
     margin: 30px 30px 0px 0px;
 }
 
+
+.activeColor, .activeImage, .activeCircle, .activeAnswer {
+    border-color: #696969;
+    background-color: #696969;
+}
+
 .row1 { padding-top: 20px; }
 .row2 { padding-top: 10px; }
-
-/* button */
-#nextButton {
-    width: 100px;
-    height: 50px;
-    border: 4px solid #C0BABC;
-    margin-top: 40px;
-    margin-bottom: 100px;
-    float: left;
-}
-
-#nextButton p {
-    padding: 10px;
-    text-align: center;
-    margin: 0 auto;
-    color: #C0BABC
-}

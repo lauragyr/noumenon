@@ -18,12 +18,3 @@ function questionLoop() {
 for(let i=0; i < question.length; i++) {
 }
 }
-
-
-/*
-nextButton.onclick = function() {
-    for(let i=0; i < question.length; i++) {
-    question.append(questionLibrary[i].question);
-    }
-    //console.log("it works");
-}*/
