@@ -1,10 +1,35 @@
+//data-stuff
 let gegebenAntworten;
 let data;
 
+let a1, a2;
+
+//canvas-stuff
+let angle = 1;
+let generalAngle = 5.4; //start of circle draw
+
+//polygon-stuff
+let pos = 80;
+
+let npoints = 10;
+let radius = 0;
+let distance = 0.1;
+
+//color-stuff
+let colorR = 0;
+let colorG = 0;
+let colorB = 0;
+let a = 100;
+
+let points;
+
+//--------------//
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background(255);
   // Load external json file; set drawData as callback function
-  data = loadJSON("../data.json", drawData);
+  // data = loadJSON("../data.json", drawData);
   
   //video stuff
   /*videoInput = createCapture(VIDEO);
@@ -22,12 +47,7 @@ function setup() {
     ctracker = new clm.tracker();
     ctracker.init(pModel);
     ctracker.start(videoInput.elt);*/
-  
-}
-
-function draw() {
-  frameRate(0.5);
-  loadJSON("data.json", drawData);
+    points = 100;
 }
 
 // which one is the last object
@@ -39,38 +59,41 @@ function drawData(data) {
     //console.log(lastAnswer);
   }
   let a1 = data.antwort1;
-  let a2 = data.antwort2;
-  console.log(data.antwort1);
-  console.log(data.antwort2);
+let a2 = data.antwort2
+}
 
-  if (a1 === 1) {
-    fill(255,0,0);
-    ellipse(200,200,200,200);
+function polygon(x, y, radius, npoints) {
+  let angle = TWO_PI / npoints;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius;
+    let sy = y + sin(a) * radius;
+    vertex(sx, sy);
   }
-  else if (a1 === 2) {
-    fill(0);
-    ellipse(200,200,200,200);
-  }
+  endShape(CLOSE);
+}
 
-  else if (a1 === 3) {
-    fill(0,0,255);
-    ellipse(200,200,200,200);
-  }
+function size() {
+  if (keyCode === UP_ARROW) {
+    radius = 10;
+    rotate(-generalAngle);
+    polygon(pos, pos, radius, npoints);
+    generalAngle = generalAngle + distance;
+  } 
+}
 
-  else if (a1 === 4) {
-    fill(0,255,0);
-    ellipse(200,200,200,200);
-  }
 
-  else if (a1 === 5) {
-    fill(255,0,255);
-    ellipse(200,200,200,200);
-  }
+function draw() {
+  if(points < 500){
+    ellipse(points, points, 50,50);
+    points += 10;
+  }else{
+    ellipse(points, points, 50,50);
 
-  else if (a1 === 6) {
-    fill(255,255,0);
-    ellipse(200,200,200,200);
   }
+    
+  // frameRate(0.5);
+  // loadJSON("data.json", drawData);
 }
 
   // Iterate over the data object, look at JSON filestructure
