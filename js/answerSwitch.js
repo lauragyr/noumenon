@@ -1,8 +1,7 @@
 // socket stuff
-let ip = "192.168.1.39"; // laura's ip-adresse wlan
-//let ip = "127.0.0.1";
+let ip = "10.155.113.167"; // laura's ip-adresse wlan
 
-var socket = io(ip+':3000'); //IP-Adresse WLAN
+/*var socket = io(ip+':3000'); //IP-Adresse WLAN
 socket.on('connect', function(){
     console.log("connected");
 });
@@ -11,12 +10,12 @@ socket.on('event', function(data){
 });
 socket.on('disconnect', function(){
     console.log("disconnected");
-});
+});*/
 
 
-//ANSWER 1
 let a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
 
+//ANSWER 1
 var q1a1 = document.getElementById('q1a1'); // grab a reference to your element
 console.log(q1a1);
 q1a1.addEventListener('click', function(){setQ1Value(1)});
@@ -395,7 +394,7 @@ function setQ7Value(value){
         break;
 
         case 6:
-            a7 = 3;
+            a7 = 4;
             q7a6.className = "choiceColor violet activeColor";
         break;
     }
@@ -480,22 +479,22 @@ function setQ9Value(value){
     
     switch (value){
         case 1:
-            a9 = 1;
+            a9 = 6;
             q9a1.className = "choiceAnswer row1 activeAnswer";
         break;
 
         case 2:
-            a9 = 2;
+            a9 = 1;
             q9a2.className = "choiceAnswer row1 activeAnswer";
         break;
 
         case 3:
-            a9 = 3;
+            a9 = 5;
             q9a3.className = "choiceAnswer row2 activeAnswer";
         break;
 
         case 4:
-            a9 = 4;
+            a9 = 2;
             q9a4.className = "choiceAnswer row2 activeAnswer";
         break;
     }
@@ -524,7 +523,7 @@ function setQ10Value(value){
 
     switch (value){
         case 1:
-            a10 = 5;
+            a10 = 1;
             q10a1.className = "choiceImage activeImage";
         break;
 
@@ -539,7 +538,7 @@ function setQ10Value(value){
         break;
 
         case 4:
-            a10 = 1;
+            a10 = 5;
             q10a4.className = "choiceImage activeImage";
         break;
     }
@@ -568,22 +567,22 @@ function setQ11Value(value){
 
     switch (value){
         case 1:
-            a11 = 5;
+            a11 = 1;
             q11a1.className = "choiceImage activeImage";
         break;
 
         case 2:
-            a11 = 6;
+            a11 = 2;
             q11a2.className = "choiceImage activeImage";
         break;
 
         case 3:
-            a11 = 2;
+            a11 = 5;
             q11a3.className = "choiceImage activeImage";
         break;
 
         case 4:
-            a11 = 1;
+            a11 = 6;
             q11a4.className = "choiceImage activeImage";
         break;
     }
@@ -616,17 +615,17 @@ function setQ12Value(value){
         break;
 
         case 2:
-            a12 = 2;
+            a12 = 6;
             q12a2.className = "choiceAnswer row2 activeAnswer";
         break;
 
         case 3:
-            a12 = 3;
+            a12 = 2;
             q12a3.className = "choiceAnswer activeAnswer";
         break;
 
         case 4:
-            a12 = 4;
+            a12 = 5;
             q12a4.className = "choiceAnswer activeAnswer";
         break;
     }
@@ -655,22 +654,22 @@ function setQ13Value(value){
 
     switch (value){
         case 1:
-            a13 = 5;
+            a13 = 1;
             q13a1.className = "choiceImage activeImage";
         break;
 
         case 2:
-            a13 = 6;
+            a13 = 5;
             q13a2.className = "choiceImage activeImage";
         break;
 
         case 3:
-            a13 = 2;
+            a13 = 6;
             q13a3.className = "choiceImage activeImage";
         break;
 
         case 4:
-            a13 = 1;
+            a13 = 2;
             q13a4.className = "choiceImage activeImage";
         break;
     }
@@ -873,32 +872,32 @@ function setQ17Value(value){
     
     switch (value){
         case 1:
-            a17 = 1;
+            a17 = 6;
             q17a1.className = "choiceAnswer row1 activeAnswer";
         break;
 
         case 2:
-            a17 = 2;
+            a17 = 5;
             q17a2.className = "choiceAnswer row1 activeAnswer";
         break;
 
         case 3:
-            a17 = 3;
+            a17 = 4;
             q17a3.className = "choiceAnswer row1 activeAnswer";
         break;
 
         case 4:
-            a17 = 4;
+            a17 = 3;
             q17a4.className = "choiceAnswer row1 activeAnswer";
         break;
 
         case 5:
-            a17 = 5;
+            a17 = 2;
             q17a5.className = "choiceAnswer row1 activeAnswer";
         break;
 
         case 6:
-            a17 = 6;
+            a17 = 1;
             q17a6.className = "choiceAnswer row1 activeAnswer";
         break;
     }

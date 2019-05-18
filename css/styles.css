@@ -27,9 +27,7 @@ body { overflow-x: hidden; /*overflow statt overflow-x*/ }
     width: 1000px;
 }
 #start {
-    width: 300px;
-    height: 100px;
-    border: solid 4px #C0BABC;
+  
     color: #C0BABC;
 
     text-align: center;
@@ -39,6 +37,12 @@ body { overflow-x: hidden; /*overflow statt overflow-x*/ }
 
     font-family: 'Silka';
     font-size: 30pt;
+}
+
+.button {
+    width: 300px;
+    height: 100px;
+    border: solid 4px #C0BABC;
 }
 
 /* questions */
@@ -82,6 +86,10 @@ body { overflow-x: hidden; /*overflow statt overflow-x*/ }
 .choiceImage {
     border: 4px solid #C0BABC;
     margin: 30px 30px 0px 0px;
+}
+
+.choiceImage > div {
+    height: 200px;
 }
 
 .choiceImage img {
@@ -137,15 +145,14 @@ body { overflow-x: hidden; /*overflow statt overflow-x*/ }
     margin: 30px 30px 0px 0px;
 }
 
-
-.activeColor, .activeImage, .activeCircle, .activeAnswer {
+.activeImage, .activeCircle, .activeAnswer, .activeButton {
     border-color: #696969;
     background-color: #696969;
 }
 
-.activeButton {
-    background-color: #696969;
-}
+.activeColor {
+    border-color: #696969;
 
+}
 .row1 { padding-top: 14px; }
 .row2 { padding-top: 2px; }

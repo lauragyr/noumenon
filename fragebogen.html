@@ -12,7 +12,7 @@
   <div id="container">
     <div id="homescreen">
       <h3>Erstelle jetzt ein abstraktes Spiegelbild deiner Persönlichkeit</h3>
-      <div id="start" class="">Start</div>
+      <div id="start" class="button">Start</div>
     </div>
     <div id="questionContainer"></div>
 
@@ -48,9 +48,9 @@
         </div>
       </div>
 
-      <div id="questionBox2">
+      <div id="questionBox2" style="display: none;">
         <div class="question" id="Q2">
-            <h3>Was betrachtest du als erstes, wenn du dich im Spiegel betrachtest?</h3>
+            <h3>Was betrachtest du als erstes, wenn du dich im Spiegel siehst?</h3>
         </div>
         <div class="choices images">
           <div id="q2a1" class="choiceImage">
@@ -246,7 +246,7 @@
         </div>
       </div>
 
-      <div id="questionBox9">
+      <div id="questionBox9" style="display: none;">
         <div class="question" id="Q9">
             <h3>Wie würdest du reagieren, wenn dir jemand erzählt, dass deren Meerschweinchen gestorben ist?</h3>
         </div>
@@ -266,7 +266,7 @@
         </div>
       </div>
 
-      <div id="questionBox10">
+      <div id="questionBox10" style="display: none;">
         <div class="question" id="Q10">
             <h3>Wie reagierst du auf ein abweisendes Verhalten von einer Person, die dir wichtig ist?</h3>
         </div>
@@ -290,7 +290,7 @@
         </div>
       </div>
 
-      <div id="questionBox11">
+      <div id="questionBox11" style="display: none;">
         <div class="question" id="Q11">
             <h3>Welche der folgenden Freizeitbeschäftigungen würdest du am ehesten mal ausprobieren?</h3>
         </div>
@@ -450,7 +450,7 @@
         </div>
       </div>
 
-      <div id="questionBox17">
+      <div id="questionBox17" style="display: none;">
         <div class="question" id="Q17">
             <h3>Wieviel Mal hast du dich in den letzten vier Wochen mit Freunden oder neuen Bekannten getroffen?</h3>
         </div>
@@ -479,10 +479,8 @@
   </div>
 
   <script language="javascript" src="libraries/socket.io.js"></script>
-  <script src="libraries/p5.min.js"></script>
-  <script src="libraries/p5.dom.min.js"></script>
-  <script src="js/answerSwitch.js"></script>
   <script src="js/questionnaire.js"></script>
+  <script src="js/answerSwitch.js"></script>
 </body>
 
 </html>
