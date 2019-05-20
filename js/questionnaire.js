@@ -2,7 +2,7 @@
 let startButton = document.getElementById("start");
 let startScreen = document.getElementById("homescreen");
 
-//questionsSwitch
+//  questionSwitch
 let questionSwitch = [];
 
 for (let i = 1; i < 18; i++)
@@ -40,8 +40,17 @@ questionSwitch.forEach(function (questionBox, index, arr)
 
 document.getElementById("start").addEventListener("click", function(){
     setTimeout(function() {
-        questionBox1.style.display = "block";
+    //socket.emit('answers', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    questionBox1.style.display = "block";
     startScreen.style.display = "none";
     }, 500);
     start.className = "button activeButton";
   });
+
+  /*document.getElementById("endscreen").addEventListener("click", function(){
+    setTimeout(function() {
+        endscreen.style.display = "block";
+        question17.style.display = "none";
+    }, 500);
+    start.className = "button activeButton";
+  });*/

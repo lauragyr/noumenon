@@ -1,17 +1,40 @@
 // socket stuff
-let ip = "10.155.113.167"; // laura's ip-adresse wlan
+let ip = "10.155.116.196"; // laura's ip-adresse wlan
 
-var socket = io(ip+':3000'); //IP-Adresse WLAN
+/*var socket = io(ip+':3000'); //IP-Adresse WLAN
 socket.on('connect', function(){
     console.log("connected");
 });
-/*socket.on('event', function(data){
+socket.on('event', function(data){
     console.log("event triggered");
 });
 socket.on('disconnect', function(){
     console.log("disconnected");
 });*/
 
+var  reconnection = true,
+    reconnectionDelay = 5000,
+    reconnectionTry = 0;
+
+function initClient() {
+  connectClient();
+}
+
+function connectClient() {
+  let socket = io.connect('ip:3000');
+    socket.on('connect', function (e) {
+      routesClient(socket);
+    });
+    
+    socket.on("connect_error", function(e){
+        reconnectionTry++;
+        console.log("Reconnection attempt #"+reconnectionTry);
+    });
+  
+  return false;
+}
+
+//var socket = io({transports: ['websocket'], upgrade: false});
 
 let a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
 
