@@ -1,36 +1,42 @@
-function entfernung() {
-  if (a1 == 1) {
-    distance = 0.25;
+function transparenz() {
+  if (a2 == 1) {
+    a = 10;
+    fill(colorR, colorG, colorB, a);
     rotate(-generalAngle);
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;
   }
-  else if (a1 == 2) {
-    distance = 0.2;
+  else if (a2 == 2) {
+    a = 15;
+    fill(colorR, colorG, colorB, a);
     rotate(-generalAngle);
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;
   }
-  else if (a1 == 3) {
-    distance = 0.15;
+  else if (a2 == 3) {
+    a = 30;
+    fill(colorR, colorG, colorB, a);
     rotate(-generalAngle);
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;
   } 
-  else if (a1 == 4) {
-    distance = 0.1;
+  else if (a2 == 4) {
+    a = 45;
+    fill(colorR, colorG, colorB, a);
     rotate(-generalAngle);
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;
   } 
-  else if (a1 == 5) {
-    distance = 0.05;
+  else if (a2 == 5) {
+    a = 60;
+    fill(colorR, colorG, colorB, a);
     rotate(-generalAngle);
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;
   } 
-  else if (a1 == 6) {
-    distance = 0.01;
+  else if (a2 == 6) {
+    a = 85;
+    fill(colorR, colorG, colorB, a);
     rotate(-generalAngle);
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;

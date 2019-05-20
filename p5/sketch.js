@@ -2,7 +2,7 @@
 let gegebenAntworten;
 let data;
 
-let a1, a2;
+let a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
 
 //canvas-stuff
 let angle = 1;
@@ -28,6 +28,7 @@ let points;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
+  loadJSON("data.json", drawData);
   noStroke();
   fill(colorR, colorG, colorB, a);
 }
@@ -40,21 +41,22 @@ function drawData(data) {
     let lastAnswer = data[Object.keys(data)[gegebenAntworten - 1]];
     //console.log(lastAnswer);
   }
-  let a1 = data.antwort1;
-  let a2 = data.antwort2
+  a1 = data.antwort1;
+  a2 = data.antwort2;
+  a3 = data.antwort3;
+  a4 = data.antwort4;
 }
 
 function draw() {
   frameRate(2);
   translate(width / 2, height / 2);
   verschiebung();
-  size();
+  size(a3);
   farbe();
-  opacity();
   filterMode();
-  form();
-  saettigung();
-  geschwindigkeit();
+  form(a4);
+  transparenz(a2);
+  entfernung(a1);
 }
 
 //create polygon
@@ -67,73 +69,6 @@ function polygon(x, y, radius, npoints) {
     vertex(sx, sy);
   }
   endShape(CLOSE);
-}
-
-// all functions
-function size() {
-  if (keyCode === UP_ARROW) {
-    radius = 10;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-
-  } else if (keyCode === DOWN_ARROW) {
-    radius = 30;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-
-  } else if (keyCode === 37) {
-    radius = 60;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-
-  } else if (keyCode === 39) {
-    radius = 120;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-}
-
-function form() {
-  //q
-  if (keyCode === 81) {
-    rotate(-generalAngle);
-    npoints = 50;
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  } else if (keyCode === 87) {
-    rotate(-generalAngle);
-    npoints = 10;
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //e
-  else if (keyCode === 69) {
-    rotate(-generalAngle);
-    npoints = 3;
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //r
-  else if (keyCode === 82) {
-    rotate(-generalAngle);
-    npoints = 5;
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //t
-  else if (keyCode === 84) {
-    rotate(-generalAngle);
-    npoints = 30;
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
 }
 
 function farbe() {
@@ -165,32 +100,6 @@ function farbe() {
     let colorG = random(0, 100);
     let colorB = random(200, 255);
     fill(colorR, colorG, colorB, 50);
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-}
-
-function opacity() {
-  //6
-  if (keyCode === 54) {
-    let a = 10;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //7
-  else if (keyCode === 55) {
-    let a = 20;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //8
-  else if (keyCode === 56) {
-    let a = 60;
     rotate(-generalAngle);
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;
@@ -231,31 +140,7 @@ function filterMode() {
   }
 }
 
-function geschwindigkeit() {
-  //h
-  if (keyCode === 72) {
-    distance = 0.5;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
 
-  //j
-  else if (keyCode === 74) {
-    distance = 0.05;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //k
-  else if (keyCode === 75) {
-    distance = 0.2;
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-}
 
 function verschiebung() {
   // u
@@ -289,35 +174,6 @@ function verschiebung() {
     polygon(pos, pos, radius, npoints);
     generalAngle = generalAngle + distance;
   }
-}
-
-function saettigung() {
-  //x
-  if(keyCode === 88) {
-    a = 10;
-    fill(colorR, colorG, colorB, a);
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //c
-  else if(keyCode === 67) {
-    a = 100;
-    fill(colorR, colorG, colorB, a);
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
- //v
- else if(keyCode === 86) {
-  a = 50;
-  fill(colorR, colorG, colorB, a);
-  rotate(-generalAngle);
-  polygon(pos, pos, radius, npoints);
-  generalAngle = generalAngle + distance;
-}
 }
 
 // Iterate over the data object, look at JSON filestructure
