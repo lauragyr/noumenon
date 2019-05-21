@@ -21,23 +21,36 @@ let colorG = 0;
 let colorB = 0;
 let a = 100;
 
-let points;
+//video-stuff
+var ctracker;
+var videoInput
 
 //--------------//
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
-  loadJSON("data.json", drawData);
   noStroke();
   fill(colorR, colorG, colorB, a);
+
+  /*videoInput = createCapture(VIDEO);
+  videoInput.size(800, 600);
+  videoInput.position(0, 0);
+  videoInput.hide();
+
+  // setup tracker
+  ctracker = new clm.tracker();
+  ctracker.init();
+  ctracker.start(videoInput.elt)
+*/
 }
 
 // which one is the last object
 function drawData(data) {
+
   if (gegebenAntworten != Object.keys(data).length) {
     gegebenAntworten = Object.keys(data).length;
-    console.log("zeichne was neues");
+   // console.log("zeichne was neues");
     let lastAnswer = data[Object.keys(data)[gegebenAntworten - 1]];
     //console.log(lastAnswer);
   }
@@ -46,11 +59,27 @@ function drawData(data) {
   a3 = data.antwort3;
   a4 = data.antwort4;
 
+  // Iterate over the data object, look at JSON filestructure
+//console.log("zeichne das alte - mach nichts", data);
+
+  
 }
 
 function draw() {
   frameRate(2);
+
+  /*if (ctracker.getCurrentPosition()[0]) {
+console.log("chabis")
+  } else {
+console.log("nix")
+  }*/
+
   translate(width / 2, height / 2);
+  loadJSON("data.json", drawData);
+
+  if(a1 === 0) return clear();
+  if(a1 === -1) return;
+
   entfernung(a1);
   transparenz(a2);
   size(a3);
@@ -173,6 +202,3 @@ function verschiebung() {
     generalAngle = generalAngle + distance;
   }
 }
-
-// Iterate over the data object, look at JSON filestructure
-console.log("zeichne das alte - mach nichts");
