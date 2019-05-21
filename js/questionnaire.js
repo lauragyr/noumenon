@@ -5,7 +5,7 @@ let startScreen = document.getElementById("homescreen");
 //  questionSwitch
 let questionSwitch = [];
 
-for (let i = 1; i < 18; i++)
+for (let i = 1; i < 19; i++)
 {
     let questionString = "questionBox" + i;
     let obj = document.getElementById(questionString);
@@ -35,8 +35,16 @@ questionSwitch.forEach(function (questionBox, index, arr)
         }
     });
 });
- function myfunction() {
- }
+
+function end() {
+    socket.emit('answers', -1);
+    location.reload()
+    //socket.emit('answers', 0); //clear server
+}
+
+function drucken(){
+    socket.emit('print');
+}
 
 document.getElementById("start").addEventListener("click", function(){
     setTimeout(function() {
