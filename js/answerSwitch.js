@@ -1,7 +1,9 @@
 // socket stuff
-let ip = "10.155.116.196"; // laura's ip-adresse wlan
+let ip = "10.155.119.135"; // laura's ip-adresse wlan
+//let ip = "127.0.0.1";
 
-/*var socket = io(ip+':3000'); //IP-Adresse WLAN
+
+var socket = io(ip+':8000'); //IP-Adresse WLAN
 socket.on('connect', function(){
     console.log("connected");
 });
@@ -10,37 +12,13 @@ socket.on('event', function(data){
 });
 socket.on('disconnect', function(){
     console.log("disconnected");
-});*/
+});
 
-var  reconnection = true,
-    reconnectionDelay = 5000,
-    reconnectionTry = 0;
-
-function initClient() {
-  connectClient();
-}
-
-function connectClient() {
-  let socket = io.connect('ip:3000');
-    socket.on('connect', function (e) {
-      routesClient(socket);
-    });
-    
-    socket.on("connect_error", function(e){
-        reconnectionTry++;
-        console.log("Reconnection attempt #"+reconnectionTry);
-    });
-  
-  return false;
-}
-
-//var socket = io({transports: ['websocket'], upgrade: false});
 
 let a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
 
 //ANSWER 1
 var q1a1 = document.getElementById('q1a1'); // grab a reference to your element
-console.log(q1a1);
 q1a1.addEventListener('click', function(){setQ1Value(1)});
 var q1a2 = document.getElementById('q1a2'); // grab a reference to your element
 q1a2.addEventListener('click', function(){setQ1Value(2)});
@@ -93,7 +71,7 @@ function setQ1Value(value){
         break;
     }
     console.log(a1);
-    socket.emit('answers', a1);
+    socket.send('answers', a1);
 }
 
 // ANSWER 2
@@ -137,7 +115,7 @@ function setQ2Value(value){
         break;
     }
     console.log(a2);
-    socket.emit('answers', a1, a2);
+    socket.send('answers', a1, a2);
 }
 
 // ANSWER 3

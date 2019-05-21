@@ -1,5 +1,4 @@
 function size(parameter) {
-    console.log(parameter);
   if (a1 == 2) {
     radius = 10;
     rotate(-generalAngle);

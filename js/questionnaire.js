@@ -40,7 +40,7 @@ questionSwitch.forEach(function (questionBox, index, arr)
 
 document.getElementById("start").addEventListener("click", function(){
     setTimeout(function() {
-    //socket.emit('answers', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    socket.emit('answers', 0);
     questionBox1.style.display = "block";
     startScreen.style.display = "none";
     }, 500);

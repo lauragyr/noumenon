@@ -45,18 +45,16 @@ function drawData(data) {
   a2 = data.antwort2;
   a3 = data.antwort3;
   a4 = data.antwort4;
+
 }
 
 function draw() {
   frameRate(2);
   translate(width / 2, height / 2);
-  verschiebung();
-  size(a3);
-  farbe();
-  filterMode();
-  form(a4);
-  transparenz(a2);
   entfernung(a1);
+  transparenz(a2);
+  size(a3);
+  form(a4);
 }
 
 //create polygon
