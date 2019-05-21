@@ -1,9 +1,9 @@
 // socket stuff
-let ip = "10.155.119.135"; // laura's ip-adresse wlan
+let ip = "192.168.1.105"; // laura's ip-adresse wlan
 //let ip = "127.0.0.1";
 
 
-var socket = io(ip+':8000'); //IP-Adresse WLAN
+var socket = io(ip+':3000'); //IP-Adresse WLAN
 socket.on('connect', function(){
     console.log("connected");
 });
@@ -71,7 +71,7 @@ function setQ1Value(value){
         break;
     }
     console.log(a1);
-    socket.send('answers', a1);
+    socket.emit('answers', a1);
 }
 
 // ANSWER 2
@@ -115,7 +115,7 @@ function setQ2Value(value){
         break;
     }
     console.log(a2);
-    socket.send('answers', a1, a2);
+    socket.emit('answers', a1, a2);
 }
 
 // ANSWER 3
