@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css">
+  <meta name="mobile-web-app-capable" content="yes">
   <title>Fragebogen</title>
 </head>
 
@@ -476,7 +477,7 @@
         </div>
       </div>
     </div>
-    <div id="endscreen" style="display:none;">
+    <div id="questionBox18" style="display:none;">
         <h3>Alle Fragen beantwortet. Dein Bild wird gedruckt.</h3>
     </div>
   </div>
@@ -485,6 +486,18 @@
   <script language="javascript" src="libraries/socket.io.js"></script>
   <script src="js/questionnaire.js"></script>
   <script src="js/answerSwitch.js"></script>
+
+  <script>
+
+    var isFullscreen = false;
+    document.body.addEventListener('click', () => {
+      if(isFullscreen) return
+      isFullscreen = true
+      //document.body.requestFullscreen();
+    })
+
+    
+  </script>
 </body>
 
 </html>
