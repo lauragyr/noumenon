@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "192.168.1.105"; // laura's ip-adresse wlan
+let ip = "10.155.122.166"; // laura's ip-adresse wlan
 //let ip = "127.0.0.1";
 
 
