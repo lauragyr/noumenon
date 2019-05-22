@@ -12,7 +12,7 @@ let generalAngle = 5.4; //start of circle draw
 let pos = 80;
 
 let npoints = 10;
-let radius = 0;
+let radius = 10;
 let distance = 0.1;
 
 //color-stuff
@@ -50,24 +50,31 @@ function drawData(data) {
 
   if (gegebenAntworten != Object.keys(data).length) {
     gegebenAntworten = Object.keys(data).length;
-   // console.log("zeichne was neues");
     let lastAnswer = data[Object.keys(data)[gegebenAntworten - 1]];
-    //console.log(lastAnswer);
   }
   a1 = data.antwort1;
   a2 = data.antwort2;
   a3 = data.antwort3;
   a4 = data.antwort4;
-
-  // Iterate over the data object, look at JSON filestructure
-//console.log("zeichne das alte - mach nichts", data);
-
-  
+  a5 = data.antwort5;
+  a6 = data.antwort6;
+  a7 = data.antwort7;
+  a8 = data.antwort8;
+  a9 = data.antwort9;
+  a10 = data.antwort10;
+  a11 = data.antwort11;
+  a12 = data.antwort12;
+  a13 = data.antwort13;
+  a14 = data.antwort14;
+  a15 = data.antwort15;
+  a16 = data.antwort16;
+  a17 = data.antwort17;
 }
 
 function draw() {
   frameRate(2);
 
+  //video-tracking übergabe aufgabe on face-detection
   /*if (ctracker.getCurrentPosition()[0]) {
 console.log("chabis")
   } else {
@@ -77,13 +84,27 @@ console.log("nix")
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
 
+  //clearing canvas after generating visual
   if(a1 === 0) return clear();
   if(a1 === -1) return;
 
-  entfernung(a1);
-  transparenz(a2);
-  size(a3);
-  form(a4);
+  antwort1(a1);
+  antwort2(a2);
+  antwort3(a3);
+  antwort4(a4);
+  antwort5(a5);
+  antwort6(a6);
+  antwort7(a7);
+  antwort8(a8);
+  antwort9(a9);
+  antwort10(a10);
+  antwort11(a11);
+  antwort12(a12);
+  antwort13(a13);
+  antwort14(a14);
+  antwort15(a15);
+  antwort16(a16);
+  antwort17(a17);
 }
 
 //create polygon
@@ -98,40 +119,7 @@ function polygon(x, y, radius, npoints) {
   endShape(CLOSE);
 }
 
-function farbe() {
-  //1
-  if (keyCode === 49) {
-    let colorR = 0;
-    let colorG = random(200, 255);
-    let colorB = random(200, 255);
-    fill(colorR, colorG, colorB, 50);
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
 
-  //2
-  else if (keyCode === 50) {
-    let colorR = 0;
-    let colorG = random(100, 200);
-    let colorB = random(200, 255);
-    fill(colorR, colorG, colorB, 50);
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-
-  //3
-  else if (keyCode === 51) {
-    let colorR = 0;
-    let colorG = random(0, 100);
-    let colorB = random(200, 255);
-    fill(colorR, colorG, colorB, 50);
-    rotate(-generalAngle);
-    polygon(pos, pos, radius, npoints);
-    generalAngle = generalAngle + distance;
-  }
-}
 
 function filterMode() {
   //a
