@@ -38,9 +38,9 @@ questionSwitch.forEach(function (questionBox, index, arr)
 
 function end() {
     socket.emit('answers', -1);
-    location.reload()
     //socket.emit('answers', 0); //clear server
-}
+    location.reload()
+     } 
 
 function drucken(){
     socket.emit('print');
@@ -53,12 +53,12 @@ document.getElementById("start").addEventListener("click", function(){
     startScreen.style.display = "none";
     }, 500);
     start.className = "button activeButton";
-  });
+})
 
-  /*document.getElementById("endscreen").addEventListener("click", function(){
-    setTimeout(function() {
-        endscreen.style.display = "block";
-        question17.style.display = "none";
-    }, 500);
-    start.className = "button activeButton";
-  });*/
+document.getElementById("end").addEventListener("click", function(){
+    
+    socket.emit('answers', -1);
+    startScreen.style.display = "block";
+    questionBox18.style.display = "none";
+    location.reload()
+    })
