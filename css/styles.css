@@ -3,7 +3,7 @@
     font-family: 'Silka';
 }
 
-body { overflow-x: hidden; /*overflow statt overflow-x*/ }
+body { overflow: hidden; }
 
 @font-face{ 
 	font-family: "Silka";
@@ -26,8 +26,8 @@ body { overflow-x: hidden; /*overflow statt overflow-x*/ }
     color: #C0BABC;
     width: 1000px;
 }
+
 #start {
-  
     color: #C0BABC;
 
     text-align: center;
@@ -156,3 +156,25 @@ body { overflow-x: hidden; /*overflow statt overflow-x*/ }
 }
 .row1 { padding-top: 14px; }
 .row2 { padding-top: 2px; }
+
+#questionBox18 {
+    text-align: center;
+    font-family: 'Silka';
+    font-size: 60pt;
+    color: #C0BABC;
+    width: 1000px;
+}
+
+#questionBox18 > div {
+    margin: 0 auto;
+    
+}
+
+#questionBox18 p {
+    color: #C0BABC;
+    text-align: center;
+    font-family: 'Silka';
+    font-size: 30pt;
+    margin: 0;
+    padding-top: 20px;
+}
