@@ -3,7 +3,7 @@
     font-family: 'Silka';
 }
 
-body { overflow: hidden; }
+body { overflow-x: hidden; }
 
 @font-face{ 
 	font-family: "Silka";
@@ -107,20 +107,6 @@ body { overflow: hidden; }
     flex-direction: row;
     flex-wrap: wrap; 
 }
-.choiceColor {
-    border: 4px solid #C0BABC;
-    margin: 30px 30px 0px 0px;
-    width: 150px;
-    height: 150px;
-}
-
-.blue { background-color: #3D52D5; }
-.orange { background-color: #EC7505; }
-.green { background-color: #7AC74F; }
-.red { background-color: #C20114; }
-.yellow { background-color: #FFD400; }
-.violet { background-color: #731963; }
-
 
 /*  choices answers  */
 .answers {
@@ -142,13 +128,11 @@ body { overflow: hidden; }
     background-color: #696969;
 }
 
-.activeColor {
-    border-color: #696969;
-
-}
 .row1 { padding-top: 14px; }
 .row2 { padding-top: 2px; }
 
+
+/*  endscreen  */
 #questionBox15 {
     text-align: center;
     font-family: 'Silka';

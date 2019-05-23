@@ -398,7 +398,7 @@ function setQ8Value(value){
     switch (value){
         case 1:
             a8 = 6;
-            q8a1.className = "choiceAnswer row1 activeAnswer";
+            q8a1.className = "choiceAnswer row2 activeAnswer";
         break;
 
         case 2:
