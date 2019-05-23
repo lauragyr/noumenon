@@ -3,7 +3,6 @@ let gegebenAntworten;
 let data;
 let surveyData = [];
 let possibleParameters;
-//let a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
 
 possibleParameters = {}
 function resetAllParameters()
@@ -14,34 +13,15 @@ function resetAllParameters()
     colorG: 0,
     colorB: 0,
     angle: 1,
-    generalAngle: 5.4,
+    generalAngle: 1,
     pos: 120,
     npoints: 25,
     radius: 50,
     distance: 0.15,
-    a: 50
+    a: 50,
   }
 }
 resetAllParameters();
-
-/*
-//canvas-stuff
-let angle = 1; //angle of form(polygon)
-let generalAngle = 5.4; //start of circle draw
-
-//polygon-stuff
-let pos = 120; //anordnung im kreis (aussen oder innen)
-let npoints = 25;
-let radius = 50;
-let distance = 0.15;
-
-//color-stuff
-let colorR = 0;
-let colorG = 0;
-let colorB = 0;
-let a = 50;
-//let filter = blendMode(BLEND);
-*/
 
 //video-stuff
 let ctracker;
@@ -50,7 +30,7 @@ let videoInput
 //--------------//
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
   background(255);
   noStroke();
   //fill(colorR, colorG, colorB, a);
@@ -93,26 +73,6 @@ function drawData(data) {
     data.antwort16,
     data.antwort17
   ];
-
-  /*
-  surveyData.a1 = data.antwort1;
-  surveyData.a2 = data.antwort2;
-  surveyData.a3 = data.antwort3;
-  surveyData.a4 = data.antwort4;
-  surveyData.a5 = data.antwort5;
-  surveyData.a6 = data.antwort6;
-  surveyData.a7 = data.antwort7;
-  surveyData.a8 = data.antwort8;
-  surveyData.a9 = data.antwort9;
-  surveyData.a10 = data.antwort10;
-  surveyData.a11 = data.antwort11;
-  surveyData.a12 = data.antwort12;
-  surveyData.a13 = data.antwort13; 
-  surveyData.a14 = data.antwort14; 
-  surveyData.a15 = data.antwort15; 
-  surveyData.a16 = data.antwort16;
-  surveyData.a17 = data.antwort17;
-  */
 }
 
 function draw() {
@@ -159,7 +119,7 @@ function polygon(x, y, radius, npoints) {
 
 function overwriteEachAnswer()
 {
-  possibleParameters.generalAngle += possibleParameters.distance;
+  possibleParameters.generalAngle -= possibleParameters.distance;
   surveyData.forEach(
     function handleAnswers(value, index, array)
     {
@@ -246,22 +206,32 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 1 - 4 oder 6
         {
           case 1:
-            changedParams.colorR = random(140, 150);
-            changedParams.colorG = random(10, 30);
-            changedParams.colorB = random(120, 130);
-          break;
-          case 2:
-              changedParams.colorR = random(0, 0);
-              changedParams.colorG = random(10, 30);
-              changedParams.colorB = random(120, 130);
-          break;
-          case 3:
-          break;
-          case 4:
-          break;
-          case 5:
+            changedParams.pos = 140;
+            //violet
+            changedParams.colorR = 120;
+            changedParams.colorG = 30;
+            changedParams.colorB = 110;
           break;
           case 6:
+            changedParams.pos = 40;
+            //rot
+            changedParams.colorG = 20;
+            changedParams.colorB = 30;
+            changedParams.colorR = 200;
+          break;
+          case 2:
+            changedParams.pos = 60;
+            //blau
+            changedParams.colorG = 180;
+            changedParams.colorB = 240;
+            changedParams.colorR = 0;
+          break;
+          case 5:
+            changedParams.pos = 120;
+            //pink
+            changedParams.colorG = 0;
+            changedParams.colorR = 239;
+            changedParams.colorB = 90;
           break;
         }
     break;
@@ -269,51 +239,363 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
-              changedParams.pos = 140;
-              changedParams.radius = 140;
+            changedParams.pos = 140;
+            blendMode(DIFFERENCE);
           break;
           case 2:
-              changedParams.pos = 120;
-              changedParams.radius = 120;
+            changedParams.pos = 120;
+            blendMode(DIFFERENCE);
           break;
           case 3:
+            changedParams.pos = 100;
+            changedParams.a = 45;
+            blendMode(DIFFERENCE);
           break;
           case 4:
+            changedParams.pos = 80;
+            blendMode(DIFFERENCE);
+          break;
+          case 5:
+            changedParams.pos = 60;
+            blendMode(DIFFERENCE);
+          break;
+          case 6:
+            changedParams.pos = 40;
+            blendMode(DIFFERENCE);
           break;
         }
     break;
     case 3:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+            changedParams.radius = 140;
+          break;
+          case 2:
+            changedParams.pos = 120;
+            changedParams.radius = 120;
+          break;
+          case 3:
+            changedParams.pos = 100;
+            changedParams.radius = 100;
+          break;
+          case 4:
+            changedParams.pos = 80;
+            changedParams.radius = 80;
+          break;
+          case 5:
+            changedParams.pos = 60;
+            changedParams.radius = 60;
+          break;
+          case 6:
+            changedParams.pos = 40;
+            changedParams.radius = 40;
+          break;
+        }
     break;
     case 4:
+        switch(answerNumber) // 1 - 4 oder 6
+        {
+          case 5:
+            changedParams.pos = 120;
+            blendMode(LIGHTEST);
+          break;
+          case 6:
+            changedParams.pos = 40;
+            blendMode(LIGHTEST);
+          break;
+          case 2:
+            changedParams.pos = 60;
+            blendMode(LIGHTEST);
+          break;
+          case 1:
+            changedParams.pos = 140;
+            blendMode(LIGHTEST);
+          break;
+        }
     break;
     case 5:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+            changedParams.npoints = 50;
+          break;
+          case 2:
+            changedParams.pos = 120;
+            changedParams.npoints = 30;
+          break;
+          case 3:
+            changedParams.pos = 100;
+            changedParams.npoints = 15;
+          break;
+          case 4:
+            changedParams.pos = 80;
+            changedParams.npoints = 8;
+          break;
+          case 5:
+            changedParams.pos = 60;
+            changedParams.npoints = 5;
+          break;
+          case 6:
+            changedParams.pos = 40;
+            changedParams.npoints = 3;
+          break;
+        }
     break;
     case 6:
-      switch(answerNumber) // 0 - 4 oder 6
-      {
-        case 1:
-          changedParams.colorR = random(0, 10);
-          changedParams.colorG = random(10, 30);
-          changedParams.colorB = random(200, 230);
-        break;
-        case 2:
-            changedParams.colorR = random(90, 100);
-            changedParams.colorG = random(100, 130);
-            changedParams.colorB = random(120, 130);
-        break;
-        case 3:
-        break;
-        case 4:
-        break;
-        case 5:
-        break;
-        case 6:
-        break;
-      }
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+            changedParams.radius = 140;
+          break;
+          case 2:
+            changedParams.pos = 120;
+            changedParams.radius = 120;
+          break;
+          case 3:
+            changedParams.pos = 100;
+            changedParams.radius = 100;
+          break;
+          case 4:
+            changedParams.pos = 80;
+            changedParams.radius = 80;
+          break;
+          case 5:
+            changedParams.pos = 60;
+            changedParams.radius = 60;
+          break;
+          case 6:
+            changedParams.pos = 40;
+            changedParams.radius = 40;
+          break;
+        }
+    break;
+    case 7:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            //violet
+            changedParams.colorR = 120;
+            changedParams.colorG = 30;
+            changedParams.colorB = 110;
+          break;
+          case 5:
+            //blau
+            changedParams.colorG = 180;
+            changedParams.colorB = 240;
+            changedParams.colorR = 0;
+          break;
+          case 6:
+            //grün
+            changedParams.colorG = 220;
+            changedParams.colorB = 0;
+            changedParams.colorR = 120;
+          break;
+          case 2:
+            //gelb
+            changedParams.colorB = 0;
+            changedParams.colorR = 255;
+            changedParams.colorG = 210;
+          break;
+          case 5:
+            //pink
+            changedParams.colorG = 0;
+            changedParams.colorR = 239;
+            changedParams.colorB = 90;
+          break;
+          case 6:
+            //rot
+            changedParams.colorG = 20;
+            changedParams.colorB = 30;
+            changedParams.colorR = 200;
+          break;
+        }
+    break;
+    case 8:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 6:
+            changedParams.pos = 40;
+            changedParams.npoints = 3;
+          break;
+          case 1:
+            changedParams.pos = 140;
+            changedParams.npoints = 50;
+          break;
+          case 5:
+            changedParams.pos = 60;
+            changedParams.npoints = 5;
+          break;
+          case 2:
+            changedParams.pos = 120;
+            changedParams.npoints = 30;
+          break; 
+        }
+    break;
+    case 9:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+          break;
+          case 2:
+            changedParams.pos = 120;
+          break;
+          case 3:
+            changedParams.pos = 100;
+          break;
+          case 4:
+            changedParams.pos = 80;
+          break; 
+          case 5:
+            changedParams.pos = 60;
+          break; 
+          case 6:
+            changedParams.pos = 40;
+          break; 
+        }
+    break;
+    case 10:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+            changedParams.radius = 140;
+          break;
+          case 2:
+            changedParams.pos = 120;
+            changedParams.radius = 120;
+          break;
+          case 3:
+            changedParams.pos = 100;
+            changedParams.radius = 100;
+          break;
+          case 4:
+            changedParams.pos = 80;
+            changedParams.radius = 80;
+          break;
+          case 5:
+            changedParams.pos = 60;
+            changedParams.radius = 60;
+          break;
+          case 6:
+            changedParams.pos = 40;
+            changedParams.radius = 40;
+          break;
+        }
+      
+    break;
+    case 11:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+          break;
+          case 2:
+            changedParams.pos = 120;
+          break;
+          case 3:
+            changedParams.pos = 100;
+          break;
+          case 4:
+            changedParams.pos = 80;
+          break;
+          case 5:
+            changedParams.pos = 60;
+          break;
+          case 6:
+            changedParams.pos = 40;
+          break;
+        }
+    break;
+    case 12:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+            changedParams.npoints = 50;
+          break;
+          case 6:
+            changedParams.pos = 40;
+            changedParams.npoints = 3;
+          break;
+          case 2:
+            changedParams.pos = 120;
+            changedParams.npoints = 30;
+          break; 
+          case 5:
+            changedParams.pos = 60;
+            changedParams.npoints = 5;
+          break;
+        }
+    break;
+    case 13:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            //violet
+            changedParams.colorR = 120;
+            changedParams.colorG = 30;
+            changedParams.colorB = 110;
+          break;
+          case 2:
+            //blau
+            changedParams.colorG = 180;
+            changedParams.colorB = 240;
+            changedParams.colorR = 0;
+          break;
+          case 3:
+            //grün
+            changedParams.colorG = 220;
+            changedParams.colorB = 0;
+            changedParams.colorR = 120;
+          break;
+          case 4:
+            //gelb
+            changedParams.colorB = 0;
+            changedParams.colorR = 255;
+            changedParams.colorG = 210;
+          break;
+          case 5:
+            //pink
+            changedParams.colorG = 0;
+            changedParams.colorR = 239;
+            changedParams.colorB = 90;
+          break;
+          case 6:
+            //rot
+            changedParams.colorG = 20;
+            changedParams.colorB = 30;
+            changedParams.colorR = 200;
+          break;
+        }
+    break;
+    case 14:
+        switch(answerNumber) // 0 - 4 oder 6
+        {
+          case 1:
+            changedParams.pos = 140;
+            changedParams.radius = 140;
+          break;
+          case 2:
+            changedParams.pos = 120;
+            changedParams.radius = 120;
+          break; 
+          case 5:
+            changedParams.pos = 60;
+            changedParams.radius = 60;
+          break;
+          case 6:
+            changedParams.pos = 40;
+            changedParams.radius = 40;
+          break;
+        }
     break;
     default:
     break;
   }
   setParams(changedParams);
 }
-
