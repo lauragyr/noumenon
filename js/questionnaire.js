@@ -42,9 +42,10 @@ function end() {
     location.reload()
      } 
 
+     /*
 function drucken(){
     socket.emit('print');
-}
+}*/
 
 document.getElementById("start").addEventListener("click", function(){
     setTimeout(function() {
@@ -59,6 +60,6 @@ document.getElementById("end").addEventListener("click", function(){
     
     socket.emit('answers', -1);
     startScreen.style.display = "block";
-    questionBox18.style.display = "none";
+    questionBox15.style.display = "none";
     location.reload()
     })

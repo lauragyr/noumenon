@@ -6,81 +6,81 @@
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css">
   <meta name="mobile-web-app-capable" content="yes">
-  <title>Fragebogen</title>
+  <title>ARBEITSTITEL</title>
 </head>
 
 <body>
   <div id="container">
     <div id="homescreen">
-      <h3>Erstelle jetzt ein abstraktes Spiegelbild deiner Persönlichkeit</h3>
       <div id="start" class="button">Start</div>
     </div>
+    
     <div id="questionContainer"></div>
 
     <div id="questionBox1" style="display: none;">
       <div class="question" id="Q1">
-        <h3>Du probierst gerne neue Dinge aus.</h3>
+        <h3>Wie reagierst du auf ein abweisendes Verhalten von einer Person, die dir wichtig ist?</h3>
       </div>
-      <div class="choices">
-        <div class="choiceText">
-          <div id="q1a1" class="circle"></div>
-          <p>Ja voll</p>
+      <div class="choices images">
+        <div id="q1a1" class="choiceImage">
+          <div><img src="img/Q10_1_dontcare.gif" alt=""></div>
+          <p>So tun als wäre nichts</p>
         </div>
-        <div class="choiceText">
-          <div id="q1a2" class="circle"></div>
-          <p>Ja ziemlich</p>
+        <div id="q1a2" class="choiceImage">
+          <div><img src="img/Q10_2_cry.gif" alt=""></div>
+          <p>zu Hause allein weinen</p>
         </div>
-        <div class="choiceText">
-          <div id="q1a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
+        <div id="q1a3" class="choiceImage">
+          <div><img src="img/Q10_3_talk.gif" alt=""></div>
+          <p>Person ansprechen</p>
         </div>
-        <div class="choiceText">
-          <div id="q1a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
-        </div>
-        <div class="choiceText">
-          <div id="q1a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q1a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
+        <div id="q1a4" class="choiceImage">
+          <div><img src="img/Q10_4_angry.gif" alt=""></div>
+          <p>wütend werden</p>
         </div>
       </div>
     </div>
 
     <div id="questionBox2" style="display: none;">
       <div class="question" id="Q2">
-        <h3>Was betrachtest du als erstes, wenn du dich im Spiegel siehst?</h3>
+        <h3>Du bist jemand, der sich an einem Gespräch mit Freunden beteiligt und nicht nur zuhört.</h3>
       </div>
-      <div class="choices images">
-        <div id="q2a1" class="choiceImage">
-          <div><img src="img/Q2_1_Haut.jpg" alt=""></div>
-          <p>Haut</p>
+      <div class="choices">
+        <div class="choiceText">
+          <div id="q2a1" class="circle"></div>
+          <p>Ja</p>
         </div>
-        <div id="q2a2" class="choiceImage">
-          <div><img src="img/Q2_2_Ausdruck.jpg" alt=""></div>
-          <p>Ausdruck im Gesicht</p>
+        <div class="choiceText">
+          <div id="q2a2" class="circle"></div>
+          <p>Ja ziemlich</p>
         </div>
-        <div id="q2a3" class="choiceImage">
-          <div><img src="img/Q2_3_Zaehne.jpg" alt=""></div>
-          <p>Zähne</p>
+        <div class="choiceText">
+          <div id="q2a3" class="circle"></div>
+          <p>Eher schon</p>
         </div>
-        <div id="q2a4" class="choiceImage">
-          <div><img src="img/Q2_4_Haar.jpg" alt=""></div>
-          <p>Frisur</p>
+        <div class="choiceText">
+          <div id="q2a4" class="circle"></div>
+          <p>Eher weniger</p>
+        </div>
+        <div class="choiceText">
+          <div id="q2a5" class="circle"></div>
+          <p>Nicht wirklich</p>
+        </div>
+        <div class="choiceText">
+          <div id="q2a6" class="circle"></div>
+          <p>Nein</p>
         </div>
       </div>
     </div>
 
     <div id="questionBox3" style="display: none;">
       <div class="question" id="Q3">
-        <h3>Du bist jemand, der sich an einem Gespräch mit Freunden beteiligt und nicht nur zuhört.</h3>
+        <h3>Du probierst gerne neue Dinge aus.</h3>
       </div>
       <div class="choices">
         <div class="choiceText">
           <div id="q3a1" class="circle"></div>
-          <p>Ja voll</p>
+          <p>Ja</p>
         </div>
         <div class="choiceText">
           <div id="q3a2" class="circle"></div>
@@ -88,64 +88,56 @@
         </div>
         <div class="choiceText">
           <div id="q3a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
+          <p>Eher schon</p>
         </div>
         <div class="choiceText">
           <div id="q3a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
+          <p>Eher weniger</p>
         </div>
         <div class="choiceText">
           <div id="q3a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
+          <p>Nicht wirklich</p>
         </div>
         <div class="choiceText">
           <div id="q3a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
+          <p>Nein</p>
         </div>
       </div>
     </div>
 
     <div id="questionBox4" style="display: none;">
       <div class="question" id="Q4">
-        <h3>Wärst du bereit eine langersehnte Verabredung abzusagen, um dich um jemanden in deinem Umfeld zu
-          kümmern,<br>dem es schlecht geht?</h3>
+        <h3>Was betrachtest du als erstes, wenn du dich im Spiegel siehst?</h3>
       </div>
-      <div class="choices">
-        <div class="choiceText">
-          <div id="q4a1" class="circle"></div>
-          <p>Ja voll</p>
+      <div class="choices images">
+        <div id="q4a1" class="choiceImage">
+          <div><img src="img/Q2_1_Haut.jpg" alt=""></div>
+          <p>Haut</p>
         </div>
-        <div class="choiceText">
-          <div id="q4a2" class="circle"></div>
-          <p>Ja ziemlich</p>
+        <div id="q4a2" class="choiceImage">
+          <div><img src="img/Q2_2_Ausdruck.jpg" alt=""></div>
+          <p>Ausdruck im Gesicht</p>
         </div>
-        <div class="choiceText">
-          <div id="q4a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
+        <div id="q4a3" class="choiceImage">
+          <div><img src="img/Q2_3_Zaehne.jpg" alt=""></div>
+          <p>Zähne</p>
         </div>
-        <div class="choiceText">
-          <div id="q4a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
-        </div>
-        <div class="choiceText">
-          <div id="q4a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q4a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
+        <div id="q4a4" class="choiceImage">
+          <div><img src="img/Q2_4_Haar.jpg" alt=""></div>
+          <p>Frisur</p>
         </div>
       </div>
     </div>
 
     <div id="questionBox5" style="display: none;">
       <div class="question" id="Q5">
-        <h3>Du gehst leicht auf neue Leute zu.</h3>
+        <h3>Wärst du bereit eine langersehnte Verabredung abzusagen, um dich um jemanden in deinem Umfeld zu
+          kümmern,<br>dem es schlecht geht?</h3>
       </div>
       <div class="choices">
         <div class="choiceText">
           <div id="q5a1" class="circle"></div>
-          <p>Ja voll</p>
+          <p>Ja</p>
         </div>
         <div class="choiceText">
           <div id="q5a2" class="circle"></div>
@@ -153,19 +145,19 @@
         </div>
         <div class="choiceText">
           <div id="q5a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
+          <p>Eher schon</p>
         </div>
         <div class="choiceText">
           <div id="q5a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
+          <p>Eher weniger</p>
         </div>
         <div class="choiceText">
           <div id="q5a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
+          <p>Nicht wirklich</p>
         </div>
         <div class="choiceText">
           <div id="q5a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
+          <p>Nein</p>
         </div>
       </div>
     </div>
@@ -177,7 +169,7 @@
       <div class="choices">
         <div class="choiceText">
           <div id="q6a1" class="circle"></div>
-          <p>Ja voll</p>
+          <p>Ja</p>
         </div>
         <div class="choiceText">
           <div id="q6a2" class="circle"></div>
@@ -185,133 +177,155 @@
         </div>
         <div class="choiceText">
           <div id="q6a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
+          <p>Eher schon</p>
         </div>
         <div class="choiceText">
           <div id="q6a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
+          <p>Eher weniger</p>
         </div>
         <div class="choiceText">
           <div id="q6a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
+          <p>Nicht wirklich</p>
         </div>
         <div class="choiceText">
           <div id="q6a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
+          <p>Nein</p>
         </div>
       </div>
     </div>
 
     <div id="questionBox7" style="display: none;">
       <div class="question" id="Q7">
-        <h3>Was denkst du: Welche Farbe widerspiegelt deinen Charakter?</h3>
+        <h3>Wie lachst du?</h3>
       </div>
-      <div class="choices colors">
-        <div id="q7a1" class="choiceColor blue"></div>
-        <div id="q7a2" class="choiceColor orange"></div>
-        <div id="q7a3" class="choiceColor green"></div>
-        <div id="q7a4" class="choiceColor red"></div>
-        <div id="q7a5" class="choiceColor yellow"></div>
-        <div id="q7a6" class="choiceColor violet"></div>
+      <div class="choices images">
+        <div id="q7a1" class="choiceImage">
+          <div><img src="img/Q13_1_laugh.gif" alt=""></div>
+        </div>
+        <div id="q7a2" class="choiceImage">
+          <div><img src="img/Q13_2_laugh.gif" alt=""></div>
+        </div>
+        <div id="q7a3" class="choiceImage">
+          <div><img src="img/Q13_3_laugh.gif" alt=""></div>
+        </div>
+        <div id="q7a4" class="choiceImage">
+          <div><img src="img/Q13_4_laugh.gif" alt=""></div>
+        </div>
       </div>
     </div>
 
     <div id="questionBox8" style="display:none;">
       <div class="question" id="Q8">
-        <h3>Du gehst gerne auf Mottoparties.</h3>
-      </div>
-      <div class="choices">
-        <div class="choiceText">
-          <div id="q8a1" class="circle"></div>
-          <p>Ja voll</p>
-        </div>
-        <div class="choiceText">
-          <div id="q8a2" class="circle"></div>
-          <p>Ja ziemlich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q8a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
-        </div>
-        <div class="choiceText">
-          <div id="q8a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
-        </div>
-        <div class="choiceText">
-          <div id="q8a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q8a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="questionBox9" style="display:none;">
-      <div class="question" id="Q9">
         <h3>Wie würdest du reagieren, wenn dir jemand erzählt, dass deren Meerschweinchen gestorben ist?</h3>
       </div>
       <div class="choices answers">
-        <div id="q9a1" class="choiceAnswer row2">
+        <div id="q8a1" class="choiceAnswer row2">
           <p>Ist ja nur <br>ein Haustier</p>
         </div>
-        <div id="q9a2" class="choiceAnswer row1">
+        <div id="q8a2" class="choiceAnswer row1">
           <p>Beileid zeigen</p>
         </div>
-        <div id="q9a3" class="choiceAnswer row2">
-          <p>Aussage ignorieren und Thema wechseln</p>
+        <div id="q8a3" class="choiceAnswer row2">
+          <p>Aussage ignorieren, Thema wechseln</p>
         </div>
-        <div id="q9a4" class="choiceAnswer row2">
+        <div id="q8a4" class="choiceAnswer row2">
           <p>Sie/Ihn mit einem Ausflug ablenken</p>
         </div>
       </div>
     </div>
 
-    <div id="questionBox10" style="display: none;">
-      <div class="question" id="Q10">
-        <h3>Wie reagierst du auf ein abweisendes Verhalten von einer Person, die dir wichtig ist?</h3>
+    <div id="questionBox9" style="display: none;">
+      <div class="question" id="Q9">
+        <h3>Wenn du dich mit anderen Menschen vergleichst, wirst du unzufrieden.</h3>
       </div>
-      <div class="choices images">
-        <div id="q10a1" class="choiceImage">
-          <div><img src="img/Q10_1_dontcare.gif" alt=""></div>
-          <p>So tun als wäre nichts</p>
+      <div class="choices">
+        <div class="choiceText">
+          <div id="q9a1" class="circle"></div>
+          <p>Ja</p>
         </div>
-        <div id="q10a2" class="choiceImage">
-          <div><img src="img/Q10_2_cry.gif" alt=""></div>
-          <p>zu Hause allein weinen</p>
+        <div class="choiceText">
+          <div id="q9a2" class="circle"></div>
+          <p>Ja ziemlich</p>
         </div>
-        <div id="q10a3" class="choiceImage">
-          <div><img src="img/Q10_3_talk.gif" alt=""></div>
-          <p>Person ansprechen</p>
+        <div class="choiceText">
+          <div id="q9a3" class="circle"></div>
+          <p>Eher schon</p>
         </div>
-        <div id="q10a4" class="choiceImage">
-          <div><img src="img/Q10_4_angry.gif" alt=""></div>
-          <p>wütend werden</p>
+        <div class="choiceText">
+          <div id="q9a4" class="circle"></div>
+          <p>Eher weniger</p>
+        </div>
+        <div class="choiceText">
+          <div id="q9a5" class="circle"></div>
+          <p>Nicht wirklich</p>
+        </div>
+        <div class="choiceText">
+          <div id="q9a6" class="circle"></div>
+          <p>Nein</p>
         </div>
       </div>
     </div>
 
-    <div id="questionBox11" style="display:none;">
-      <div class="question" id="Q11">
-        <h3>Welche der folgenden Freizeitbeschäftigungen würdest du am ehesten mal ausprobieren?</h3>
+    <div id="questionBox10" style="display:none;">
+      <div class="question" id="Q10">
+        <h3>Du gehst gerne auf Mottoparties.</h3>
       </div>
-      <div class="choices images">
-        <div id="q11a1" class="choiceImage">
-          <div><img src="img/Q11_1_Perlentauchen.jpg" alt=""></div>
-          <p>Perlentauchen</p>
+      <div class="choices">
+        <div class="choiceText">
+          <div id="q10a1" class="circle"></div>
+          <p>Ja</p>
         </div>
-        <div id="q11a2" class="choiceImage">
-          <div><img src="img/Q11_2_Hackbrett.jpg" alt=""></div>
-          <p>Hackbrett spielen</p>
+        <div class="choiceText">
+          <div id="q10a2" class="circle"></div>
+          <p>Ja ziemlich</p>
         </div>
-        <div id="q11a3" class="choiceImage">
-          <div><img src="img/Q11_3_Hammer.jpg" alt=""></div>
-          <p>Hammer werfen</p>
+        <div class="choiceText">
+          <div id="q10a3" class="circle"></div>
+          <p>Eher schon</p>
         </div>
-        <div id="q11a4" class="choiceImage">
-          <div><img src="img/Q11_4_Hochrad.jpg" alt=""></div>
-          <p>Hochrad fahren</p>
+        <div class="choiceText">
+          <div id="q10a4" class="circle"></div>
+          <p>Eher weniger</p>
+        </div>
+        <div class="choiceText">
+          <div id="q10a5" class="circle"></div>
+          <p>Nicht wirklich</p>
+        </div>
+        <div class="choiceText">
+          <div id="q10a6" class="circle"></div>
+          <p>Nein</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="questionBox11" style="display: none;">
+      <div class="question" id="Q11">
+        <h3>Du gehst leicht auf neue Leute zu.</h3>
+      </div>
+      <div class="choices">
+        <div class="choiceText">
+          <div id="q11a1" class="circle"></div>
+          <p>Ja</p>
+        </div>
+        <div class="choiceText">
+          <div id="q11a2" class="circle"></div>
+          <p>Ja ziemlich</p>
+        </div>
+        <div class="choiceText">
+          <div id="q11a3" class="circle"></div>
+          <p>Eher schon</p>
+        </div>
+        <div class="choiceText">
+          <div id="q11a4" class="circle"></div>
+          <p>Eher weniger</p>
+        </div>
+        <div class="choiceText">
+          <div id="q11a5" class="circle"></div>
+          <p>Nicht wirklich</p>
+        </div>
+        <div class="choiceText">
+          <div id="q11a6" class="circle"></div>
+          <p>Nein</p>
         </div>
       </div>
     </div>
@@ -328,156 +342,71 @@
           <p>Sicher nicht, ich laufe weiter</p>
         </div>
         <div id="q12a3" class="choiceAnswer">
-          <p>Ich warte mal ab was andere Leute so machen</p>
+          <p>Ich warte mal ab was Andere so machen</p>
         </div>
         <div id="q12a4" class="choiceAnswer">
-          <p>Ich mach mal die Tür auf, dann schau ich weiter</p>
+          <p>Ich mach mal die Tür auf</p>
         </div>
       </div>
     </div>
 
     <div id="questionBox13" style="display: none;">
       <div class="question" id="Q13">
-        <h3>Wie lachst du?</h3>
-      </div>
-      <div class="choices images">
-        <div id="q13a1" class="choiceImage">
-          <div><img src="img/Q13_1_laugh.gif" alt=""></div>
-        </div>
-        <div id="q13a2" class="choiceImage">
-          <div><img src="img/Q13_2_laugh.gif" alt=""></div>
-        </div>
-        <div id="q13a3" class="choiceImage">
-          <div><img src="img/Q13_3_laugh.gif" alt=""></div>
-        </div>
-        <div id="q13a4" class="choiceImage">
-          <div><img src="img/Q13_4_laugh.gif" alt=""></div>
-        </div>
-      </div>
-    </div>
-
-    <div id="questionBox14" style="display: none;">
-      <div class="question" id="Q14">
-        <h3>Wenn du dich mit anderen Menschen vergleichst, wirst du unzufrieden.</h3>
-      </div>
-      <div class="choices">
-        <div class="choiceText">
-          <div id="q14a1" class="circle"></div>
-          <p>Ja voll</p>
-        </div>
-        <div class="choiceText">
-          <div id="q14a2" class="circle"></div>
-          <p>Ja ziemlich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q14a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
-        </div>
-        <div class="choiceText">
-          <div id="q14a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
-        </div>
-        <div class="choiceText">
-          <div id="q14a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q14a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="questionBox15" style="display: none;">
-      <div class="question" id="Q15">
-        <h3>Du machst gerne mal einen neuen Mode- oder Lifestyle-Trend mit.</h3>
-      </div>
-      <div class="choices">
-        <div class="choiceText">
-          <div id="q15a1" class="circle"></div>
-          <p>Ja voll</p>
-        </div>
-        <div class="choiceText">
-          <div id="q15a2" class="circle"></div>
-          <p>Ja ziemlich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q15a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
-        </div>
-        <div class="choiceText">
-          <div id="q15a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
-        </div>
-        <div class="choiceText">
-          <div id="q15a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
-        </div>
-        <div class="choiceText">
-          <div id="q15a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="questionBox16" style="display: none;">
-      <div class="question" id="Q16">
         <h3>Bist du gerade zufrieden mit deinem Leben – so ganz generell?</h3>
       </div>
       <div class="choices">
         <div class="choiceText">
-          <div id="q16a1" class="circle"></div>
-          <p>Ja voll</p>
+          <div id="q13a1" class="circle"></div>
+          <p>Ja</p>
         </div>
         <div class="choiceText">
-          <div id="q16a2" class="circle"></div>
+          <div id="q13a2" class="circle"></div>
           <p>Ja ziemlich</p>
         </div>
         <div class="choiceText">
-          <div id="q16a3" class="circle"></div>
-          <p>Mhh, ja schon</p>
+          <div id="q13a3" class="circle"></div>
+          <p>Eher schon</p>
         </div>
         <div class="choiceText">
-          <div id="q16a4" class="circle"></div>
-          <p>Mhh, eher weniger</p>
+          <div id="q13a4" class="circle"></div>
+          <p>Eher weniger</p>
         </div>
         <div class="choiceText">
-          <div id="q16a5" class="circle"></div>
-          <p>Nein, nicht wirklich</p>
+          <div id="q13a5" class="circle"></div>
+          <p>Nicht wirklich</p>
         </div>
         <div class="choiceText">
-          <div id="q16a6" class="circle"></div>
-          <p>Nein, gar nicht</p>
+          <div id="q13a6" class="circle"></div>
+          <p>Nein</p>
         </div>
       </div>
     </div>
 
-    <div id="questionBox17" style="display:none;">
-      <div class="question" id="Q17">
-        <h3>Wieviel Mal hast du dich in den letzten vier Wochen mit Freunden oder neuen Bekannten getroffen?</h3>
+    <div id="questionBox14" style="display:none;">
+      <div class="question" id="Q14">
+        <h3>Welche der folgenden Freizeitbeschäftigungen würdest du am ehesten mal ausprobieren?</h3>
       </div>
-      <div class="choices answers">
-        <div id="q17a1" class="choiceAnswer row1">
-          <p>0</p>
+      <div class="choices images">
+        <div id="q14a1" class="choiceImage">
+          <div><img src="img/Q11_1_Perlentauchen.jpg" alt=""></div>
+          <p>Perlentauchen</p>
         </div>
-        <div id="q17a2" class="choiceAnswer row1">
-          <p>1</p>
+        <div id="q14a2" class="choiceImage">
+          <div><img src="img/Q11_2_Hackbrett.jpg" alt=""></div>
+          <p>Hackbrett spielen</p>
         </div>
-        <div id="q17a3" class="choiceAnswer row1">
-          <p>2</p>
+        <div id="q14a3" class="choiceImage">
+          <div><img src="img/Q11_3_Hammer.jpg" alt=""></div>
+          <p>Hammer werfen</p>
         </div>
-        <div id="q17a4" class="choiceAnswer row1">
-          <p>3</p>
-        </div>
-        <div id="q17a5" class="choiceAnswer row1">
-          <p>4</p>
-        </div>
-        <div id="q17a6" class="choiceAnswer row1">
-          <p>5 oder mehr</p>
+        <div id="q14a4" class="choiceImage">
+          <div><img src="img/Q11_4_Hochrad.jpg" alt=""></div>
+          <p>Hochrad fahren</p>
         </div>
       </div>
     </div>
-    <div id="questionBox18" style="display:none;">
+
+    <div id="questionBox15" style="display:none;">
         <h3>Alle Fragen beantwortet. Dein Bild wird gedruckt.</h3>
         <div id="end" class="button"><p>back to start</p></div>
     </div>
@@ -487,18 +416,6 @@
   <script language="javascript" src="libraries/socket.io.js"></script>
   <script src="js/questionnaire.js"></script>
   <script src="js/answerSwitch.js"></script>
-
-  <!--<script>
-
-    var isFullscreen = false;
-    document.body.addEventListener('click', () => {
-      if(isFullscreen) return
-      isFullscreen = true
-      //document.body.requestFullscreen();
-    })
-
-    
-  </script>-->
 </body>
 
 </html>
