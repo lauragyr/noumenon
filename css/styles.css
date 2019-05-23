@@ -14,19 +14,11 @@ body { overflow: hidden; }
 #container {
     margin: 200px 100px 0px 100px;
     display: block;
-    width: 1024px;
+    width: 1030px;
     height: 600px;
 }
 
 /* start */
-#homescreen h3 {
-    text-align: center;
-    font-family: 'Silka';
-    font-size: 60pt;
-    color: #C0BABC;
-    width: 1000px;
-}
-
 #start {
     color: #C0BABC;
 
@@ -51,7 +43,7 @@ body { overflow: hidden; }
     font-family: 'Silka';
     clear:both;
     color: #C0BABC;
-    width: 1024px;
+    width: 1039px;
 }
 
 /* choices */
@@ -157,7 +149,7 @@ body { overflow: hidden; }
 .row1 { padding-top: 14px; }
 .row2 { padding-top: 2px; }
 
-#questionBox18 {
+#questionBox15 {
     text-align: center;
     font-family: 'Silka';
     font-size: 60pt;
@@ -165,12 +157,12 @@ body { overflow: hidden; }
     width: 1000px;
 }
 
-#questionBox18 > div {
+#questionBox15 > div {
     margin: 0 auto;
     
 }
 
-#questionBox18 p {
+#questionBox15 p {
     color: #C0BABC;
     text-align: center;
     font-family: 'Silka';

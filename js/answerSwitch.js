@@ -69,7 +69,7 @@ q2a2.addEventListener('click', function(){setQ2Value(2)});
 var q2a3 = document.getElementById('q2a3'); // grab a reference to your element
 q2a3.addEventListener('click', function(){setQ2Value(3)});
 var q2a4 = document.getElementById('q2a4'); // grab a reference to your element
-q3a4.addEventListener('click', function(){setQ2Value(4)});
+q2a4.addEventListener('click', function(){setQ2Value(4)});
 var q2a5 = document.getElementById('q2a5'); // grab a reference to your element
 q2a5.addEventListener('click', function(){setQ2Value(5)});
 var q2a6 = document.getElementById('q2a6'); // grab a reference to your element
@@ -143,32 +143,32 @@ function setQ3Value(value){
     switch (value){
         case 1:
             a3 = 1;
-            q1a1.className = "circle activeCircle";
+            q3a1.className = "circle activeCircle";
         break;
 
         case 2:
             a3 = 2;
-            q1a2.className = "circle activeCircle";
+            q3a2.className = "circle activeCircle";
         break;
 
         case 3:
             a3 = 3;
-            q1a3.className = "circle activeCircle";
+            q3a3.className = "circle activeCircle";
         break;
 
         case 4:
             a3 = 4;
-            q1a4.className = "circle activeCircle";
+            q3a4.className = "circle activeCircle";
         break;
 
         case 5:
             a3 = 5;
-            q1a5.className = "circle activeCircle";
+            q3a5.className = "circle activeCircle";
         break;
 
         case 6:
             a3 = 6;
-            q1a6.className = "circle activeCircle";
+            q3a6.className = "circle activeCircle";
         break;
     }
     console.log(a3);
@@ -277,13 +277,13 @@ function setQ5Value(value){
 }
 
 // ANSWER 6
-var q6a1 = document.getElementById('q4a1'); // grab a reference to your element
+var q6a1 = document.getElementById('q6a1'); // grab a reference to your element
 q6a1.addEventListener('click', function(){setQ6Value(1)});
-var q6a2 = document.getElementById('q4a2'); // grab a reference to your element
+var q6a2 = document.getElementById('q6a2'); // grab a reference to your element
 q6a2.addEventListener('click', function(){setQ6Value(2)});
-var q6a3 = document.getElementById('q4a3'); // grab a reference to your element
+var q6a3 = document.getElementById('q6a3'); // grab a reference to your element
 q6a3.addEventListener('click', function(){setQ6Value(3)});
-var q6a4 = document.getElementById('q4a4'); // grab a reference to your element
+var q6a4 = document.getElementById('q6a4'); // grab a reference to your element
 q6a4.addEventListener('click', function(){setQ6Value(4)});
 var q6a5 = document.getElementById('q6a5'); // grab a reference to your element
 q6a5.addEventListener('click', function(){setQ6Value(5)});
@@ -334,13 +334,13 @@ function setQ6Value(value){
 }
 
 // ANSWER 7
-var q7a1 = document.getElementById('q6a1'); // grab a reference to your element
+var q7a1 = document.getElementById('q7a1'); // grab a reference to your element
 q7a1.addEventListener('click', function(){setQ7Value(1)});
-var q7a2 = document.getElementById('q6a2'); // grab a reference to your element
+var q7a2 = document.getElementById('q7a2'); // grab a reference to your element
 q7a2.addEventListener('click', function(){setQ7Value(2)});
-var q7a3 = document.getElementById('q6a3'); // grab a reference to your element
+var q7a3 = document.getElementById('q7a3'); // grab a reference to your element
 q7a3.addEventListener('click', function(){setQ7Value(3)});
-var q7a4 = document.getElementById('q6a4'); // grab a reference to your element
+var q7a4 = document.getElementById('q7a4'); // grab a reference to your element
 q7a4.addEventListener('click', function(){setQ7Value(4)});
 
 function setQ7Value(value){

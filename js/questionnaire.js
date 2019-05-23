@@ -5,9 +5,9 @@ let startScreen = document.getElementById("homescreen");
 //  questionSwitch
 let questionSwitch = [];
 
-for (let i = 1; i < 19; i++)
+for (let i = 0; i < 15; i++)
 {
-    let questionString = "questionBox" + i;
+    let questionString = "questionBox" + (i + 1);
     let obj = document.getElementById(questionString);
     questionSwitch.push(obj);
 }
