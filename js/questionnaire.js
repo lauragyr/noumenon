@@ -18,7 +18,6 @@ questionSwitch.forEach(function (questionBox, index, arr)
     possibleButtons = possibleButtons.concat([].slice.call(questionBox.getElementsByClassName("circle")));
     possibleButtons = possibleButtons.concat([].slice.call(questionBox.getElementsByClassName("choiceImage")));
     possibleButtons = possibleButtons.concat([].slice.call(questionBox.getElementsByClassName("choiceAnswer")));
-    possibleButtons = possibleButtons.concat([].slice.call(questionBox.getElementsByClassName("choiceColor")));
 
     possibleButtons.forEach(function (button, buttonArrIndex)
     {
