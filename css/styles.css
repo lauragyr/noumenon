@@ -3,7 +3,10 @@
     font-family: 'Silka';
 }
 
-body { overflow-x: hidden; }
+body { 
+    overflow: hidden;
+    background-color:black;
+}
 
 @font-face{ 
 	font-family: "Silka";
@@ -23,17 +26,17 @@ body { overflow-x: hidden; }
     color: #C0BABC;
 
     text-align: center;
-    padding-top: 20px;
-    /*margin-top: 100px;*/
-    margin: 100px auto;
+    padding-top: 45px;
+    vertical-align: center;
+    margin: 200px auto;
 
     font-family: 'Silka';
-    font-size: 30pt;
+    font-size: 60pt;
 }
 
 .button {
-    width: 300px;
-    height: 100px;
+    width: 500px;
+    height: 200px;
     border: solid 4px #C0BABC;
 }
 
