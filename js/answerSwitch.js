@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.122.166"; // laura's ip-adresse wlan
+let ip = "192.168.1.105"; // laura's ip-adresse wlan
 //let ip = "127.0.0.1";
 
 
@@ -591,7 +591,7 @@ function setQ11Value(value){
     socket.emit('answers', a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
 }
 
-// ANSWER 11
+// ANSWER 12
 var q12a1 = document.getElementById('q12a1'); // grab a reference to your element
 q12a1.addEventListener('click', function(){setQ12Value(1)});
 var q12a2 = document.getElementById('q12a2'); // grab a reference to your element
@@ -622,12 +622,12 @@ function setQ12Value(value){
 
         case 3:
             a12 = 2;
-            q12a3.className = "choiceAnswer activeAnswer";
+            q12a3.className = "choiceAnswer row2 activeAnswer";
         break;
 
         case 4:
             a12 = 5;
-            q12a4.className = "choiceAnswer activeAnswer";
+            q12a4.className = "choiceAnswer row2 activeAnswer";
         break;
     }
     console.log(a12);
