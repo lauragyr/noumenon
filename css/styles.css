@@ -4,7 +4,7 @@
 }
 
 body { 
-    overflow-x: hidden;
+    overflow: hidden;
     background-color:black;
 }
 
@@ -117,11 +117,6 @@ body {
     margin: 30px 30px 0px 0px;
 }
 
-.activeImage, .activeCircle, .activeAnswer, .activeButton {
-    border-color: #ffffff;
-    background-color: #ffffff;
-}
-
 .row1 { padding-top: 40px; }
 .row2 { padding-top: 26px; }
 
@@ -131,23 +126,26 @@ body {
     text-align: center;
     width: 1000px;
     margin: 0 auto;
+    display: flex;
 }
 
-#questionBox15 p {
+#backto, #drucken {
     color: #C0BABC;
+    border: solid 4px #C0BABC;
     text-align: center;
     font-size: 60pt;
     padding-top: 45px;
 
     width: 500px;
     height: 200px;
-    border: solid 4px #C0BABC;
 }
 
-#end {
-    display: flex;
-}
-
-#end :nth-child(2) {
+#questionBox15 :nth-child(2) {
     margin-left: 30px;
 }
+
+.activeImage, .activeCircle, .activeAnswer, .activeButton, .activeEnd {
+    border-color: #ffffff;
+    background-color: #ffffff;
+}
+

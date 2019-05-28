@@ -48,17 +48,29 @@ function drucken(){
 
 document.getElementById("start").addEventListener("click", function(){
     setTimeout(function() {
-    socket.emit('answers', 0);
-    questionBox1.style.display = "block";
-    startScreen.style.display = "none";
+        socket.emit('answers', 0);
+        questionBox1.style.display = "block";
+        startScreen.style.display = "none";
     }, 500);
     start.className = "button activeButton";
 })
 
-document.getElementById("end").addEventListener("click", function(){
-    
-    socket.emit('answers', -1);
-    startScreen.style.display = "block";
-    questionBox15.style.display = "none";
-    location.reload()
-    })
+document.getElementById("backto").addEventListener("click", function(){
+    //location.reload()
+    setTimeout(function() {
+        socket.emit('answers', -1);
+        startScreen.style.display = "block";
+        questionBox15.style.display = "none";
+    }, 500);
+    backto.className = "endButton activeEnd";
+})
+
+document.getElementById("drucken").addEventListener("click", function(){
+    //location.reload()
+    setTimeout(function() {
+        socket.emit('print');
+        //startScreen.style.display = "block";
+        //questionBox15.style.display = "none";
+    }, 500);
+    drucken.className = "printButton activeEnd";
+})
