@@ -19,7 +19,7 @@ function resetAllParameters()
     radius: 60,
     distance: 0.1,
     a: 50,
-    bgColor: "white"
+    bgColor: "#ffffff"
   }
 }
 resetAllParameters();
@@ -68,35 +68,37 @@ function drawData(data) {
     data.antwort12,
     data.antwort13,
     data.antwort14,
-    data.antwort15,
-    data.antwort16,
-    data.antwort17
   ];
 }
 
 function draw() {
   frameRate(3);
+  test = setInterval(3000);
   //video-tracking übergabe aufgabe on face-detection
   /*if (ctracker.getCurrentPosition()[0]) {
 console.log("chabis")
   } else {
 console.log("nix")
   }*/
-
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
 
   //clearing canvas after generating visual
-  if(surveyData[0] === 0)
-  {
+  if(surveyData[0] === 0) {
     resetAllParameters();
     return clear();
   }
 
-  if(surveyData[0] === -1)
-  {
+  if(surveyData[0] === -1) {
     resetAllParameters();
     return;
+
+  }
+
+  if(surveyData[13]==1) {
+    console.log("yes");  
+    //setTimeout(5000);
+    //return;
   }
 
   overwriteEachAnswer();
@@ -205,51 +207,41 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 1 - 4 oder 6
         {
           case 1:
-            bgColor ="black"
-            document.body.style.background = bgColor;
-
             changedParams.pos = 140;
             changedParams.radius = 140;
             //violet
-            changedParams.colorR = 120;
-            changedParams.colorG = 30;
-            changedParams.colorB = 110;
+            changedParams.colorR = random(100,120);
+            changedParams.colorG = random(20, 40);
+            changedParams.colorB = random(110, 130);
             blendMode(BLEND);
+            //changedParams.a = 100
+            //changedParams.a - 40;
           break;
           case 6:
-            bgColor ="black"
-            document.body.style.background = bgColor;
-
             changedParams.pos = 40;
             changedParams.radius = 40;
             //rot
-            changedParams.colorG = 20;
-            changedParams.colorB = 30;
-            changedParams.colorR = 200;
+            changedParams.colorG = random(20, 40);
+            changedParams.colorB = random(20, 40);
+            changedParams.colorR = random(200, 220);
             blendMode(BLEND);
           break;
           case 2:
-            bgColor ="black"
-            document.body.style.background = bgColor;
-
             changedParams.pos = 60;
             changedParams.radius = 120;
             //blau
-            changedParams.colorG = 180;
-            changedParams.colorB = 240;
+            changedParams.colorG = random(170, 190);
+            changedParams.colorB = random(230, 250);
             changedParams.colorR = 0;
             blendMode(BLEND);
           break;
           case 5:
-            bgColor ="black"
-            document.body.style.background = bgColor;
-
             changedParams.pos = 120;
             changedParams.radius = 60;
             //pink
             changedParams.colorG = 0;
-            changedParams.colorR = 239;
-            changedParams.colorB = 90;
+            changedParams.colorR = random(230, 250);
+            changedParams.colorB = random(90, 110);
             blendMode(BLEND);
           break;
         }
@@ -261,22 +253,22 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.pos = 150;
             changedParams.radius = 100;
 
-            blendMode(LIGHTEST);
+            blendMode(DODGE);
 
             //violet
-            changedParams.colorR = 120;
-            changedParams.colorG = 30;
-            changedParams.colorB = 110;
+            changedParams.colorR = random(120, 140);
+            changedParams.colorG = random(30,50);
+            changedParams.colorB = random(110, 130);
           break;
           case 2:
             changedParams.pos = 130;
             changedParams.radius = 90;
 
-            blendMode(DIFFERENCE);
+            blendMode(OVERLAY);
 
             //blau
-            changedParams.colorG = 150;
-            changedParams.colorB = 250;
+            changedParams.colorG = random(140,160);
+            changedParams.colorB = random(230,250);
             changedParams.colorR = 0;
           break;
           case 3:
@@ -286,9 +278,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             blendMode(BLEND);
 
             //grün
-            changedParams.colorG = 250;
+            changedParams.colorG = random(230, 250);
             changedParams.colorB = 0;
-            changedParams.colorR = 120;
+            changedParams.colorR = random(100, 120);
           break;
           case 4:
             changedParams.pos = 90;
@@ -298,19 +290,19 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
 
             //gelb
             changedParams.colorB = 0;
-            changedParams.colorR = 255;
-            changedParams.colorG = 220;
+            changedParams.colorR = random(235, 255);
+            changedParams.colorG = random(220,240);
           break;
           case 5:
             changedParams.pos = 70;
             changedParams.radius = 60;
 
-            blendMode(MULTIPLY);
+            blendMode(DIFFERENCE);
 
             //pink
             changedParams.colorG = 0;
-            changedParams.colorR = 250;
-            changedParams.colorB = 100;
+            changedParams.colorR = random(230,250);
+            changedParams.colorB = random(100,120);
           break;
           case 6:
             changedParams.pos = 50;
@@ -319,9 +311,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             blendMode(MULTIPLY);
 
             //rot
-            changedParams.colorG = 20;
-            changedParams.colorB = 30;
-            changedParams.colorR = 255;
+            changedParams.colorG = random(20.40);
+            changedParams.colorB = random(20,40);
+            changedParams.colorR = random(235,255);
           break;
         }
     break;
@@ -329,33 +321,51 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
+            bgColor ="#000000"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 135;
             blendMode(DODGE)
             changedParams.difference = 0.3;
           break;
           case 2:
+            bgColor ="#000000"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 115;
             blendMode(DODGE)
             changedParams.difference = 0.27;
           break;
           case 3:
+            bgColor ="#000000"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 95;
             blendMode(LIGHTEST)
             changedParams.difference = 0.24;
           break;
           case 4:
+            bgColor ="#000000"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 75;
-            blendMode(LIGHTEST)
+            blendMode(DARKEST)
             changedParams.difference = 0.21;
           break;
           case 5:
+            bgColor ="#000000"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 55;
-            blendMode(DARKEST)
+            blendMode(MULTIPLY)
             changedParams.difference = 0.18;
           break;
           case 6:
+            bgColor ="#000000"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 35;
-            blendMode(DARKEST)
+            blendMode(EXCLUSION)
             changedParams.difference = 0.15;
           break;
         }
@@ -368,21 +378,21 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
              changedParams.a = 150;
              changedParams.radius = 60;
  
-            blendMode(DARKEST)
+            blendMode(MULTIPLY)
           break;
           case 6:
             changedParams.pos = 40;
             changedParams.a = 200;
             changedParams.radius = 40;
 
-            blendMode(MULTIPLY)
+            blendMode(EXCLUSION)
           break;
           case 2:
             changedParams.pos = 90;
             changedParams.a = 100;
             changedParams.radius = 120;
 
-            blendMode(LIGHTEST)
+            blendMode(SCREEN)
           break;
           case 1:
             changedParams.pos = 100;
@@ -408,17 +418,17 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.npoints = 30;
 
             changedParams.a = 100;
-            blendMode(LIGHTEST)
+            blendMode(OVERLAY)
           break;
           case 3:
             changedParams.pos = 110;
             changedParams.npoints = 15;
-            blendMode(BLEND)
+            blendMode(LIGHTEST)
           break;
           case 4:
             changedParams.pos = 85;
             changedParams.npoints = 8;
-            blendMode(DIFFERENCE)
+            blendMode(DARKEST)
           break;
           case 5:
             changedParams.pos = 60;
@@ -432,7 +442,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.npoints = 3;
 
             changedParams.a = 200;
-            blendMode(DARKEST)
+            blendMode(EXCLUSION)
           break;
         }
     break;
@@ -440,64 +450,85 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
             changedParams.pos = 140;
 
-            changedParams. a = 255;
+            changedParams. a = 50;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
-            blendMode(DIFFERENCE);
+            blendMode(DODGE);
 
             changedParams.difference = 0.1;
           break;
           case 2:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 120;
 
-            changedParams. a = 255;
+            changedParams. a = 50;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
-            blendMode(DIFFERENCE);
+            blendMode(DODGE);
 
             changedParams.difference = 0.1;
           break;
           case 3:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 100;
 
+            changedParams. a = 50;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
-            blendMode(DIFFERENCE);
+            blendMode(DODGE);
 
             changedParams.difference = 0.1;
           break;
           case 4:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 80;
 
+            changedParams. a = 50;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
-            blendMode(MULTIPLY);
+            blendMode(DODGE);
 
             changedParams.difference = 0.1;
           break;
           case 5:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 60;
 
+            changedParams. a = 50;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
-            blendMode(MULTIPLY);
+            blendMode(DODGE);
 
             changedParams.difference = 0.1;
           break;
           case 6:
+            bgColor ="#2D2D2D"            
+            document.body.style.background = bgColor;
+            
             changedParams.pos = 40;
 
+            changedParams. a = 50;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
-            blendMode(MULTIPLY);
+            blendMode(DODGE);
 
             changedParams.difference = 0.1;
           break;
@@ -513,19 +544,19 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
 
             //violet
             changedParams. a = 50;
-            changedParams.colorR = 120;
-            changedParams.colorG = 30;
-            changedParams.colorB = 110;
+            changedParams.colorR = random(100, 120);
+            changedParams.colorG = random(30,50);
+            changedParams.colorB = random(110,130);
           break;
           case 2:
-            blendMode(DIFFERENCE);
+            blendMode(OVERLAY);
             changedParams.pos = 122
             changedParams.radius = 100;
 
             //blau
             changedParams. a = 50;
-            changedParams.colorG = 150;
-            changedParams.colorB = 250;
+            changedParams.colorG = random(150,170);
+            changedParams.colorB = random(230,250);
             changedParams.colorR = 0;
           break;
           case 5:
@@ -536,19 +567,19 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             //pink
             changedParams. a = 50;
             changedParams.colorG = 0;
-            changedParams.colorR = 250;
-            changedParams.colorB = 100;
+            changedParams.colorR = random(230,250);
+            changedParams.colorB = random(100,120);
           break;
           case 6:
             changedParams.pos = 77;
-            blendMode(DARKEST)
+            blendMode(EXCLUSION)
             changedParams.radius = 60;
 
             //rot
             changedParams. a = 50;
-            changedParams.colorG = 20;
-            changedParams.colorB = 30;
-            changedParams.colorR = 255;
+            changedParams.colorG = random(20,40);
+            changedParams.colorB = random(30,50);
+            changedParams.colorR = random(235,255);
           break;
         }
     break;
@@ -559,7 +590,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.pos = 66;
             changedParams.npoints = 3;
 
-            blendMode(DARKEST);
+            blendMode(MULTIPLY);
           break;
           case 1:
             changedParams.pos = 122;
@@ -571,13 +602,13 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.pos = 77;
             changedParams.npoints = 6;
 
-            blendMode(MULTIPLY);
+            blendMode(EXCLUSION);
           break;
           case 2:
             changedParams.pos = 111;
             changedParams.npoints = 20;
 
-            blendMode(LIGHTEST);
+            blendMode(SCREEN);
           break; 
         }
     break;
@@ -585,6 +616,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 138;
             changedParams.a = 60;
             changedParams.radius = 110;
@@ -595,6 +629,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.colorB = 110;
           break;
           case 2:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 130;
             changedParams.a = 80;
             changedParams.radius = 90;
@@ -605,6 +642,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.colorR = 0;
           break;
           case 3:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 122;
             changedParams.a = 100;
             changedParams.radius = 70;
@@ -615,6 +655,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.colorR = 120;
           break;
           case 4:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 114;
             changedParams.a = 120;
             changedParams.radius = 50;
@@ -625,6 +668,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.colorG = 220;
           break; 
           case 5:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 106;
             changedParams.a = 140;
             changedParams.radius = 30;
@@ -635,6 +681,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             changedParams.colorB = 100;
           break; 
           case 6:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 98;
             changedParams.a = 140;
             changedParams.radius = 10;
@@ -659,7 +708,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
           break;
           case 2:
             changedParams.pos = 115;
-            blendMode(LIGHTEST);
+            blendMode(SCREEN);
             changedParams.radius = 110;
 
             changedParams.a = 50;
@@ -667,7 +716,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
           break;
           case 3:
             changedParams.pos = 95;
-            blendMode(SCREEN);
+            blendMode(LIGHTEST);
             changedParams.radius = 90;
 
             changedParams.a = 70;
@@ -675,7 +724,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
           break;
           case 4:
             changedParams.pos = 75;
-            blendMode(MULTIPLY);
+            blendMode(DARKEST);
             changedParams.radius = 70;
 
             changedParams.a = 90;
@@ -683,7 +732,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
           break;
           case 5:
             changedParams.pos = 55;
-            blendMode(DARKEST);
+            blendMode(MULTIPLY);
             changedParams.radius = 50;
 
             changedParams.a = 110;
@@ -704,34 +753,49 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 142;
             changedParams.radius = 115;
 
             changedParams.distance = 0.3;
-            blendMode(LIGHTEST);
+            blendMode(DODGE);
           break;
           case 2:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 122;
             changedParams.radius = 105;
 
             changedParams.distance = 0.27;
-            blendMode(DIFFERENCE);
+            blendMode(SCREEN);
           break;
           case 3:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 102;
             changedParams.radius = 95;
 
             changedParams.distance = 0.24;
-            blendMode(SCREEN);
+            blendMode(LIGHTEST);
           break;
           case 4:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 82;
             changedParams.radius = 85;
 
             changedParams.distance = 0.21;
-            blendMode(SCREEN);
+            blendMode(BURN);
           break;
           case 5:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 62;
             changedParams.radius = 75;
 
@@ -739,11 +803,14 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
             blendMode(MULTIPLY);
           break;
           case 6:
+            bgColor ="#2D2D2D"
+            document.body.style.background = bgColor;
+
             changedParams.pos = 42;
             changedParams.radius = 65;
 
             changedParams.distance = 0.15;
-            blendMode(DARKEST);
+            blendMode(EXCLUSION);
           break;
         }
     break;
@@ -751,47 +818,60 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
-            document.body.style.backgroundColor = rgb(255,0,0);
             changedParams.pos = 153;
             changedParams.npoints = 50;
-            changedParams.radius = 30;
+            changedParams.radius = 100;
 
+            changedParams.a = 100;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
+            blendMode(BLEND);
+
+            //rotate(possibleParameters.generalAngle);
+            //polygon(pos,pos,radius,npoints);
 
             changedParams.distance = 0.1;
           break;
           case 6:
             changedParams.pos = 53;
             changedParams.npoints = 3;
-            changedParams.radius = 30;
+            changedParams.radius = 40;
 
+            changedParams.a = 100;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
+            blendMode(BLEND);
 
             changedParams.distance = 0.1;
           break;
           case 2:
             changedParams.pos = 135;
             changedParams.npoints = 25;
-            changedParams.radius = 30;
+            changedParams.radius = 80;
 
+            changedParams.a = 100;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
+            blendMode(BLEND)
+
+            //rotate(possibleParameters.generalAngle);
+            //polygon(pos,pos,radius,npoints);
 
             changedParams.distance = 0.1;
           break; 
           case 5:
             changedParams.pos = 73;
             changedParams.npoints = 5;
-            changedParams.radius = 30;
+            changedParams.radius = 60;
 
+            changedParams.a = 100;
             changedParams.colorG = 255;
             changedParams.colorR = 255;
             changedParams.colorB = 255;
+            blendMode(BLEND)
 
             changedParams.distance = 0.1;
           break;
@@ -801,56 +881,74 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             //violet
-            changedParams.colorR = 120;
-            changedParams.colorG = 30;
-            changedParams.colorB = 110;
+            changedParams.colorR = random(100,120);
+            changedParams.colorG = random(30,50);
+            changedParams.colorB = random(100,120);
             blendMode(DODGE);
 
             changedParams.pos = 128;
           break;
           case 2:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             //blau
-            changedParams.colorG = 180;
-            changedParams.colorB = 240;
+            changedParams.colorG = random(170,190);
+            changedParams.colorB = random(230,250);
             changedParams.colorR = 0;
-            blendMode(LIGHTEST);
+            blendMode(OVERLAY);
 
             changedParams.pos = 108;
           break;
           case 3:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             //grün
-            changedParams.colorG = 220;
+            changedParams.colorG = random(210,230);
             changedParams.colorB = 0;
-            changedParams.colorR = 120;
-            blendMode(DIFFERENCE);
+            changedParams.colorR = random(120,140);
+            blendMode(LIGHTEST);
 
             changedParams.pos = 88;
           break;
           case 4:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             //gelb
             changedParams.colorB = 0;
-            changedParams.colorR = 255;
-            changedParams.colorG = 210;
-            blendMode(MULTIPLY);
+            changedParams.colorR = random(235,255);
+            changedParams.colorG = random(200,220);
+            blendMode(DARKEST);
 
             changedParams.pos = 68;
 
           break;
           case 5:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             //pink
             changedParams.colorG = 0;
-            changedParams.colorR = 239;
-            changedParams.colorB = 90;
-            blendMode(DARKEST);
+            changedParams.colorR = random(230,250);
+            changedParams.colorB = random(80,100);
+            blendMode(MULTIPLY);
 
             changedParams.pos = 48;
           break;
           case 6:
+            bgColor ="#ffffff"
+            document.body.style.background = bgColor;
+
             //rot
-            changedParams.colorG = 20;
-            changedParams.colorB = 30;
-            changedParams.colorR = 200;
+            changedParams.colorG = random(20,40);
+            changedParams.colorB = random(30,50);
+            changedParams.colorR = random(200,220);
             blendMode(BURN);
           
             changedParams.pos = 28;
@@ -861,32 +959,23 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber)
         switch(answerNumber) // 0 - 4 oder 6
         {
           case 1:
-            bgColor ="white"
-            document.body.style.background = bgColor;
-
             changedParams.pos = 144;
             blendMode(DODGE);
           break;
           case 2:
-            bgColor ="white"
-            document.body.style.background = bgColor;
 
             changedParams.pos = 124;
             blendMode(DODGE);
           break; 
           case 5:
-            bgColor ="white"
-            document.body.style.background = bgColor;
 
             changedParams.pos = 64;
-            blendMode(DARKEST);
+            blendMode(BURN);
           break;
           case 6:
-            bgColor ="white"
-            document.body.style.background = bgColor;
 
             changedParams.pos = 44;
-            blendMode(DARKEST);
+            blendMode(BURN);
           break;
         }
     break;
