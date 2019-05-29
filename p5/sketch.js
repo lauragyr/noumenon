@@ -3,6 +3,7 @@ let gegebenAntworten;
 let data;
 let surveyData = [];
 let possibleParameters;
+let drawThatShit = true;
 
 possibleParameters = {}
 function resetAllParameters()
@@ -73,7 +74,6 @@ function drawData(data) {
 
 function draw() {
   frameRate(3);
-  test = setInterval(3000);
   //video-tracking übergabe aufgabe on face-detection
   /*if (ctracker.getCurrentPosition()[0]) {
 console.log("chabis")
@@ -92,17 +92,20 @@ console.log("nix")
   if(surveyData[0] === -1) {
     resetAllParameters();
     return;
-
   }
-
-  if(surveyData[13]==1) {
-    console.log("yes");  
-    //setTimeout(5000);
-    //return;
+  
+  if(surveyData[13] != undefined) {
+    setTimeout(function() {
+      console.log("heyo laura");
+      drawThatShit = false;
+    }, 5000);
   }
 
   overwriteEachAnswer();
+  y
+  if(drawThatShit) {  
   visualize();
+}
   //console.log(possibleParameters);
 }
 
