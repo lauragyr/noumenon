@@ -39,7 +39,15 @@ body {
     width: 500px;
     height: 200px;
     border: solid 4px #C0BABC;
+
+    animation: vibrate 1.2s infinite ease-in-out;
 }
+
+@keyframes vibrate {
+    0%  {transform: scale(1); }
+   50%  {transform: scale(1.05); }
+   100% {transform: scale(1); }
+ }
 
 /* questions */
 .question {
@@ -148,4 +156,5 @@ body {
     border-color: #ffffff;
     background-color: #ffffff;
 }
+
 
