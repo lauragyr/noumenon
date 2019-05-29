@@ -102,7 +102,6 @@ console.log("nix")
   }
 
   overwriteEachAnswer();
-  y
   if(drawThatShit) {  
   visualize();
 }
