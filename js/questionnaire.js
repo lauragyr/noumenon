@@ -62,7 +62,9 @@ document.getElementById("backto").addEventListener("click", function(){
         startScreen.style.display = "block";
         questionBox15.style.display = "none";
     }, 500);
+    backto.style.border = "none";
     backto.className = "endButton activeEnd";
+    start.className = "button";
 })
 
 document.getElementById("drucken").addEventListener("click", function(){
@@ -72,5 +74,6 @@ document.getElementById("drucken").addEventListener("click", function(){
         //startScreen.style.display = "block";
         //questionBox15.style.display = "none";
     }, 500);
+    drucken.style.border = "none";
     drucken.className = "printButton activeEnd";
 })
