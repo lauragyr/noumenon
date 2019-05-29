@@ -153,8 +153,10 @@ body {
 }
 
 .activeImage, .activeCircle, .activeAnswer, .activeButton, .activeEnd {
-    border-color: #ffffff;
+    border:solid 4px #ffffff;
     background-color: #ffffff;
 }
 
-
+#lastBox {
+    display: flex;
+}
