@@ -35,11 +35,17 @@ questionSwitch.forEach(function (questionBox, index, arr)
     });
 });
 
-function end() {
+function end()
+{
     socket.emit('answers', -1);
     //socket.emit('answers', 0); //clear server
     location.reload()
-     } 
+} 
+
+document.addEventListener("DOMContentLoaded", function ()
+{
+    socket.emit('answers', 0);
+});
 
      /*
 function drucken(){
