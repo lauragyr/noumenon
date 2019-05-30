@@ -1,4 +1,5 @@
-* { 
+* 
+{ 
     box-sizing: border-box;
     margin: 150px, 0px; 
 }
@@ -6,4 +7,5 @@
 body
 {
     background-color: #ffffff;
+    overflow: hidden; 
 }

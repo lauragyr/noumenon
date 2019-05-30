@@ -42,15 +42,11 @@ function end()
     location.reload()
 } 
 
+//reload all content
 document.addEventListener("DOMContentLoaded", function ()
 {
     socket.emit('answers', 0);
 });
-
-     /*
-function drucken(){
-    socket.emit('print');
-}*/
 
 document.getElementById("start").addEventListener("click", function(){
     setTimeout(function() {
@@ -62,7 +58,6 @@ document.getElementById("start").addEventListener("click", function(){
 })
 
 document.getElementById("backto").addEventListener("click", function(){
-    //location.reload()
     setTimeout(function() {
         socket.emit('answers', -1);
         startScreen.style.display = "block";
@@ -74,12 +69,15 @@ document.getElementById("backto").addEventListener("click", function(){
 })
 
 document.getElementById("drucken").addEventListener("click", function(){
-    //location.reload()
     setTimeout(function() {
         socket.emit('print');
-        //startScreen.style.display = "block";
-        //questionBox15.style.display = "none";
+        //startScreen.style.display = "none";
+        //questionBox16.style.display = "block";
     }, 500);
     drucken.style.border = "none";
     drucken.className = "printButton activeEnd";
 })
+
+function drucken(){
+    socket.emit('print');
+}
