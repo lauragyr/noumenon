@@ -70,14 +70,10 @@ document.getElementById("backto").addEventListener("click", function(){
 
 document.getElementById("drucken").addEventListener("click", function(){
     setTimeout(function() {
-        socket.emit('print');
+        socket.emit('answers', -2);
         //startScreen.style.display = "none";
         //questionBox16.style.display = "block";
     }, 500);
     drucken.style.border = "none";
     drucken.className = "printButton activeEnd";
 })
-
-function drucken(){
-    socket.emit('print');
-}
