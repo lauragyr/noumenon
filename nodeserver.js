@@ -91,8 +91,8 @@ app.post(
     }, err => {
       if (err) return handleError(err, res)
       console.log("file written", targetPath)
-console.log('lpr '+targetPath+' -o fit-to-page')
-      exstec('lpr '+targetPath+' -o fit-to-page' , (err, stdout, stderr) => {
+      console.log('lpr ' + targetPath + ' -o fit-to-page')
+      exstec('lpr ' + targetPath + ' -o fit-to-page', (err, stdout, stderr) => {
         if (err) {
           console.log("ups", err)
           return;
