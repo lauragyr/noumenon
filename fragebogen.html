@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  <!--<div class="restartButton">restart</div>-->
   <div id="container">
     <div id="homescreen">
       <div id="start" class="button">Start</div>
@@ -17,7 +18,7 @@
 
     <div id="questionContainer"></div>
 
-  <div id="questionBox1" style="display: none;">
+    <div id="questionBox1" style="display: none;">
       <div class="question" id="Q1">
         <h3>Wie reagierst du auf ein abweisendes Verhalten von jemandem, der dir wichtig ist?</h3>
       </div>
@@ -408,11 +409,14 @@
 
     <div id="questionBox15" style="display:none;">
       <div id="lastBox">
-          <div id="backto" class="endButton">Restart</div>
-          <div id="drucken" class="printButton">Drucken</div>
+        <div id="backto" class="endButton">Restart</div>
+        <div id="drucken" class="printButton">Drucken</div>
       </div>
     </div>
-  </div>
+    <div id="printBox" style="display:none;">
+      Die Farbe wird auf das Papier übertragen. Einen Moment.
+    </div>
+
   </div>
 
   <script language="javascript" src="libraries/socket.io.js"></script>
