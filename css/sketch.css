@@ -2,6 +2,7 @@
 { 
     box-sizing: border-box;
     margin: 150px, 0px; 
+    font-family: 'Silka';
 }
 
 body
@@ -9,3 +10,14 @@ body
     background-color: #ffffff;
     overflow: hidden; 
 }
+
+#detectedBox, #notDetectedBox {
+    color: #C0BABC;
+    font-size: 40pt;
+}
+
+.rotation {
+    animation:spin 40s ease-in-out infinite;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
