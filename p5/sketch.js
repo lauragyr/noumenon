@@ -21,7 +21,7 @@ function resetAllParameters() {
     distance: 0.1,
     bgColor: "#ffffff",
     generalAngle: 1,
-    alpha: 50,
+    alpha: 70,
     alphaStep: 2
   }
 
@@ -38,17 +38,17 @@ let videoInput
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   noStroke();
-  /*
-    videoInput = createCapture(VIDEO);
-    videoInput.size(800, 600);
-    videoInput.position(0, 0);
-    videoInput.hide();
+/*
+  videoInput = createCapture(VIDEO);
+  videoInput.size(800, 600);
+  videoInput.position(0, 0);
+  videoInput.hide();
 
-    // setup tracker
-    ctracker = new clm.tracker();
-    ctracker.init();
-    ctracker.start(videoInput.elt)
-  */
+  // setup tracker
+  ctracker = new clm.tracker();
+  ctracker.init();
+  ctracker.start(videoInput.elt)
+*/
 }
 
 // which one is the last object
@@ -81,26 +81,38 @@ function draw() {
   frameRate(3);
   //video-tracking übergabe aufgabe on face-detection
   /*if (ctracker.getCurrentPosition()[0]) {
-console.log("chabis")
+    console.log("detected");
+    detectedBox.style.display="block";
+    notDetectedBox.style.display="none";
   } else {
-console.log("nix")
+    console.log("nix");
+    notDetectedBox.style.display="block";
+    detectedBox.style.display="none";
   }*/
+
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
 
   //clearing canvas after generating visual
   if (surveyData[0] === 0) {
     window.printed = false
+    defaultCanvas0.classList.remove("rotation");
     resetAllParameters();
     return clear();
   }
 
   if (surveyData[0] === -1) {
     window.printed = false
+    document.getElementById('defaultCanvas0');
+    defaultCanvas0.classList.add("rotation");
+    console.log("jetzt muss was stehen")
+
     resetAllParameters();
     return;
   }
 
+
+  //writing png and printing functions.
   if (surveyData[0] === -2) {
     if (window.printed) return
     window.printed = true
@@ -115,6 +127,7 @@ console.log("nix")
     return;
   }
 
+  //stop drawing after last question with 5 sec. interval
   if (surveyData[13] != undefined) {
     setTimeout(function () {
       lastQuestionAnswered = true;
@@ -264,8 +277,6 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       }
       break;
     case 2:
-      changedParams.alphaStep = 4;
-
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
@@ -338,7 +349,6 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       break;
     case 3:
       changedParams.bgColor = "#000000";
-      changedParams.alphaStep = 0.5;
 
       switch (answerNumber) // 0 - 4 oder 6
       {
@@ -375,6 +385,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       }
       break;
     case 4:
+
       switch (answerNumber) // 1 - 4 oder 6
       {
         case 5:
@@ -396,7 +407,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(SCREEN)
           break;
         case 1:
-          changedParams.pos = 1
+          changedParams.pos = 100;
           changedParams.radius = 140;
 
           blendMode(DODGE)
@@ -490,6 +501,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       }
       break;
     case 7:
+
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
@@ -568,8 +580,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
-
-          changedParams.pos = 1
+          changedParams.pos = 140
           changedParams.radius = 110;
 
           //violet
@@ -578,7 +589,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorB = 110;
           break;
         case 2:
-          changedParams.pos = 1
+          changedParams.pos = 132
           changedParams.radius = 90;
 
           //blau
@@ -587,7 +598,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorB = 250;
           break;
         case 3:
-          changedParams.pos = 12
+          changedParams.pos = 124
           changedParams.radius = 70;
 
           //grün
@@ -596,7 +607,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorB = 0;
           break;
         case 4:
-          changedParams.pos = 11
+          changedParams.pos = 116
           changedParams.radius = 50;
 
           //gelb
@@ -605,7 +616,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorB = 0;
           break;
         case 5:
-          changedParams.pos = 10
+          changedParams.pos = 108
           changedParams.radius = 30;
 
           //pink
@@ -614,7 +625,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorB = 100;
           break;
         case 6:
-          changedParams.pos = 98
+          changedParams.pos = 100;
           changedParams.radius = 10;
 
           //rot
@@ -775,7 +786,6 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorG = random(30, 50);
           changedParams.colorB = random(100, 120);
           blendMode(DODGE);
-
           changedParams.pos = 128;
           break;
         case 2:
