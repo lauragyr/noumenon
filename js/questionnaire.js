@@ -41,6 +41,7 @@ questionSwitch.forEach(function (questionBox, index, arr) {
   });
 });
 
+// to reload all css-changes as well – reloads the whole browser
 function end() {
   socket.emit('answers', -1);
   location.reload()
@@ -64,8 +65,9 @@ document.getElementById("start").addEventListener("click", function () {
 
 //restart-button on last page
 document.getElementById("backto").addEventListener("click", function () {
-  setTimeout(function end() {
-    startScreen.style.display = "block";
+  setTimeout(function () {
+    socket.emit('answers', -1);
+    homescreen.style.display = "block";
     questionBox15.style.display = "none";
   }, 500);
   backto.style.border = "none";
