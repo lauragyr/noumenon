@@ -1,20 +1,3 @@
-// socket stuff
-let ip = "10.155.113.231"; // laura's ip-adresse wlan
-//let ip = "127.0.0.1";
-
-
-var socket = io(ip + ':3000'); //IP-Adresse WLAN
-socket.on('connect', function () {
-  console.log("connected");
-});
-socket.on('event', function (data) {
-  console.log("event triggered");
-});
-socket.on('disconnect', function () {
-  console.log("disconnected");
-});
-
-
 let a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
 
 // ANSWER 1

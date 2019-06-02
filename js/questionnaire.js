@@ -1,6 +1,17 @@
-//start-button
-let startButton = document.getElementById("start");
-let startScreen = document.getElementById("homescreen");
+// socket stuff
+let ip = "10.155.112.134"; // laura's ip-adresse wlan
+
+var socket = io(ip + ':3000'); //IP-Adresse WLAN
+socket.on('connect', function () {
+  console.log("connected");
+});
+socket.on('event', function (data) {
+  console.log("event triggered");
+});
+socket.on('disconnect', function () {
+  console.log("disconnected");
+});
+
 
 //  questionSwitch
 let questionSwitch = [];
@@ -36,11 +47,9 @@ function end() {
 }
 
 //reload all content
-//function restart() {
 document.addEventListener("DOMContentLoaded", function () {
   socket.emit('answers', 0);
 });
-//}
 
 
 //start-button on homescreen
@@ -48,7 +57,7 @@ document.getElementById("start").addEventListener("click", function () {
   setTimeout(function () {
     socket.emit('answers', 0);
     questionBox1.style.display = "block";
-    startScreen.style.display = "none";
+    homescreen.style.display = "none";
   }, 500);
   start.className = "button activeButton";
 })
@@ -64,7 +73,7 @@ document.getElementById("backto").addEventListener("click", function () {
   start.className = "button";
 })
 
-//print-button
+//print-button switch to screen active print
 document.getElementById("drucken").addEventListener("click", function () {
   setTimeout(function () {
     socket.emit('answers', -2);
