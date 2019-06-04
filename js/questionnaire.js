@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.112.134"; // laura's ip-adresse wlan
+let ip = "10.155.115.0"; // laura's ip-adresse wlan
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -39,13 +39,27 @@ questionSwitch.forEach(function (questionBox, index, arr) {
       });
     }
   });
+  
 });
+
+//remove resetButton if questionBox15 is displayed
+if(questionSwitch[14] = true) {
+  resetButton.style.display = "none";
+  console.log("contains");
+}
 
 // to reload all css-changes as well – reloads the whole browser
 function end() {
   socket.emit('answers', -1);
   location.reload()
 }
+
+//function for reset-button
+function reset() {
+  socket.emit('answers', -1);
+  location.reload()
+}
+
 
 //reload all content
 document.addEventListener("DOMContentLoaded", function () {
@@ -59,6 +73,7 @@ document.getElementById("start").addEventListener("click", function () {
     socket.emit('answers', 0);
     questionBox1.style.display = "block";
     homescreen.style.display = "none";
+    resetButton.style.display = "flex";
   }, 500);
   start.className = "button activeButton";
 })
@@ -81,6 +96,8 @@ document.getElementById("drucken").addEventListener("click", function () {
     socket.emit('answers', -2);
     questionBox15.style.display = "none";
     printBox.style.display = "block";
+    resetButton.style.display = "none";
+
   }, 500);
   drucken.style.border = "none";
   drucken.className = "printButton activeEnd";
