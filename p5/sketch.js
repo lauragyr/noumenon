@@ -48,8 +48,7 @@ function setup() {
     ctracker = new clm.tracker();
     ctracker.init();
     ctracker.start(videoInput.elt)
-  */
-}
+}*/
 
 // which one is the last object
 function drawData(data) {
