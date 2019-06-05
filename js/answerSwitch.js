@@ -466,7 +466,7 @@ function setQ8Value(value) {
 
     case 2:
       a8 = 1;
-      q8a2.className = "choiceAnswer row1 activeAnswer";
+      q8a2.className = "choiceAnswer row2 activeAnswer";
       break;
 
     case 3:
