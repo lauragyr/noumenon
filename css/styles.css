@@ -1,19 +1,27 @@
 @font-face {
-  font-family: "Silka";
-  src: url('../fonts/silka-regular-webfont.woff');
-  src: url('../fonts/silka-regular-webfont.woff2');
+  font-family: "Silka Light";
+  src: url('../fonts/silka-light-webfont.woff');
+  src: url('../fonts/silka-light-webfont.woff2');
+}
+
+@font-face {
+  font-family: "Silka Medium";
+  src: url('../fonts/silka-medium-webfont.woff');
+  src: url('../fonts/silka-medium-webfont.woff2');
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Silka';
+  /*font-family: 'Silka Light';*/
 }
 
 #resetButton {
   color: #C0BABC;
-  font-size: 15pt;
+  font-size: 12pt;
   padding: 30px;
   justify-content: flex-end;
+  text-transform: uppercase;
+  font-family: "Silka Medium";
 }
 
 body {
@@ -28,19 +36,19 @@ body {
   height: 600px;
 }
 
-#homescreen,
-#questionBox15 {
-  padding-top: 80px;
+#homescreen {
+  padding-top: 150px;
 }
 
 /* start */
 #start {
   color: #C0BABC;
   text-align: center;
-  padding-top: 45px;
+  padding-top: 50px;
   vertical-align: center;
   margin: 0 auto;
   font-size: 60pt;
+  font-family: 'Silka Medium';
 }
 
 .button {
@@ -71,6 +79,7 @@ body {
   clear: both;
   color: #C0BABC;
   width: 1039px;
+  font-family: "Silka Medium";
 }
 
 /* choices */
@@ -154,47 +163,51 @@ body {
 .activeAnswer,
 .activeButton,
 .activeEnd {
-  border-color: #ffffff;
-  background-color: #ffffff;
+  border-color: #ffffff!important;
+  background-color: #ffffff!important;
 }
 
 /*  endscreen  */
-#questionBox15 {
-  text-align: center;
-  width: 1000px;
-  margin: 0 auto;
-}
-
 #backto,
 #drucken {
   color: #C0BABC;
   border: solid 4px #C0BABC;
   text-align: center;
-  font-size: 30pt;
+  font-size: 25pt;
   width: 500px;
   height: 200px;
+  text-transform: uppercase;
+  font-family: "Silka Medium";
 }
 
-#questionBox15 :nth-child(2) {
-  margin-left: 30px;
-  padding-top: 50px;
+#drucken:hover {
+  border-color: #ffffff;
+  background-color: #ffffff;
 }
 
-#questionBox15 :nth-child(1) {
+#lastBox :nth-child(2) {
   margin-left: 30px;
-  padding-top: 72px;
+  padding-top: 55px;
+}
+
+#lastBox :nth-child(1) {
+  padding-top: 75px;
 }
 
 #questionBox15 h3 {
   color: #C0BABC;
-  font-size: 25pt;
+  font-size: 30pt;
 }
 
 #lastBox {
   display: flex;
+  padding-top: 50px;
 }
 
 #printBox {
   color: #C0BABC;
-  font-size: 50pt;
+  font-size: 25pt;
+  margin-top: 300px;
+  text-align: left;
+  font-family: "Silka Medium";
 }
