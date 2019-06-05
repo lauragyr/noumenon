@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.115.0"; // laura's ip-adresse wlan
+let ip = "172.20.10.2"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -34,6 +34,13 @@ questionSwitch.forEach(function (questionBox, index, arr) {
         setTimeout(function () {
           arr[index].style.display = "none";
           arr[index + 1].style.display = "block";
+
+          //remove resetButton if questionBox15 is displayed
+if(questionSwitch[14].style.display == 'block') {
+  resetButton.style.display = "none";
+  console.log("contains");
+}
+
         }, 500);
 
       });
@@ -41,24 +48,6 @@ questionSwitch.forEach(function (questionBox, index, arr) {
   });
   
 });
-
-//remove resetButton if questionBox15 is displayed
-if(questionSwitch[14] = true) {
-  resetButton.style.display = "none";
-  console.log("contains");
-}
-
-// to reload all css-changes as well – reloads the whole browser
-function end() {
-  socket.emit('answers', -1);
-  location.reload()
-}
-
-//function for reset-button
-function reset() {
-  socket.emit('answers', -1);
-  location.reload()
-}
 
 
 //reload all content
@@ -84,8 +73,22 @@ document.getElementById("backto").addEventListener("click", function () {
     socket.emit('answers', -1);
     homescreen.style.display = "block";
     questionBox15.style.display = "none";
+
+
+  var active = [
+    'activeImage', 
+    'activeCircle',
+    'activeAnswer',
+    'activeButton',
+    'activeEnd']
+
+  for(let selector of active) {
+      let elements = document.getElementsByClassName(selector)
+      for(let element of elements) {
+        element.classList.remove(selector)
+      }
+  }
   }, 500);
-  backto.style.border = "none";
   backto.className = "endButton activeEnd";
   start.className = "button";
 })
@@ -97,8 +100,12 @@ document.getElementById("drucken").addEventListener("click", function () {
     questionBox15.style.display = "none";
     printBox.style.display = "block";
     resetButton.style.display = "none";
-
   }, 500);
   drucken.style.border = "none";
   drucken.className = "printButton activeEnd";
 })
+
+const timer = setTimeout (function {
+
+})
+
