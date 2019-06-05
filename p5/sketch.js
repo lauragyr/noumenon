@@ -34,7 +34,6 @@ let ctracker;
 let videoInput
 
 //--------------//
-
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   noStroke();
@@ -48,14 +47,14 @@ function setup() {
     ctracker = new clm.tracker();
     ctracker.init();
     ctracker.start(videoInput.elt)
-}*/
+    */
+}
 
 // which one is the last object
 function drawData(data) {
   if (gegebenAntworten != Object.keys(data).length) {
     gegebenAntworten = Object.keys(data).length;
     possibleParameters.alpha = 50;
-    //let lastAnswer = data[Object.keys(data)[gegebenAntworten - 1]];
   }
 
   surveyData = [
@@ -91,7 +90,7 @@ function draw() {
 
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
-
+  
   //clearing canvas after generating visual
   if (surveyData[0] === 0) {
     window.printed = false
@@ -113,12 +112,13 @@ function draw() {
 
   //writing png and printing functions.
   if (surveyData[0] === -2) {
+
     if (window.printed) return
     window.printed = true
 
     var dataURL = document.querySelector('.p5Canvas').toDataURL("image/png");
     document.getElementById('image').value = dataURL;
-    var fd = new FormData(document.forms["form1"]);
+    //var fd = new FormData(document.forms["form1"]);
 
     document.forms["form1"].submit()
 

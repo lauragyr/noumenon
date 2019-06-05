@@ -1,7 +1,7 @@
 const server = require('http').createServer();
 const io = require('socket.io')(server);
 const path = require("path");
-const fs = require('fs');
+const fs = require('fs').promises;
 const http = require("http");
 const {
   exec
@@ -29,12 +29,15 @@ io.on('connection', client => {
       "antwort14": a14,
     };
 
-    fs.writeFile("data.json", JSON.stringify(data2file), function (err) {
-      if (err) {
-        return console.log(err);
-      }
-      console.log("writing to file: " + JSON.stringify(data2file));
-    });
+    fs.writeFile("data.json", JSON.stringify(data2file))
+      .then(file => {
+        console.log("writing to file: " + JSON.stringify(data2file));
+      })
+      .catch(err => {
+        console.error(err)
+      })
+      
+  
   });
 
 });
@@ -77,7 +80,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-
 app.post(
   "/upload",
   (req, res) => {
@@ -85,24 +87,31 @@ app.post(
     const targetPath = path.join(__dirname, "./uploads/" + (new Date().toISOString()) + ".png");
     var base64Data = req.body.image.split(';base64,').pop();
 
-    fs.writeFile(targetPath, base64Data, {
-      encoding: 'base64'
-    }, err => {
-      if (err) return handleError(err, res)
-      console.log("file written", targetPath)
-      console.log('lpr ' + targetPath + ' -o fit-to-page')
-      exstec('lpr ' + targetPath + ' -o fit-to-page', (err, stdout, stderr) => {
-        if (err) {
-          console.log("ups", err)
-          return;
-        }
-        console.log("printing")
-      });
+    fs.writeFile(targetPath, base64Data, { encoding: 'base64' })
+      .then(file => {
+        console.log("file written", targetPath)
 
-      res
-        .status(200)
-        .end();
-    });
+        res
+          .status(200)
+          .end();
 
+        return execShellCommand('lpr ' + targetPath + ' -o fit-to-page')
+      })
+      .then(status => {
+        console.log("printing", status)
+  
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 );
+
+function execShellCommand(cmd) {
+  return new Promise((resolve, reject) => {
+   exec(cmd, (error, stdout, stderr) => {
+    if (error) reject(stderr)
+    resolve(stdout);
+   });
+  });
+ }
