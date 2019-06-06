@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "172.20.10.2"; // laura's ip-adresse
+let ip = "10.155.113.207"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -36,19 +36,22 @@ questionSwitch.forEach(function (questionBox, index, arr) {
           arr[index + 1].style.display = "block";
 
           //remove resetButton if questionBox15 is displayed
-if(questionSwitch[14].style.display == 'block') {
-  resetButton.style.display = "none";
-  console.log("contains");
-}
+          if (questionSwitch[14].style.display == 'block') {
+            resetButton.style.display = "none";
+          }
 
         }, 500);
-
       });
     }
   });
-  
+
 });
 
+//function for reset-button – wird aufgerufen in HTML!!
+function reset() {
+  socket.emit('answers', -1);
+  location.reload()
+}
 
 //reload all content
 document.addEventListener("DOMContentLoaded", function () {
@@ -59,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //start-button on homescreen
 document.getElementById("start").addEventListener("click", function () {
   setTimeout(function () {
-    socket.emit('answers', 0);
+    socket.emit('answers', -3);
     questionBox1.style.display = "block";
     homescreen.style.display = "none";
     resetButton.style.display = "flex";
@@ -67,27 +70,31 @@ document.getElementById("start").addEventListener("click", function () {
   start.className = "button activeButton";
 })
 
+//remove all added classes from elements for active
+function resetCSS() {
+  var active = [
+    'activeImage',
+    'activeCircle',
+    'activeAnswer',
+    'activeButton',
+    'activeEnd'
+  ]
+
+  for (let selector of active) {
+    let elements = document.getElementsByClassName(selector)
+    for (let element of elements) {
+      element.classList.remove(selector)
+    }
+  }
+}
+
 //restart-button on last page
 document.getElementById("backto").addEventListener("click", function () {
   setTimeout(function () {
     socket.emit('answers', -1);
     homescreen.style.display = "block";
     questionBox15.style.display = "none";
-
-
-  var active = [
-    'activeImage', 
-    'activeCircle',
-    'activeAnswer',
-    'activeButton',
-    'activeEnd']
-
-  for(let selector of active) {
-      let elements = document.getElementsByClassName(selector)
-      for(let element of elements) {
-        element.classList.remove(selector)
-      }
-  }
+    resetCSS();
   }, 500);
   backto.className = "endButton activeEnd";
   start.className = "button";
@@ -100,12 +107,18 @@ document.getElementById("drucken").addEventListener("click", function () {
     questionBox15.style.display = "none";
     printBox.style.display = "block";
     resetButton.style.display = "none";
+    resetCSS();
   }, 500);
   drucken.style.border = "none";
   drucken.className = "printButton activeEnd";
+
+  //go back to homescreen after 30 seconds
+  setTimeout(backToStart, 3 * 1000);
 })
 
-const timer = setTimeout (function {
-
-})
-
+//back to start from print-window
+function backToStart() {
+  socket.emit('answers', -1);
+  printBox.style.display = "none";
+  homescreen.style.display = "block";
+}
