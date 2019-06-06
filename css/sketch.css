@@ -1,23 +1,38 @@
-* 
-{ 
-    box-sizing: border-box;
-    margin: 150px, 0px; 
-    font-family: 'Silka';
+@font-face {
+  font-family: "Silka Light";
+  src: url('../fonts/silka-light-webfont.woff');
+  src: url('../fonts/silka-light-webfont.woff2');
 }
 
-body
-{
-    background-color: #ffffff;
-    overflow: hidden; 
+* {
+  box-sizing: border-box;
+  margin: 150px, 0px;
+  font-family: 'Silka Light';
 }
 
-#detectedBox, #notDetectedBox {
-    color: #C0BABC;
-    font-size: 40pt;
+body {
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+#detectedBox,
+#notDetectedBox {
+  width: 100%;
+  color: #C0BABC;
+  padding-top: 200px;
+  margin: 0 auto;
+  font-size: 30pt;
+  text-align: center;
+  position: absolute;
 }
 
 .rotation {
-    animation:spin 40s ease-in-out infinite;
+  animation: spin 40s ease-in-out infinite;
 }
 
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

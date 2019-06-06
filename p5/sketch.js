@@ -21,7 +21,7 @@ function resetAllParameters() {
     distance: 0.1,
     bgColor: "#ffffff",
     generalAngle: 1,
-    alpha: 100,
+    alpha: 120,
     alphaStep: 1.5
   }
 
@@ -37,17 +37,16 @@ let videoInput
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   noStroke();
-  /*
-    videoInput = createCapture(VIDEO);
+  
+    /*videoInput = createCapture(VIDEO);
     videoInput.size(800, 600);
     videoInput.position(0, 0);
     videoInput.hide();
 
     // setup tracker
     ctracker = new clm.tracker();
-    ctracker.init();
-    ctracker.start(videoInput.elt)
-    */
+    ctracker.init();*/
+    
 }
 
 // which one is the last object
@@ -78,6 +77,7 @@ function drawData(data) {
 function draw() {
   frameRate(3);
   //video-tracking übergabe aufgabe on face-detection
+
   /*if (ctracker.getCurrentPosition()[0]) {
     console.log("detected");
     detectedBox.style.display="block";
@@ -88,10 +88,17 @@ function draw() {
     detectedBox.style.display="none";
   }*/
 
+  if (surveyData[0] == -3) {
+    //stop displaying face-detection-stuff
+    /*notDetectedBox.style.display="none";
+    detectedBox.style.display="none";*/
+    //tracker = false;
+}
+
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
-  
-  //clearing canvas after generating visual
+
+  //clearing canvas after generating visual – click on start button
   if (surveyData[0] === 0) {
     window.printed = false
     defaultCanvas0.classList.remove("rotation");
@@ -99,15 +106,18 @@ function draw() {
     return clear();
   }
 
+ //when qustionnaire is done and goes back to start
   if (surveyData[0] === -1) {
     window.printed = false
     document.getElementById('defaultCanvas0');
     defaultCanvas0.classList.add("rotation");
-    console.log("jetzt muss was stehen")
-
+    //console.log("jetzt muss was stehen")
     resetAllParameters();
     return;
   }
+
+
+  
 
 
   //writing png and printing functions.
@@ -118,7 +128,6 @@ function draw() {
 
     var dataURL = document.querySelector('.p5Canvas').toDataURL("image/png");
     document.getElementById('image').value = dataURL;
-    //var fd = new FormData(document.forms["form1"]);
 
     document.forms["form1"].submit()
 
@@ -242,6 +251,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.pos = 140;
           changedParams.radius = 120;
           changedParams.npoints = 50;
+          changedParams.alphaStep = 3;
 
           //rot
           changedParams.colorR = random(200, 220);
@@ -262,6 +272,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.pos = 120;
           changedParams.radius = 100;
           changedParams.npoints = 25;
+          changedParams.alphaStep = 3;
 
           //gelb
           changedParams.colorB = 0;
@@ -358,7 +369,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 2:
           changedParams.pos = 115;
           changedParams.distance = 0.27;
-          blendMode(DIFFERNENCE)
+          blendMode(DIFFERENCE)
           break;
         case 3:
           changedParams.pos = 95;
