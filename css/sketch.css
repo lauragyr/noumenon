@@ -13,6 +13,7 @@
 body {
   background-color: #ffffff;
   overflow: hidden;
+  padding-top: 0px;
 }
 
 #detectedBox,
@@ -35,4 +36,13 @@ body {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+#test {
+  font-size: 60pt;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  margin: 0 auto;
+  padding-top: 100px;
 }
