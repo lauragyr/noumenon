@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.113.207"; // laura's ip-adresse
+let ip = "172.20.10.2."; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -62,10 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
 //start-button on homescreen
 document.getElementById("start").addEventListener("click", function () {
   setTimeout(function () {
-    socket.emit('answers', -3);
+    socket.emit('answers', 0);
     questionBox1.style.display = "block";
     homescreen.style.display = "none";
     resetButton.style.display = "flex";
+    resetCSS();
   }, 500);
   start.className = "button activeButton";
 })
@@ -97,7 +98,6 @@ document.getElementById("backto").addEventListener("click", function () {
     resetCSS();
   }, 500);
   backto.className = "endButton activeEnd";
-  start.className = "button";
 })
 
 //print-button switch to screen active print
@@ -109,11 +109,10 @@ document.getElementById("drucken").addEventListener("click", function () {
     resetButton.style.display = "none";
     resetCSS();
   }, 500);
-  drucken.style.border = "none";
   drucken.className = "printButton activeEnd";
 
   //go back to homescreen after 30 seconds
-  setTimeout(backToStart, 3 * 1000);
+  setTimeout(backToStart, 10 * 1000);
 })
 
 //back to start from print-window
