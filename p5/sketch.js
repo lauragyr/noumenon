@@ -6,6 +6,11 @@ let surveyData = [];
 //parameter-stuff
 let possibleParameters;
 let lastQuestionAnswered = false;
+window.printed = false;
+
+//video-stuff
+let ctracker;
+let videoInput
 
 possibleParameters = {}
 
@@ -29,24 +34,28 @@ function resetAllParameters() {
 }
 resetAllParameters();
 
-//video-stuff
-let ctracker;
-let videoInput
-
 //--------------//
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   noStroke();
-  
-    /*videoInput = createCapture(VIDEO);
-    videoInput.size(800, 600);
-    videoInput.position(0, 0);
-    videoInput.hide();
 
-    // setup tracker
-    ctracker = new clm.tracker();
-    ctracker.init();*/
-    
+  //numbers for visuals on startscreen
+  var today = new Date();
+  let notDetectedBox = document.getElementById("notDetectedBox");
+  let options = { year: "2-digit", month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'}
+  let name = "Das ist die Momentaufnahme<br>Noumenon " + today.toLocaleString("de-DE", options);
+  nameNew = name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+  notDetectedBox.innerHTML = nameNew;
+
+  //video-stuff
+  videoInput = createCapture(VIDEO);
+  videoInput.size(800, 600);
+  videoInput.position(0, 0);
+  videoInput.hide();
+
+  // setup tracker
+  ctracker = new clm.tracker();
+  ctracker.init();
 }
 
 // which one is the last object
@@ -76,24 +85,17 @@ function drawData(data) {
 
 function draw() {
   frameRate(3);
-  //video-tracking übergabe aufgabe on face-detection
 
+  //video-tracking übergabe aufgabe on face-detection
   /*if (ctracker.getCurrentPosition()[0]) {
     console.log("detected");
-    detectedBox.style.display="block";
-    notDetectedBox.style.display="none";
+    detectedBox.style.display = "block";
+    notDetectedBox.style.display = "none";
   } else {
-    console.log("nix");
-    notDetectedBox.style.display="block";
-    detectedBox.style.display="none";
+    console.log("not detected");
+    notDetectedBox.style.display = "block";
+    detectedBox.style.display = "none";
   }*/
-
-  if (surveyData[0] == -3) {
-    //stop displaying face-detection-stuff
-    /*notDetectedBox.style.display="none";
-    detectedBox.style.display="none";*/
-    //tracker = false;
-}
 
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
@@ -106,29 +108,24 @@ function draw() {
     return clear();
   }
 
- //when qustionnaire is done and goes back to start
+  //when qustionnaire is done and goes back to start
   if (surveyData[0] === -1) {
     window.printed = false
     document.getElementById('defaultCanvas0');
     defaultCanvas0.classList.add("rotation");
-    //console.log("jetzt muss was stehen")
     resetAllParameters();
+
+    //test.style.display = "none";
     return;
   }
 
-
-  
-
-
   //writing png and printing functions.
   if (surveyData[0] === -2) {
-
     if (window.printed) return
     window.printed = true
 
     var dataURL = document.querySelector('.p5Canvas').toDataURL("image/png");
     document.getElementById('image').value = dataURL;
-
     document.forms["form1"].submit()
 
     resetAllParameters();
@@ -140,12 +137,13 @@ function draw() {
     setTimeout(function () {
       lastQuestionAnswered = true;
     }, 5000);
+    /*test = document.getElementById("test");
+    test.style.display = "block";
+    test.innerHTML = "hallo";*/
   }
 
   overwriteEachAnswer();
   visualize();
-
-  //console.log(possibleParameters);
 }
 
 //create polygon
@@ -275,19 +273,19 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.alphaStep = 3;
 
           //gelb
-          changedParams.colorB = 0;
           changedParams.colorR = random(235, 255);
           changedParams.colorG = random(220, 240);
-        break;
+          changedParams.colorB = 0;
+          break;
         case 5:
           changedParams.pos = 60;
           changedParams.radius = 60;
           changedParams.npoints = 6;
 
           //grün
+          changedParams.colorR = random(100, 120);
           changedParams.colorG = random(230, 250);
           changedParams.colorB = 0;
-          changedParams.colorR = random(100, 120);
           break;
       }
       break;
@@ -300,9 +298,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(DODGE);
 
           //rot
-          changedParams.colorG = random(20.40);
+          changedParams.colorR = 255;
+          changedParams.colorG = 0;
           changedParams.colorB = random(20, 40);
-          changedParams.colorR = random(235, 255);
           break;
         case 2:
           changedParams.pos = 130;
@@ -310,9 +308,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(DODGE);
 
           //pink
+          changedParams.colorR = random(180, 200);
           changedParams.colorG = 0;
-          changedParams.colorR = random(230, 250);
-          changedParams.colorB = random(100, 120);
+          changedParams.colorB = random(80, 100);
           break;
         case 3:
           changedParams.pos = 110;
@@ -320,9 +318,10 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(OVERLAY);
 
           //gelb
-          changedParams.colorB = 0;
-          changedParams.colorR = random(235, 255);
+          changedParams.colorR = 255;
           changedParams.colorG = random(220, 240);
+          changedParams.colorB = 0;
+
           break;
         case 4:
           changedParams.pos = 90;
@@ -330,9 +329,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(EXCLUSION);
 
           //grün
-          changedParams.colorG = random(230, 250);
+          changedParams.colorR = random(140, 160);
+          changedParams.colorG = random(235, 255);
           changedParams.colorB = 0;
-          changedParams.colorR = random(100, 120);
           break;
         case 5:
           changedParams.pos = 70;
@@ -340,9 +339,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(MULTIPLY);
 
           //violet
-          changedParams.colorR = random(120, 140);
-          changedParams.colorG = random(30, 50);
-          changedParams.colorB = random(110, 130);
+          changedParams.colorR = random(170, 190);
+          changedParams.colorG = 0;
+          changedParams.colorB = random(150, 170);
           break;
         case 6:
           changedParams.pos = 50;
@@ -350,9 +349,9 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(MULTIPLY);
 
           //blau
-          changedParams.colorG = random(140, 160);
-          changedParams.colorB = random(230, 250);
-          changedParams.colorR = 0;
+          changedParams.colorR = random(60, 80);
+          changedParams.colorG = random(210, 230);
+          changedParams.colorB = 255;
           break;
       }
       break;
@@ -502,7 +501,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       }
       break;
     case 7:
-        changedParams.alphaStep = 1;
+      changedParams.alphaStep = 1;
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
@@ -773,7 +772,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           //pink
           changedParams.colorG = 0;
           changedParams.colorR = random(230, 250);
-          changedParams.colorB = random(80, 100); 
+          changedParams.colorB = random(80, 100);
           break;
         case 3:
           changedParams.pos = 88;
