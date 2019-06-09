@@ -20,7 +20,7 @@ body {
 }
 
 #resetButton {
-  color: #C0BABC;
+  color: #A09F9F;
   font-size: 12pt;
   padding: 30px;
   justify-content: flex-end;
@@ -41,7 +41,7 @@ body {
 
 /* start */
 #start {
-  color: #C0BABC;
+  color: #A09F9F;
   text-align: center;
   padding-top: 50px;
   vertical-align: center;
@@ -53,7 +53,7 @@ body {
 .button {
   width: 500px;
   height: 200px;
-  border: solid 4px #C0BABC;
+  border: solid 4px #A09F9F;
 
   animation: vibrate 1.2s infinite ease-in-out;
 }
@@ -73,7 +73,7 @@ body {
 }
 
 h3 {
-  color: #C0BABC;
+  color: #A09F9F;
   font-size: 30pt;
   font-family: "Silka Medium";
 }
@@ -82,7 +82,7 @@ h3 {
 .question {
   font-size: 25pt;
   clear: both;
-  color: #C0BABC;
+  color: #A09F9F;
   width: 1039px;
   font-family: "Silka Medium";
 }
@@ -96,7 +96,7 @@ h3 {
 
 .choices p {
   text-align: center;
-  color: #C0BABC;
+  color: #A09F9F;
   font-size: 15pt;
 }
 
@@ -110,13 +110,13 @@ h3 {
   width: 150px;
   height: 150px;
   border-radius: 100px;
-  border: 4px solid #C0BABC;
+  border: 4px solid #A09F9F;
   display: inline-block;
 }
 
 /*  choices images  */
 .choiceImage {
-  border: 4px solid #C0BABC;
+  border: 4px solid #A09F9F;
   margin: 30px 30px 0px 0px;
 }
 
@@ -150,7 +150,7 @@ h3 {
 }
 
 .choiceAnswer {
-  border: 4px solid #C0BABC;
+  border: 4px solid #A09F9F;
   width: 230px;
   height: 150px;
   margin: 30px 30px 0px 0px;
@@ -172,8 +172,8 @@ h3 {
 /*  endscreen  */
 #backto,
 #drucken {
-  color: #C0BABC;
-  border: solid 4px #C0BABC;
+  color: #A09F9F;
+  border: solid 4px #A09F9F;
   text-align: center;
   font-size: 25pt;
   width: 500px;
@@ -201,8 +201,8 @@ h3 {
 }
 
 #printBox {
-  color: #C0BABC;
-  font-size: 25pt;
+  color: #A09F9F;
+  font-size: 30pt;
   margin-top: 300px;
   text-align: left;
   font-family: "Silka Medium";
