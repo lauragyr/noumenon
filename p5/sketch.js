@@ -26,8 +26,8 @@ function resetAllParameters() {
     distance: 0.1,
     bgColor: "#ffffff",
     generalAngle: 1,
-    alpha: 120,
-    alphaStep: 1.5
+    alpha: 180,
+    alphaStep: 1
   }
 
   lastQuestionAnswered = false;
@@ -42,20 +42,27 @@ function setup() {
   //numbers for visuals on startscreen
   var today = new Date();
   let notDetectedBox = document.getElementById("notDetectedBox");
-  let options = { year: "2-digit", month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'}
+  let options = {
+    year: "2-digit",
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  }
   let name = "Das ist die Momentaufnahme<br>Noumenon " + today.toLocaleString("de-DE", options);
   nameNew = name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
   notDetectedBox.innerHTML = nameNew;
 
   //video-stuff
-  videoInput = createCapture(VIDEO);
+  /*videoInput = createCapture(VIDEO);
   videoInput.size(800, 600);
   videoInput.position(0, 0);
-  videoInput.hide();
+  videoInput.hide();*/
 
   // setup tracker
-  ctracker = new clm.tracker();
-  ctracker.init();
+  /*ctracker = new clm.tracker();
+  ctracker.init();*/
 }
 
 // which one is the last object
@@ -245,10 +252,10 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       blendMode(BLEND);
       switch (answerNumber) // 1 - 4 oder 6
       {
-        case 1:
-          changedParams.pos = 140;
-          changedParams.radius = 120;
-          changedParams.npoints = 50;
+        case 6:
+          changedParams.pos = 40;
+          changedParams.radius = 40;
+          changedParams.npoints = 3;
           changedParams.alphaStep = 3;
 
           //rot
@@ -256,15 +263,26 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorG = random(20, 40);
           changedParams.colorB = random(20, 40);
           break;
-        case 6:
-          changedParams.pos = 40;
-          changedParams.radius = 40;
-          changedParams.npoints = 3;
+        case 1:
+          changedParams.pos = 140;
+          changedParams.radius = 120;
+          changedParams.npoints = 50;
+          changedParams.alphaStep = 3;
 
           //blau
           changedParams.colorR = 0;
           changedParams.colorG = random(170, 190);
           changedParams.colorB = random(230, 250);
+          break;
+        case 5:
+          changedParams.pos = 60;
+          changedParams.radius = 60;
+          changedParams.npoints = 6;
+
+          //gelb
+          changedParams.colorR = random(235, 255);
+          changedParams.colorG = random(220, 240);
+          changedParams.colorB = 0;
           break;
         case 2:
           changedParams.pos = 120;
@@ -272,20 +290,11 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.npoints = 25;
           changedParams.alphaStep = 3;
 
-          //gelb
-          changedParams.colorR = random(235, 255);
-          changedParams.colorG = random(220, 240);
-          changedParams.colorB = 0;
-          break;
-        case 5:
-          changedParams.pos = 60;
-          changedParams.radius = 60;
-          changedParams.npoints = 6;
-
           //grün
           changedParams.colorR = random(100, 120);
           changedParams.colorG = random(230, 250);
           changedParams.colorB = 0;
+          
           break;
       }
       break;
@@ -295,6 +304,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 1:
           changedParams.pos = 150;
           changedParams.radius = 99;
+          changedParams.alphaStep = 3;
           blendMode(DODGE);
 
           //rot
@@ -305,6 +315,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 2:
           changedParams.pos = 130;
           changedParams.radius = 88;
+          changedParams.alphaStep = 3;
           blendMode(DODGE);
 
           //pink
@@ -315,6 +326,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 3:
           changedParams.pos = 110;
           changedParams.radius = 77;
+          changedParams.alphaStep = 1;
           blendMode(OVERLAY);
 
           //gelb
@@ -326,6 +338,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 4:
           changedParams.pos = 90;
           changedParams.radius = 66;
+          changedParams.alphaStep = 1;
           blendMode(EXCLUSION);
 
           //grün
@@ -336,6 +349,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 5:
           changedParams.pos = 70;
           changedParams.radius = 55;
+          changedParams.alphaStep = 1;
           blendMode(MULTIPLY);
 
           //violet
@@ -346,6 +360,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 6:
           changedParams.pos = 50;
           changedParams.radius = 44;
+          changedParams.alphaStep = 3;
           blendMode(MULTIPLY);
 
           //blau
@@ -357,104 +372,132 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       break;
     case 3:
       changedParams.bgColor = "#000000";
-
+      changedParams.alphaStep = 1.5;
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
           changedParams.pos = 135;
           changedParams.distance = 0.3;
-          blendMode(DIFFERENCE)
+          blendMode(DODGE)
           break;
         case 2:
           changedParams.pos = 115;
           changedParams.distance = 0.27;
-          blendMode(DIFFERENCE)
+          blendMode(OVERLAY)
           break;
         case 3:
           changedParams.pos = 95;
           changedParams.distance = 0.24;
-          blendMode(BURN)
+          blendMode(OVERLAY)
           break;
         case 4:
           changedParams.pos = 75;
           changedParams.distance = 0.21;
-          blendMode(MULTIPLY)
+          blendMode(EXCLUSION)
           break;
         case 5:
           changedParams.pos = 55;
           changedParams.distance = 0.18;
-          blendMode(EXCLUSION)
+          blendMode(MULTIPLY)
           break;
         case 6:
           changedParams.pos = 35;
           changedParams.distance = 0.15;
-          blendMode(EXCLUSION)
+          blendMode(BURN)
           break;
       }
       break;
     case 4:
-
       switch (answerNumber) // 1 - 4 oder 6
       {
-        case 5:
-          changedParams.pos = 50;
-          changedParams.radius = 60;
-          blendMode(MULTIPLY)
-          break;
-        case 6:
-          changedParams.pos = 40
-          changedParams.radius = 40;
-          blendMode(EXCLUSION)
-          break;
         case 2:
           changedParams.pos = 125;
           changedParams.radius = 110;
-          blendMode(DIFFERENCE)
+          changedParams.alphaStep = 3;
+          blendMode(DIFFERENCE);
+          break;
+        case 5:
+          changedParams.pos = 50;
+          changedParams.radius = 60;
+          blendMode(MULTIPLY);
           break;
         case 1:
           changedParams.pos = 145;
           changedParams.radius = 130;
-          blendMode(OVERLAY)
+          changedParams.alphaStep = 3;
+          blendMode(OVERLAY);
           break;
+        case 6:
+          changedParams.pos = 40
+          changedParams.radius = 40;
+          changedParams.alphaStep = 3;
+          blendMode(EXCLUSION);
+          break; 
       }
       break;
     case 5:
-      changedParams.alphaStep = 2;
+      changedParams.alphaStep = 1.5;
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
           changedParams.pos = 160;
           changedParams.npoints = 50;
+          blendMode(OVERLAY);
 
-          blendMode(DIFFERENCE)
+          //rot
+          changedParams.colorG = random(20, 40);
+          changedParams.colorB = random(30, 50);
+          changedParams.colorR = random(235, 255);
           break;
         case 2:
           changedParams.pos = 135;
           changedParams.npoints = 15;
+          blendMode(OVERLAY);
 
-          blendMode(OVERLAY)
+          //pink
+          changedParams.colorR = random(180, 200);
+          changedParams.colorG = 0;
+          changedParams.colorB = random(80, 100);
           break;
         case 3:
           changedParams.pos = 110;
           changedParams.npoints = 10;
-          blendMode(BURN)
+          blendMode(BURN);
+
+          //gelb
+          changedParams.colorB = 0;
+          changedParams.colorR = random(235, 255);
+          changedParams.colorG = random(220, 240);
           break;
         case 4:
           changedParams.pos = 85;
           changedParams.npoints = 8;
-          blendMode(EXCLUSION)
+          blendMode(EXCLUSION);
+
+          //grün
+          changedParams.colorG = random(230, 250);
+          changedParams.colorB = 0;
+          changedParams.colorR = random(100, 120);
           break;
         case 5:
           changedParams.pos = 60;
           changedParams.npoints = 5;
+          blendMode(MULTIPLY);
 
-          blendMode(MULTIPLY)
+          //violet
+          changedParams.colorR = random(170, 190);
+          changedParams.colorG = 0;
+          changedParams.colorB = random(150, 170);
           break;
         case 6:
           changedParams.pos = 35;
           changedParams.npoints = 3;
+          blendMode(MULTIPLY);
 
-          blendMode(MULTIPLY)
+          //blau
+          changedParams.colorG = random(150, 170);
+          changedParams.colorB = random(230, 250);
+          changedParams.colorR = 0;
           break;
       }
       break;
@@ -470,38 +513,34 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 1:
           changedParams.pos = 140;
           changedParams.radius = 100;
-          changedParams.distance = 0.1;
-
+          changedParams.alphaStep = 3;
           break;
         case 2:
-          changedParams.pos = 120;
+          changedParams.pos = 115;
           changedParams.radius = 90;
-          changedParams.distance = 0.1;
           break;
         case 3:
           changedParams.pos = 100;
           changedParams.radius = 80;
-          changedParams.distance = 0.1;
           break;
         case 4:
           changedParams.pos = 80;
           changedParams.radius = 60;
-          changedParams.distance = 0.1;
           break;
         case 5:
           changedParams.pos = 60;
           changedParams.radius = 50;
-          changedParams.distance = 0.1;
+          changedParams.alphaStep = 3;
           break;
         case 6:
           changedParams.pos = 35;
           changedParams.radius = 40;
-          changedParams.distance = 0.1;
+          changedParams.alphaStep = 3;
           break;
       }
       break;
     case 7:
-      changedParams.alphaStep = 1;
+      changedParams.alphaStep = 3;
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
@@ -515,10 +554,10 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorR = random(235, 255);
           break;
         case 2:
-          changedParams.pos = 122
+          changedParams.pos = 118;
           changedParams.radius = 100;
           blendMode(OVERLAY);
-
+          
           //gelb
           changedParams.colorB = 0;
           changedParams.colorR = random(235, 255);
@@ -527,7 +566,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 5:
           changedParams.pos = 55;
           changedParams.radius = 50;
-          blendMode(MULTIPLY)
+          blendMode(EXCLUSION)
 
           //grün
           changedParams.colorG = random(230, 250);
@@ -537,7 +576,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
         case 6:
           changedParams.pos = 44;
           changedParams.radius = 40;
-          blendMode(DIFFERENCE)
+          blendMode(MULTIPLY)
 
           //blau
           changedParams.colorG = random(150, 170);
@@ -547,6 +586,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       }
       break;
     case 8:
+      changedParams.alphaStep = 1.5;
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 6:
@@ -564,7 +604,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.pos = 122;
           changedParams.radius = 80;
           changedParams.npoints = 50;
-          blendMode(DODGE);
+          blendMode(OVERLAY);
 
           //rot
           changedParams.colorG = random(20, 40);
@@ -583,7 +623,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorR = random(100, 120);
           break;
         case 2:
-          changedParams.pos = 111;
+          changedParams.pos = 100;
           changedParams.radius = 70;
           changedParams.npoints = 20;
           blendMode(DODGE);
@@ -600,34 +640,66 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
-          changedParams.pos = 135;
-          changedParams.radius = 100;
-          blendMode(DIFFERENCE);
-          break;
-        case 2:
-          changedParams.pos = 120;
-          changedParams.radius = 90;
-          blendMode(DODGE);
-          break;
-        case 3:
-          changedParams.pos = 105;
-          changedParams.radius = 80;
-          blendMode(OVERLAY);
-          break;
-        case 4:
-          changedParams.pos = 90;
-          changedParams.radius = 50;
-          blendMode(OVERLAY);
-          break;
-        case 5:
-          changedParams.pos = 75;
-          changedParams.radius = 40;
-          blendMode(MULTIPLY);
-          break;
-        case 6:
           changedParams.pos = 60;
           changedParams.radius = 30;
+          changedParams.alphaStep = 3;
+          blendMode(BURN);
+
+          //blau
+          changedParams.colorR = 0;
+          changedParams.colorG = random(170, 190);
+          changedParams.colorB = random(230, 250);
+          break;
+        case 2:
+          changedParams.pos = 75;
+          changedParams.radius = 40;
+          blendMode(BURN);
+
+          //violet
+          changedParams.colorR = random(170, 190);
+          changedParams.colorG = 0;
+          changedParams.colorB = random(150, 170);
+          break;
+        case 3:
+          changedParams.pos = 90;
+          changedParams.radius = 50;
+          blendMode(DODGE);
+
+          //grün
+          changedParams.colorG = random(230, 250);
+          changedParams.colorB = 0;
+          changedParams.colorR = random(100, 120);
+          break;
+        case 4:
+          changedParams.pos = 105;
+          changedParams.radius = 80;
+          blendMode(EXCLUSION);
+
+          //gelb
+          changedParams.colorB = 0;
+          changedParams.colorR = random(235, 255);
+          changedParams.colorG = random(220, 240);
+          break;
+        case 5:
+          changedParams.pos = 115;
+          changedParams.radius = 90;
+          blendMode(EXCLUSION);
+
+          //pink
+          changedParams.colorR = random(180, 200);
+          changedParams.colorG = 0;
+          changedParams.colorB = random(80, 100);
+          break;
+        case 6:
+          changedParams.pos = 135;
+          changedParams.radius = 100;
+          changedParams.alphaStep = 3;
           blendMode(MULTIPLY);
+
+          //rot
+          changedParams.colorG = random(20, 40);
+          changedParams.colorB = random(30, 50);
+          changedParams.colorR = random(235, 255);
           break;
       }
       break;
@@ -636,38 +708,44 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       {
         case 1:
           changedParams.pos = 135;
-          changedParams.radius = 130;
+          changedParams.radius = 110;
           changedParams.distance = 0.3;
+          changedParams.alphaStep = 3;
           blendMode(DODGE);
           break;
         case 2:
           changedParams.pos = 115;
-          changedParams.radius = 110;
+          changedParams.radius = 100;
           changedParams.distance = 0.27;
+          changedParams.alphaStep = 3;
           blendMode(DODGE);
           break;
         case 3:
           changedParams.pos = 95;
           changedParams.radius = 90;
           changedParams.distance = 0.24;
+          changedParams.alphaStep = 1;
           blendMode(OVERLAY);
           break;
         case 4:
           changedParams.pos = 75;
           changedParams.radius = 70;
           changedParams.distance = 0.21;
-          blendMode(OVERLAY);
+          changedParams.alphaStep = 1;
+          blendMode(EXCLUSION);
           break;
         case 5:
           changedParams.pos = 55;
           changedParams.radius = 50;
           changedParams.distance = 0.18;
-          blendMode(MULTIPLY);
+          changedParams.alphaStep = 2.5;
+          blendMode(DIFFERENCE);
           break;
         case 6:
           changedParams.pos = 35;
           changedParams.radius = 30;
           changedParams.distance = 0.15;
+          changedParams.alphaStep = 3;
           blendMode(MULTIPLY);
           break;
       }
@@ -681,84 +759,88 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.pos = 142;
           changedParams.radius = 115;
           changedParams.distance = 0.3;
-          blendMode(DIFFERENCE);
+          changedParams.alphaStep = 3;
+          blendMode(MULTIPLY);
           break;
         case 2:
-          changedParams.pos = 122;
+          changedParams.pos = 112;
           changedParams.radius = 105;
           changedParams.distance = 0.27;
-          blendMode(DIFFERENCE);
+          changedParams.alphaStep = 3;
+          blendMode(EXCLUSION);
           break;
         case 3:
           changedParams.pos = 102;
           changedParams.radius = 95;
           changedParams.distance = 0.24;
-          blendMode(OVERLAY);
+          changedParams.alphaStep = 1;
+          blendMode(EXCLUSION);
           break;
         case 4:
           changedParams.pos = 82;
           changedParams.radius = 65;
           changedParams.distance = 0.21;
-          blendMode(MULTIPLY);
+          changedParams.alphaStep = 1;
+          blendMode(OVERLAY);
           break;
         case 5:
           changedParams.pos = 62;
           changedParams.radius = 55;
           changedParams.distance = 0.18;
-          blendMode(EXCLUSION);
+          changedParams.alphaStep = 2.5;
+          blendMode(OVERLAY);
           break;
         case 6:
           changedParams.pos = 50;
           changedParams.radius = 45;
           changedParams.distance = 0.15;
-          blendMode(EXCLUSION);
+          changedParams.alphaStep = 2.5;
+          blendMode(DODGE);
           break;
       }
       break;
     case 12:
-      changedParams.colorR = 255;
-      changedParams.colorG = 255;
-      changedParams.colorB = 255;
-      changedParams.alphaStep = 2;
       blendMode(BLEND);
-
-
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
           changedParams.pos = 153;
           changedParams.radius = 100;
           changedParams.npoints = 50;
-          changedParams.distance = 0.1;
+          changedParams.distance = 0.2;
+          changedParams.alphaStep = 3;
           break;
         case 6:
           changedParams.pos = 53;
           changedParams.radius = 40;
           changedParams.npoints = 3;
-          changedParams.distance = 0.1;
+          changedParams.distance = 0.05;
+          changedParams.alphaStep = 1;
           break;
         case 2:
-          changedParams.pos = 135;
+          changedParams.pos = 115;
           changedParams.radius = 80;
           changedParams.npoints = 25;
-          changedParams.distance = 0.1;
+          changedParams.distance = 0.15;
+          changedParams.alphaStep = 1;
           break;
         case 5:
           changedParams.pos = 73;
           changedParams.radius = 60;
           changedParams.npoints = 5;
           changedParams.distance = 0.1;
+          changedParams.alphaStep = 2.5;
           break;
       }
       break;
     case 13:
+      changedParams.alphaStep = 1.5;
       changedParams.bgColor = "#ffffff";
-      changedParams.alphaStep = 1;
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
           changedParams.pos = 128;
-          blendMode(OVERLAY);
+          blendMode(MULTIPLY);
 
           //rot
           changedParams.colorG = random(20, 40);
@@ -767,7 +849,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           break;
         case 2:
           changedParams.pos = 108;
-          blendMode(OVERLAY);
+          blendMode(EXCLUSION);
 
           //pink
           changedParams.colorG = 0;
@@ -776,7 +858,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           break;
         case 3:
           changedParams.pos = 88;
-          blendMode(OVERLAY);
+          blendMode(BURN);
 
           //gelb
           changedParams.colorB = 0;
@@ -785,7 +867,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           break;
         case 4:
           changedParams.pos = 68;
-          blendMode(EXCLUSION);
+          blendMode(OVERLAY);
 
           //grün
           changedParams.colorG = random(210, 230);
@@ -794,7 +876,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           break;
         case 5:
           changedParams.pos = 48;
-          blendMode(EXCLUSION);
+          blendMode(OVERLAY);
 
           //violet
           changedParams.colorR = random(100, 120);
@@ -803,7 +885,7 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           break;
         case 6:
           changedParams.pos = 28;
-          blendMode(EXCLUSION);
+          blendMode(DODGE);
 
           //blau
           changedParams.colorG = random(170, 190);
@@ -816,28 +898,29 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
       switch (answerNumber) // 0 - 4 oder 6
       {
         case 1:
-          changedParams.pos = 144;
-          changedParams.radius = 120;
+          changedParams.pos = 124;
+          changedParams.radius = 100;
           changedParams.distance = 0.3;
+          changedParams.alphaStep = 3;
           blendMode(OVERLAY);
           break;
         case 2:
-          changedParams.pos = 124;
-          changedParams.radius = 110;
+          changedParams.pos = 110;
+          changedParams.radius = 90;
           changedParams.distance = 0.25;
           blendMode(OVERLAY);
           break;
         case 5:
           changedParams.pos = 64;
           changedParams.radius = 50;
-          changedParams.distance = 0.1;
-          blendMode(DIFFERENCE);
+          changedParams.distance = 0.15;
+          blendMode(MULTIPLY);
           break;
         case 6:
           changedParams.pos = 44;
           changedParams.radius = 40;
-          changedParams.distance = 0.05;
-          blendMode(DIFFERENCE);
+          changedParams.distance = 0.1;
+          blendMode(MULTIPLY);
           break;
       }
       break;
