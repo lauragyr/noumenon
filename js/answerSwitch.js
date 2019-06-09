@@ -29,22 +29,22 @@ function setQ1Value(value) {
 
   switch (value) {
     case 1:
-      a1 = 1;
+      a1 = 6;
       q1a1.className = "choiceImage activeImage";
       break;
 
     case 2:
-      a1 = 6;
+      a1 = 1;
       q1a2.className = "choiceImage activeImage";
       break;
 
     case 3:
-      a1 = 2;
+      a1 = 5;
       q1a3.className = "choiceImage activeImage";
       break;
 
     case 4:
-      a1 = 5;
+      a1 = 2;
       q1a4.className = "choiceImage activeImage";
       break;
   }
@@ -219,21 +219,21 @@ function setQ4Value(value) {
 
   switch (value) {
     case 1:
-      a4 = 5;
+      a4 = 2;
       q4a1.className = "choiceImage activeImage";
       break;
 
     case 2:
-      a4 = 6;
+      a4 = 5;
       q4a2.className = "choiceImage activeImage";
       break;
 
     case 3:
-      a4 = 2;
+      a4 = 1;
       q4a3.className = "choiceImage activeImage";
       break;
 
-    case 4:
+    case 6:
       a4 = 1;
       q4a4.className = "choiceImage activeImage";
       break;
