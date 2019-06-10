@@ -11,6 +11,7 @@ window.printed = false;
 //video-stuff
 let ctracker;
 let videoInput
+let videotrackingActive = false;
 
 possibleParameters = {}
 
@@ -34,8 +35,31 @@ function resetAllParameters() {
 }
 resetAllParameters();
 
+// facetracking
+function trackFace()
+{
+  setTimeout(function()
+  {
+    requestAnimationFrame(trackFace);
+    if (videotrackingActive)
+    {
+      //console.log(ctracker.getCurrentPosition()[0]);
+      if (ctracker.getCurrentPosition()[0]) {
+        //console.log("detected");
+        detectedBox.style.display = "block";
+        notDetectedBox.style.display = "none";
+      } else {
+        //console.log("not detected");
+        notDetectedBox.style.display = "block";
+        detectedBox.style.display = "none";
+      }
+    }
+  }, 2000);
+}
+
 //--------------//
-function setup() {
+function setup()
+{
   let canvas = createCanvas(windowWidth, windowHeight);
   noStroke();
 
@@ -55,14 +79,17 @@ function setup() {
   notDetectedBox.innerHTML = nameNew;
 
   //video-stuff
-  /*videoInput = createCapture(VIDEO);
+  videoInput = createCapture(VIDEO);
   videoInput.size(800, 600);
   videoInput.position(0, 0);
-  videoInput.hide();*/
+  videoInput.hide();
 
   // setup tracker
-  /*ctracker = new clm.tracker();
-  ctracker.init();*/
+  ctracker = new clm.tracker();
+  ctracker.init();
+  ctracker.start(videoInput.elt);
+  videotrackingActive = true;
+  trackFace();
 }
 
 // which one is the last object
@@ -90,20 +117,11 @@ function drawData(data) {
   ];
 }
 
-function draw() {
+function draw()
+{
   frameRate(3);
-
   //video-tracking übergabe aufgabe on face-detection
-  /*if (ctracker.getCurrentPosition()[0]) {
-    console.log("detected");
-    detectedBox.style.display = "block";
-    notDetectedBox.style.display = "none";
-  } else {
-    console.log("not detected");
-    notDetectedBox.style.display = "block";
-    detectedBox.style.display = "none";
-  }*/
-
+  
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
 
@@ -112,6 +130,13 @@ function draw() {
     window.printed = false
     defaultCanvas0.classList.remove("rotation");
     resetAllParameters();
+    if (videotrackingActive)
+    {
+      videotrackingActive = false;
+      ctracker.stop();
+      notDetectedBox.style.display = "none";
+      detectedBox.style.display = "none";
+    }
     return clear();
   }
 
@@ -120,8 +145,13 @@ function draw() {
     window.printed = false
     document.getElementById('defaultCanvas0');
     defaultCanvas0.classList.add("rotation");
+    if (!videotrackingActive)
+    {
+      videotrackingActive = true;
+      ctracker.start(videoInput.elt);
+    }
     resetAllParameters();
-
+    
     //test.style.display = "none";
     return;
   }
