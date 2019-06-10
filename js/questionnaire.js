@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.113.199"; // laura's ip-adresse
+let ip = "10.155.113.230"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -11,6 +11,14 @@ socket.on('event', function (data) {
 socket.on('disconnect', function () {
   console.log("disconnected");
 });
+
+//progress-bar shizzl
+let getProgressbar = document.getElementsByClassName("progressBar");
+let progressBar = getProgressbar[0];
+window.progressWidth = 0;
+
+let getBarContainer = document.getElementsByClassName("barContainer");
+let barContainer = getBarContainer[0];
 
 
 //  questionSwitch
@@ -35,9 +43,16 @@ questionSwitch.forEach(function (questionBox, index, arr) {
           arr[index].style.display = "none";
           arr[index + 1].style.display = "block";
 
+          let progressPercentPerQ = 100 / (questionSwitch.length - 1);
+          window.progressWidth = window.progressWidth + progressPercentPerQ;
+          progressBar.style.width = window.progressWidth + '%'; 
+
           //remove resetButton if questionBox15 is displayed
           if (questionSwitch[14].style.display == 'block') {
             resetButton.style.display = "none";
+
+            //remove resetBar
+            barContainer.style.display = "none";
           }
 
         }, 500);
@@ -66,6 +81,11 @@ document.getElementById("start").addEventListener("click", function () {
     questionBox1.style.display = "block";
     homescreen.style.display = "none";
     resetButton.style.display = "flex";
+
+    //progressBar display
+    barContainer.style.display = "flex";
+    window.progressWidth = 0;
+    progressBar.style.width = window.progressWidth + '%';
     resetCSS();
   }, 500);
   start.className = "button activeButton";

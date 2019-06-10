@@ -19,27 +19,34 @@ body {
   background-color: black;
 }
 
-#resetButton {
-  color: #A09F9F;
-  font-size: 12pt;
-  padding: 30px;
+#container {
+  margin: 130px 100px 0px 100px;
+  display: block;
+  width: 1030px;
+  height: 450px;
+}
+
+
+/* RESET-BUTTON TOP RIGHT */
+.reset {
+  display: flex;
   justify-content: flex-end;
   text-transform: uppercase;
   font-family: "Silka Medium";
 }
 
-#container {
-  margin: 130px 100px 0px 100px;
-  display: block;
-  width: 1030px;
-  height: 600px;
+#resetButton {
+  color: #A09F9F;
+  font-size: 14pt;
+  padding: 30px;
 }
 
+
+/* START  */
 #homescreen {
   padding-top: 150px;
 }
 
-/* start */
 #start {
   color: #A09F9F;
   text-align: center;
@@ -71,14 +78,14 @@ body {
     transform: scale(1);
   }
 }
-
+ 
 h3 {
   color: #A09F9F;
   font-size: 30pt;
   font-family: "Silka Medium";
 }
 
-/* questions */
+/* QUESTIONS */
 .question {
   font-size: 25pt;
   clear: both;
@@ -169,7 +176,7 @@ h3 {
   background-color: #ffffff!important;
 }
 
-/*  endscreen  */
+/*  ENDSCREEN  */
 #backto,
 #drucken {
   color: #A09F9F;
@@ -200,6 +207,7 @@ h3 {
   padding-top: 50px;
 }
 
+/*  WEN PRINT-BUTTON GEDRUCKT  */
 #printBox {
   color: #A09F9F;
   font-size: 30pt;
@@ -207,3 +215,25 @@ h3 {
   text-align: left;
   font-family: "Silka Medium";
 }
+
+
+/*  PROGRESS BAR  */
+.barContainer {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.defaultBar {
+  width:600px;
+  height: 2px;
+  background-color: #404040;
+}
+
+.progressBar {
+  height: 2px;
+  background-color: #A09F9F;
+  width: 0%;
+}
+

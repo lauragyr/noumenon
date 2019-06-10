@@ -26,7 +26,7 @@ function resetAllParameters() {
     distance: 0.1,
     bgColor: "#ffffff",
     generalAngle: 1,
-    alpha: 180,
+    alpha: 150,
     alphaStep: 1
   }
 
