@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "172.20.10.2"; // laura's ip-adresse
+let ip = "10.155.115.138"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -50,6 +50,10 @@ questionSwitch.forEach(function (questionBox, index, arr) {
           //remove resetButton if questionBox15 is displayed
           if (questionSwitch[14].style.display == 'block') {
             resetButton.style.display = "none";
+
+            //timeout nach 5 minuten einbauen hier
+            //var für counter, wenn geklickt counter auf 0 setzen
+            //timeout wenn 5 minuten vorbei, zurück zu start (function reset ausführen)
 
             //remove resetBar
             barContainer.style.display = "none";
