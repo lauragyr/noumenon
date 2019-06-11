@@ -121,6 +121,7 @@ function draw()
 {
   frameRate(3);  
   translate(width / 2, height / 2);
+  scale(2.0);
   loadJSON("data.json", drawData);
 
   //clearing canvas after generating visual – click on start button
