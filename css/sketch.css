@@ -18,14 +18,17 @@ body {
 
 #detectedBox,
 #notDetectedBox {
-  width: 100%;
   color: #C0BABC;
-  padding-top: 200px;
-  margin: 0 auto;
   font-size: 30pt;
   text-align: center;
+
+  width: 100%;
+  padding-top: 350px;
+  margin: 0 auto;
   position: absolute;
+  z-index: 2;
 }
+
 
 .rotation {
   animation: spin 40s ease-in-out infinite;
@@ -37,14 +40,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
-/*
-#test {
-  font-size: 60pt;
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  margin: 0 auto;
-  padding-top: 100px;
-}
-*/

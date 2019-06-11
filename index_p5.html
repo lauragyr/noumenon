@@ -14,19 +14,17 @@
   <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none"></iframe>
   <form name="form1" type="mu" method="post" action="http://172.20.10.2.:4000/upload" target="dummyframe"
     style="display:none">
-    <input name="image" id='image' type="hidden"/>
-    <input type="submit"/>
+    <input name="image" id='image' type="hidden" />
+    <input type="submit" />
   </form>
 
-<div class="detectionWrapper">
-  <div id="detectedBox" style="display:none;">
-    <h3>Kreiere dein<br>eigenes Noumenon</h3>
+  <div class="detectionWrapper">
+    <div id="detectedBox" style="display:none;">
+      Kreiere dein<br>eigenes Noumenon
+    </div>
+    <div id="notDetectedBox" style="display:none;">
+    </div>
   </div>
-  <div id="notDetectedBox" style="display:none;">
-  </div>
-</div>
-
-  <div id="test"></div>
 
   <script language="javascript" src="libraries/socket.io.js"></script>
   <script language="javascript" type="text/javascript" src="p5/sketch.js"></script>

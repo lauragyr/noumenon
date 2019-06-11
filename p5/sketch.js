@@ -74,7 +74,7 @@ function setup()
     minute: 'numeric',
     second: 'numeric'
   }
-  let name = "Das ist die Momentaufnahme<br>Noumenon " + today.toLocaleString("de-DE", options);
+  let name = "Das ist Noumenon<br>" + today.toLocaleString("de-DE", options);
   nameNew = name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
   notDetectedBox.innerHTML = nameNew;
 
@@ -119,9 +119,7 @@ function drawData(data) {
 
 function draw()
 {
-  frameRate(3);
-  //video-tracking übergabe aufgabe on face-detection
-  
+  frameRate(3);  
   translate(width / 2, height / 2);
   loadJSON("data.json", drawData);
 
@@ -129,7 +127,7 @@ function draw()
   if (surveyData[0] === 0) {
     window.printed = false
     defaultCanvas0.classList.remove("rotation");
-    resetAllParameters();
+    
     if (videotrackingActive)
     {
       videotrackingActive = false;
@@ -137,6 +135,8 @@ function draw()
       notDetectedBox.style.display = "none";
       detectedBox.style.display = "none";
     }
+
+    resetAllParameters();
     return clear();
   }
 
@@ -145,14 +145,14 @@ function draw()
     window.printed = false
     document.getElementById('defaultCanvas0');
     defaultCanvas0.classList.add("rotation");
+
     if (!videotrackingActive)
     {
       videotrackingActive = true;
       ctracker.start(videoInput.elt);
     }
+
     resetAllParameters();
-    
-    //test.style.display = "none";
     return;
   }
 
@@ -174,9 +174,6 @@ function draw()
     setTimeout(function () {
       lastQuestionAnswered = true;
     }, 5000);
-    /*test = document.getElementById("test");
-    test.style.display = "block";
-    test.innerHTML = "hallo";*/
   }
 
   overwriteEachAnswer();
