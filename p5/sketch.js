@@ -46,11 +46,11 @@ function trackFace()
       //console.log(ctracker.getCurrentPosition()[0]);
       if (ctracker.getCurrentPosition()[0]) {
         //console.log("detected");
-        detectedBox.style.display = "block";
+        detectedBox.style.display = "flex";
         notDetectedBox.style.display = "none";
       } else {
         //console.log("not detected");
-        notDetectedBox.style.display = "block";
+        notDetectedBox.style.display = "flex";
         detectedBox.style.display = "none";
       }
     }
@@ -121,7 +121,7 @@ function draw()
 {
   frameRate(3);  
   translate(width / 2, height / 2);
-  scale(2.0);
+  scale(3.2);
   loadJSON("data.json", drawData);
 
   //clearing canvas after generating visual – click on start button

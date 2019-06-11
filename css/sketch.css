@@ -18,15 +18,20 @@ body {
 
 #detectedBox,
 #notDetectedBox {
+  transform: translate(width/2, height/2);
   color: #C0BABC;
   font-size: 30pt;
   text-align: center;
 
   width: 100%;
-  padding-top: 350px;
-  margin: 0 auto;
+  height: 100%;
+  /*padding-top: 50%;*/
   position: absolute;
   z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 
