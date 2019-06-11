@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.113.230"; // laura's ip-adresse
+let ip = "172.20.10.9"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
