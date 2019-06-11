@@ -1,4 +1,4 @@
-# BA project Laura
+# Noumenon – BA-Project 2019
 
 Liveserver im Terminal starten
 
@@ -11,9 +11,9 @@ BA-Ordner öffnen in Visual Studio Code.
 IP Adresse herausfinden und in questionnaire.js Zeile 2 eingeben
 
 Nodeserver starten in Visual Studio Code (läuft auf Port 3000):
-cd /ins_verzeichnis/BA
 
 ```bash
+cd /ins_verzeichnis/BA
 npm run server
 ```
 
