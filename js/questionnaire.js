@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "172.20.10.2"; // laura's ip-adresse
+let ip = "10.155.113.197"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -19,6 +19,19 @@ window.progressWidth = 0;
 
 let getBarContainer = document.getElementsByClassName("barContainer");
 let barContainer = getBarContainer[0];
+
+//get counter for 
+function startCounter() {
+counter = 0;
+
+setInterval(function() {
+  counter = counter + 1;
+
+  if (counter > 10) {
+    reset();
+  }
+}, 1000);
+}
 
 
 //  questionSwitch
@@ -48,24 +61,20 @@ questionSwitch.forEach(function (questionBox, index, arr) {
           window.progressWidth = window.progressWidth + progressPercentPerQ;
           progressBar.style.width = window.progressWidth + '%'; 
 
-          //remove resetButton if questionBox15 is displayed
+          //counter auf 0 setzen wenn button geklickt
+          console.log(counter);
+          counter = 0;
+          
+          //remove resetButton  and progressBar if questionBox15 is displayed
           if (questionSwitch[14].style.display == 'block') {
             resetButton.style.display = "none";
-
-            //timeout nach 5 minuten einbauen hier
-            //var für counter, wenn geklickt counter auf 0 setzen
-            //timeout wenn 5 minuten vorbei, zurück zu start (function reset ausführen)
-            counter = 0;
-
-            //remove resetBar
             barContainer.style.display = "none";
           }
-
         }, 500);
+
       });
     }
   });
-
 });
 
 //function for reset-button – wird aufgerufen in HTML!!
@@ -83,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //start-button on homescreen
 document.getElementById("start").addEventListener("click", function () {
   setTimeout(function () {
+    startCounter();
     socket.emit('answers', 0);
     questionBox1.style.display = "block";
     homescreen.style.display = "none";
@@ -138,7 +148,7 @@ document.getElementById("drucken").addEventListener("click", function () {
   drucken.className = "printButton activeEnd";
 
   //go back to homescreen after 30 seconds
-  setTimeout(backToStart, 10 * 1000);
+  setTimeout(backToStart, 40 * 1000);
 })
 
 //back to start from print-window
