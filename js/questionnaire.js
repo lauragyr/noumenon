@@ -27,12 +27,11 @@ counter = 0;
 setInterval(function() {
   counter = counter + 1;
 
-  if (counter > 10) {
+  if (counter > 180) {
     reset();
   }
 }, 1000);
 }
-
 
 //  questionSwitch
 let questionSwitch = [];

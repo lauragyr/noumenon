@@ -45,13 +45,7 @@ io.on('connection', client => {
 server.listen(3000);
 
 
-
-/*
-
-IMAGE UPLOAD
-
-*/
-
+/* IMAGE UPLOAD */
 const handleError = (err, res) => {
   console.log(err);
   res
@@ -59,7 +53,6 @@ const handleError = (err, res) => {
     .contentType("text/plain")
     .end("Oops! Something went wrong!");
 };
-
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -94,8 +87,8 @@ app.post(
           .status(200)
           .end();
 
+        // drucken ausführen in terminal
         return execShellCommand('lpr ' + targetPath + ' -o fit-to-page')
-        //return execShellCommand('lpr ' + targetPath + ' -o scaling=200')
       })
       .then(status => {
         console.log("printing", status)

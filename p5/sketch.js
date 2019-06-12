@@ -30,7 +30,6 @@ function resetAllParameters() {
     alpha: 150,
     alphaStep: 1
   }
-
   lastQuestionAnswered = false;
 }
 resetAllParameters();
@@ -43,7 +42,6 @@ function trackFace()
     requestAnimationFrame(trackFace);
     if (videotrackingActive)
     {
-      //console.log(ctracker.getCurrentPosition()[0]);
       if (ctracker.getCurrentPosition()[0]) {
         //console.log("detected");
         detectedBox.style.display = "flex";
@@ -57,7 +55,6 @@ function trackFace()
   }, 2000);
 }
 
-//--------------//
 function setup()
 {
   let canvas = createCanvas(windowWidth, windowHeight);
@@ -136,7 +133,6 @@ function draw()
       notDetectedBox.style.display = "none";
       detectedBox.style.display = "none";
     }
-
     resetAllParameters();
     return clear();
   }
@@ -152,7 +148,6 @@ function draw()
       videotrackingActive = true;
       ctracker.start(videoInput.elt);
     }
-
     resetAllParameters();
     return;
   }
@@ -176,7 +171,6 @@ function draw()
       lastQuestionAnswered = true;
     }, 5000);
   }
-
   overwriteEachAnswer();
   visualize();
 }
@@ -322,7 +316,6 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorR = random(100, 120);
           changedParams.colorG = random(230, 250);
           changedParams.colorB = 0;
-          
           break;
       }
       break;
@@ -361,7 +354,6 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           changedParams.colorR = 255;
           changedParams.colorG = random(220, 240);
           changedParams.colorB = 0;
-
           break;
         case 4:
           changedParams.pos = 90;
@@ -777,7 +769,6 @@ function changeValuesBasedOnSurvey(surveyNumber, answerNumber) {
           blendMode(MULTIPLY);
           break;
       }
-
       break;
     case 11:
       changedParams.bgColor = "#2D2D2D";

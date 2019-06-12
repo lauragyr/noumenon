@@ -21,7 +21,7 @@ body {
   transform: translate(width/2, height/2);
   color: #C0BABC;
   font-size: 120pt;
-  padding-top: 35%;
+  padding-top: 30%;
   text-align: center;
 
   width: 100%;
@@ -30,10 +30,8 @@ body {
   z-index: 2;
 
   display: flex;
-  /*align-items: center;*/
   justify-content: center
 }
-
 
 .rotation {
   animation: spin 40s ease-in-out infinite;
