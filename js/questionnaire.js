@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.115.138"; // laura's ip-adresse
+let ip = "172.20.10.2"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -43,6 +43,7 @@ questionSwitch.forEach(function (questionBox, index, arr) {
           arr[index].style.display = "none";
           arr[index + 1].style.display = "block";
 
+          //progress-bar
           let progressPercentPerQ = 100 / (questionSwitch.length - 1);
           window.progressWidth = window.progressWidth + progressPercentPerQ;
           progressBar.style.width = window.progressWidth + '%'; 
@@ -54,6 +55,7 @@ questionSwitch.forEach(function (questionBox, index, arr) {
             //timeout nach 5 minuten einbauen hier
             //var für counter, wenn geklickt counter auf 0 setzen
             //timeout wenn 5 minuten vorbei, zurück zu start (function reset ausführen)
+            counter = 0;
 
             //remove resetBar
             barContainer.style.display = "none";

@@ -94,8 +94,8 @@ app.post(
           .status(200)
           .end();
 
-        //return execShellCommand('lpr ' + targetPath + ' -o fit-to-page')
-        return execShellCommand('lpr ' + targetPath + ' -o scaling=300 -o media=100x148')
+        return execShellCommand('lpr ' + targetPath + ' -o fit-to-page')
+        //return execShellCommand('lpr ' + targetPath + ' -o scaling=200')
       })
       .then(status => {
         console.log("printing", status)
