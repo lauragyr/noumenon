@@ -147,7 +147,7 @@ document.getElementById("drucken").addEventListener("click", function () {
   drucken.className = "printButton activeEnd";
 
   //go back to homescreen after 30 seconds
-  setTimeout(backToStart, 40 * 1000);
+  setTimeout(backToStart, 60 * 1000);
 })
 
 //back to start from print-window
