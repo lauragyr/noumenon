@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "10.155.113.197"; // laura's ip-adresse
+let ip = "192.168.0.100"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -146,8 +146,8 @@ document.getElementById("drucken").addEventListener("click", function () {
   }, 500);
   drucken.className = "printButton activeEnd";
 
-  //go back to homescreen after 30 seconds
-  setTimeout(backToStart, 60 * 1000);
+  //go back to homescreen after printing
+  setTimeout(backToStart, 70 * 1000);
 })
 
 //back to start from print-window

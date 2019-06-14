@@ -77,9 +77,10 @@ function setup()
 
   //video-stuff
   videoInput = createCapture(VIDEO);
-  videoInput.size(800, 600);
+  videoInput.size(400, 600);
   videoInput.position(0, 0);
-  videoInput.hide();
+  videoInput.elt.id = "videostream";
+  //videoInput.hide();
 
   // setup tracker
   ctracker = new clm.tracker();
