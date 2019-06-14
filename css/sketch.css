@@ -43,10 +43,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
-#videostream {
-  width: 400px;
-  height: 600px;
-  transform: scale(4);
-  transform: translate (-50%, -50%);
-}

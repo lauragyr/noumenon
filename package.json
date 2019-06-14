@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "tablet": "live-server --ignore=/",
+    "tablet": "live-server --ignore=./",
     "server": "node nodeserver.js"
   },
   "repository": {

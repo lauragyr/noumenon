@@ -43,11 +43,11 @@ function trackFace()
     if (videotrackingActive)
     {
       if (ctracker.getCurrentPosition()[0]) {
-        //console.log("detected");
+        console.log("detected");
         detectedBox.style.display = "flex";
         notDetectedBox.style.display = "none";
       } else {
-        //console.log("not detected");
+        console.log("not detected");
         notDetectedBox.style.display = "flex";
         detectedBox.style.display = "none";
       }
@@ -77,10 +77,11 @@ function setup()
 
   //video-stuff
   videoInput = createCapture(VIDEO);
-  videoInput.size(400, 600);
+  videoInput.size(800, 600);
   videoInput.position(0, 0);
-  videoInput.elt.id = "videostream";
-  //videoInput.hide();
+  videoInput.elt.id = "cameraVideoFeed";
+  //videoInput.show();
+  videoInput.hide();
 
   // setup tracker
   ctracker = new clm.tracker();
