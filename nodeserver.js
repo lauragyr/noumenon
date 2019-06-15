@@ -88,7 +88,7 @@ app.post(
           .end();
 
         // drucken ausführen in terminal
-        return execShellCommand('lpr ' + targetPath + ' -o fit-to-page')
+        return execShellCommand('lpr ' + targetPath + ' -o fit-to-page -o scaling=200')
         //return execShellCommand('lpr ' + targetPath + ' -o scaling=300')
       })
       .then(status => {

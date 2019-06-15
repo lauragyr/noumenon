@@ -1,5 +1,5 @@
 // socket stuff
-let ip = "192.168.0.102"; // laura's ip-adresse
+let ip = "10.155.114.123"; // laura's ip-adresse
 
 var socket = io(ip + ':3000'); //IP-Adresse WLAN
 socket.on('connect', function () {
@@ -21,7 +21,7 @@ let getBarContainer = document.getElementsByClassName("barContainer");
 let barContainer = getBarContainer[0];
 
 //get counter for 
-function startCounter() {
+/*function startCounter() {
 counter = 0;
 
 setInterval(function() {
@@ -31,7 +31,7 @@ setInterval(function() {
     reset();
   }
 }, 1000);
-}
+}*/
 
 //  questionSwitch
 let questionSwitch = [];
@@ -61,8 +61,7 @@ questionSwitch.forEach(function (questionBox, index, arr) {
           progressBar.style.width = window.progressWidth + '%'; 
 
           //counter auf 0 setzen wenn button geklickt
-          console.log(counter);
-          counter = 0;
+          //counter = 0;
           
           //remove resetButton  and progressBar if questionBox15 is displayed
           if (questionSwitch[14].style.display == 'block') {
@@ -91,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //start-button on homescreen
 document.getElementById("start").addEventListener("click", function () {
   setTimeout(function () {
-    startCounter();
+    //startCounter();
     socket.emit('answers', 0);
     questionBox1.style.display = "block";
     homescreen.style.display = "none";
