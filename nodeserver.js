@@ -76,7 +76,7 @@ app.use(function (req, res, next) {
 app.post(
   "/upload",
   (req, res) => {
-    const targetPath = path.join(__dirname, "./uploads/" + (new Date().toISOString()) + ".png");
+    const targetPath = path.join(__dirname, "./uploads/" + (new Date().toISOString()) + ".jpg");
     var base64Data = req.body.image.split(';base64,').pop();
 
     fs.writeFile(targetPath, base64Data, { encoding: 'base64' })
